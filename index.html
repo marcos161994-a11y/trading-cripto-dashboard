@@ -40,16 +40,33 @@ th{color:var(--mut);font-weight:500;font-size:12px}
 .diario li{white-space:normal;word-break:break-word;color:var(--mut)}
 .chartbox{position:relative;height:280px}
 .cond{display:flex;gap:6px;flex-wrap:wrap}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:99px;padding:7px 14px;font:inherit;cursor:pointer}
+.tab.on{border-color:var(--acc);color:var(--acc);font-weight:600}
+.cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:10px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
 footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
 @media(max-width:560px){.precios{grid-template-columns:1fr}.kpi .v{font-size:18px}h1{font-size:17px}}
 </style>
 </head>
 <body>
 <header>
-  <h1>📈 Trading cripto · cuenta de papel</h1>
+  <h1>📈 Trading cripto · cuentas de papel</h1>
   <div class="mut" id="actualizado">Cargando…</div>
 </header>
 <main>
+  <section class="card">
+    <h2>Comparación: estrategia 1 vs estrategia 2 vs comprar y mantener BTC</h2>
+    <div class="cmp" id="cmpKpis"></div>
+    <div class="chartbox"><canvas id="cmpChart"></canvas></div>
+    <div class="mut" id="cmpNota" style="font-size:12px;margin-top:6px"></div>
+  </section>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab" data-e="e1">Estrategia 1 · intradía (workspace global)</button>
+    <button class="tab" data-e="e2">Estrategia 2 · tendencia diaria (workspace tendencia)</button>
+  </nav>
+  <div class="mut" id="actualizadoCuenta" style="font-size:12px;margin-top:-6px"></div>
   <div id="alertas"></div>
   <section class="kpis" id="kpis"></section>
 
@@ -90,7 +107,7 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
   </section>
 
   <section class="card">
-    <h2>Reglas de la estrategia</h2>
+    <h2 id="reglasTit">Reglas de la estrategia</h2>
     <div class="reglas" id="reglas"></div>
   </section>
 
@@ -99,7 +116,7 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
     <div id="diario"></div>
   </section>
 </main>
-<footer>Cuenta simulada (paper trading) en Kraken · BTC, ETH, SOL · revisión cada 2 h · no es dinero real</footer>
+<footer>Cuentas simuladas (paper trading) en Kraken · BTC, ETH, SOL · E1 revisa cada 2 h, E2 una vez al día (20:00 PR) · no es dinero real</footer>
 
 <script>
 const TZ = 'America/Puerto_Rico';
@@ -123,13 +140,72 @@ const col = (v, txt) => ({c: signo(v), h: esc(txt)});
 
 function kpi(l, v, s = '', cls = '') { return `<div class="kpi"><div class="l">${esc(l)}</div><div class="v ${cls}">${v}</div><div class="s">${s}</div></div>`; }
 
+let DATA = null, CH = {};
+const COLORES = {e1: '#58a6ff', e2: '#3fb950', btc: '#f7931a'};
+
+function cuentaDe(d, e) { return e === 'e2' ? d.estrategia2 : d; }
+
 function render(d) {
-  const r = d.resumen, c = d.cuenta;
-  $('actualizado').textContent = 'Actualizado: ' + new Date(d.actualizado).toLocaleString('es-PR', {timeZone: TZ, dateStyle: 'medium', timeStyle: 'short', hour12: true}) + ' (hora PR, UTC-4)';
+  DATA = d;
+  const gen = d.actualizado_general || d.actualizado;
+  $('actualizado').textContent = 'Actualizado: ' + new Date(gen).toLocaleString('es-PR', {timeZone: TZ, dateStyle: 'medium', timeStyle: 'short', hour12: true}) + ' (hora PR, UTC-4)';
+  comparacion(d);
+  document.querySelectorAll('.tab').forEach(b => b.onclick = () => { location.hash = b.dataset.e; elegir(b.dataset.e); });
+  elegir(location.hash === '#e2' && d.estrategia2 ? 'e2' : 'e1');
+}
+
+function elegir(e) {
+  document.querySelectorAll('.tab').forEach(b => b.classList.toggle('on', b.dataset.e === e));
+  const acc = cuentaDe(DATA, e);
+  if (!acc) { $('kpis').innerHTML = '<div class="vacio">La estrategia 2 todavía no tiene datos.</div>'; return; }
+  renderCuenta(acc, e);
+}
+
+function comparacion(d) {
+  const c = d.comparacion, e2 = d.estrategia2;
+  if (!c) { $('cmpKpis').innerHTML = ''; return; }
+  const s = c.series, ult = a => a && a.length ? a[a.length - 1].equity : null;
+  const fila = (nombre, color, eq, sub) => kpi(nombre, `<span class="dot" style="background:${color}"></span>${usd(eq)}`,
+    eq == null ? sub : `<span class="${signo(eq - 1000)}">${usd(eq - 1000)} (${pct((eq / 1000 - 1) * 100)})</span> · ${sub}`);
+  $('cmpKpis').innerHTML = [
+    fila('Estrategia 1 (global)', COLORES.e1, d.resumen.equity, 'desde ' + fecha(d.cuenta.inicio)),
+    fila('Estrategia 2 (tendencia)', COLORES.e2, e2 ? e2.resumen.equity : null, e2 ? 'desde ' + fecha(e2.cuenta.inicio) : 'sin datos'),
+    fila('Comprar y mantener BTC', COLORES.btc, ult(s.btc_bh), `desde ${fecha(c.btc_ref.t)} a ${precio(c.btc_ref.precio)}`),
+  ].join('');
+  $('cmpNota').textContent = (c.nota || '') + ' Todas parten de $1,000; un punto por revisión.';
+  if (typeof Chart === 'undefined') return;
+  const P = a => (a || []).map(p => ({x: new Date(p.t), y: p.equity}));
+  const ds = [['Estrategia 1', s.estrategia1, COLORES.e1], ['Estrategia 2', s.estrategia2, COLORES.e2], ['B&H BTC', s.btc_bh, COLORES.btc]]
+    .map(([l, a, col]) => ({label: l, data: P(a), borderColor: col, backgroundColor: col, tension: .15, borderWidth: 2, pointRadius: (a || []).length > 60 ? 0 : 2}));
+  const todos = ds.flatMap(x => x.data.map(p => p.y));
+  if (CH.cmp) CH.cmp.destroy();
+  CH.cmp = new Chart($('cmpChart'), {type: 'line', data: {datasets: ds}, options: opcionesEje(Math.min(980, ...todos), Math.max(1020, ...todos), true)});
+}
+
+function opcionesEje(min, max, leyenda) {
+  return {
+    responsive: true, maintainAspectRatio: false, interaction: {mode: 'nearest', intersect: false},
+    plugins: {legend: {display: !!leyenda, labels: {color: '#e6edf3', boxWidth: 12}}, tooltip: {callbacks: {
+      title: it => it[0].raw.x.toLocaleString('es-PR', {timeZone: TZ, dateStyle: 'medium', timeStyle: 'short'}),
+      label: it => ' ' + (it.dataset.label ? it.dataset.label + ': ' : '') + usd(it.raw.y)}}},
+    scales: {
+      x: {type: 'time', adapters: {date: {}}, ticks: {color: '#8b949e', maxRotation: 0, autoSkip: true, maxTicksLimit: 6,
+            callback: v => new Date(v).toLocaleString('es-PR', {timeZone: TZ, day: '2-digit', month: 'short', hour: '2-digit', hour12: false})},
+          grid: {color: '#21262d'}},
+      y: {ticks: {color: '#8b949e', callback: v => '$' + v.toLocaleString('es-PR')}, grid: {color: '#21262d'}, suggestedMin: min, suggestedMax: max}
+    }
+  };
+}
+
+function renderCuenta(d, e) {
+  const r = d.resumen, c = d.cuenta, esE2 = e === 'e2';
+  $('actualizadoCuenta').textContent = `${c.nombre || ''} · workspace "${c.workspace}" · datos de ${fecha(d.actualizado)}` + (esE2 && d.ultima_vela_procesada ? ` · última vela diaria procesada: ${d.ultima_vela_procesada} (UTC)` : '');
   const edadMin = (Date.now() - new Date(d.actualizado)) / 60000;
 
   let al = '';
-  if (r.freno_900_activo) al += `<div class="card alerta"><b class="bad">Equity bajo $900:</b> la regla detiene las entradas nuevas hasta revisar la estrategia.</div>`;
+  if (esE2) {
+    if (r.freno_total_activo) al += `<div class="card alerta"><b class="bad">Equity bajo $${r.freno_total_usd}:</b> la regla detiene las entradas nuevas hasta revisar la estrategia.</div>`;
+  } else if (r.freno_900_activo) al += `<div class="card alerta"><b class="bad">Equity bajo $900:</b> la regla detiene las entradas nuevas hasta revisar la estrategia.</div>`;
   else if (r.freno_diario_activo) al += `<div class="card alerta"><b class="bad">Freno diario activo:</b> el equity cayó ${pct(r.cambio_dia_pct)} hoy, así que no se abren operaciones hasta mañana.</div>`;
   if (edadMin > 180) al += `<div class="card alerta" style="border-left-color:var(--warn)"><b class="warn">Datos con ${Math.round(edadMin / 60)} h de antigüedad.</b> La última revisión pudo haber fallado.</div>`;
   $('alertas').innerHTML = al;
@@ -144,37 +220,47 @@ function render(d) {
     kpi('Win rate', sinOps ? '—' : pct(r.win_rate, 1).replace('+', ''), sinOps ? 'sin operaciones cerradas aún' : (r.factor_beneficio != null ? `factor de beneficio ${r.factor_beneficio}` : '')),
     kpi('Ganancia / pérdida media', `<span class="ok">${usd(r.ganancia_media)}</span> / <span class="bad">${usd(r.perdida_media)}</span>`, 'por operación cerrada'),
     kpi('Drawdown máximo', `<span class="${r.max_drawdown_pct < 0 ? 'bad' : ''}">${pct(r.max_drawdown_pct)}</span>`, `${usd(r.max_drawdown_usd)} · actual ${pct(r.drawdown_actual_pct)}`),
-    kpi('Efectivo (USD)', usd(r.efectivo_usd), `Hoy: <span class="${signo(r.cambio_dia_pct)}">${pct(r.cambio_dia_pct)}</span> · comisión ${num(c.comision_pct, 2)}%`),
+    esE2 ? kpi('Efectivo (USD)', usd(r.efectivo_usd), `Invertido: ${r.exposicion_pct == null ? '—' : num(r.exposicion_pct, 1) + '%'} · comisión ${num(c.comision_pct, 2)}%`)
+         : kpi('Efectivo (USD)', usd(r.efectivo_usd), `Hoy: <span class="${signo(r.cambio_dia_pct)}">${pct(r.cambio_dia_pct)}</span> · comisión ${num(c.comision_pct, 2)}%`),
   ].join('');
 
+  const pr = DATA.precios || d.precios || {};
   $('precios').innerHTML = ['BTCUSD', 'ETHUSD', 'SOLUSD'].map(p => {
-    const x = (d.precios || {})[p];
+    const x = (d.precios || pr)[p];
     if (!x) return `<div class="kpi precio"><div class="l">${p}</div><div class="v">—</div></div>`;
     return `<div class="kpi precio"><div class="l">${p.replace('USD', '')} / USD</div><div class="v">${precio(x.precio)}</div>
       <div class="s"><span class="${signo(x.cambio_dia_pct)}">${pct(x.cambio_dia_pct)}</span> hoy · 24h ${precio(x.min_24h)} – ${precio(x.max_24h)}</div></div>`;
   }).join('');
 
-  $('posiciones').innerHTML = tabla([
+  const colsBase = [
     ['Par', p => p.par + (p.en_cuenta ? '' : ' ⚠')],
     ['Entrada', p => precio(p.entrada)],
     ['Precio actual', p => precio(p.precio)],
     ['Volumen', p => num(p.volumen, 8)],
     ['Valor', p => usd(p.valor)],
+  ];
+  const colsE1 = [
     ['Stop', p => ({c: 'bad', h: esc(precio(p.stop)) + (p.dist_stop_pct != null ? ` <span class="mut">(${pct(-p.dist_stop_pct)})</span>` : '')})],
     ['Objetivo', p => ({c: 'ok', h: esc(precio(p.objetivo)) + (p.dist_objetivo_pct != null ? ` <span class="mut">(${pct(p.dist_objetivo_pct)})</span>` : '')})],
+  ];
+  const colsE2 = [
+    ['Peso actual / objetivo', p => `${p.valor && r.equity ? num(p.valor / r.equity * 100, 1) + '%' : '—'} / ${p.peso_objetivo != null ? num(p.peso_objetivo * 100, 1) + '%' : '—'}`],
+    ['Sale si', p => ({c: 'mut', h: esc(p.salida_si || '—')})],
+  ];
+  $('posiciones').innerHTML = tabla([...colsBase, ...(esE2 ? colsE2 : colsE1),
     ['P&L no realizado', p => col(p.pnl, `${usd(p.pnl)} (${pct(p.pnl_pct)})`)],
     ['Desde', p => fecha(p.desde)],
-  ], d.posiciones, 'Sin posiciones abiertas. La estrategia está esperando una señal de entrada.');
+  ], d.posiciones, esE2 ? 'Sin posiciones: ninguna moneda está por encima de su SMA200 (o el filtro BTC está apagado).' : 'Sin posiciones abiertas. La estrategia está esperando una señal de entrada.');
 
   $('ordenes').innerHTML = tabla([
     ['Par', o => o.par], ['Lado', o => o.lado === 'sell' ? 'Venta' : 'Compra'], ['Tipo', o => o.tipo],
     ['Volumen', o => num(o.volumen, 8)], ['Precio', o => precio(o.precio)],
     ['Distancia', o => pct(o.dist_pct)], ['Reservado', o => o.reservado], ['Creada', o => fecha(o.creada)],
-  ], d.ordenes, 'No hay órdenes limit abiertas.');
+  ], d.ordenes, esE2 ? 'La estrategia 2 no usa órdenes limit (solo órdenes a mercado en la revisión diaria).' : 'No hay órdenes limit abiertas.');
 
   $('operaciones').innerHTML = tabla([
     ['Par', t => t.par], ['Apertura', t => fecha(t.apertura)], ['Cierre', t => fecha(t.cierre)],
-    ['Duración', t => t.duracion_h == null ? '—' : (t.duracion_h < 1 ? Math.round(t.duracion_h * 60) + ' min' : num(t.duracion_h, 1) + ' h')],
+    ['Duración', t => t.duracion_h == null ? '—' : (t.duracion_h < 1 ? Math.round(t.duracion_h * 60) + ' min' : t.duracion_h >= 48 ? num(t.duracion_h / 24, 1) + ' d' : num(t.duracion_h, 1) + ' h')],
     ['Volumen', t => num(t.volumen, 8)], ['Entrada', t => precio(t.precio_entrada)], ['Salida', t => precio(t.precio_salida)],
     ['Comisiones', t => usd(t.comisiones)], ['Resultado', t => col(t.pnl, `${usd(t.pnl)} (${pct(t.pnl_pct)})`)],
   ], d.operaciones, 'Todavía no hay operaciones cerradas. Aparecerán aquí cuando se cierre la primera.');
@@ -185,47 +271,47 @@ function render(d) {
   ], d.ejecuciones, 'Sin ejecuciones todavía.');
 
   const ev = d.evaluacion;
-  const nombres = {'1_tendencia_4h': 'Tendencia 4h', '2_retroceso_1h': 'Retroceso 1h', '3_rsi': 'RSI 40–60↑', '4_sin_posicion': 'Sin posición'};
-  $('evaluacion').innerHTML = ev && ev.pares && ev.pares.length ? `<div class="mut" style="font-size:12px;margin-bottom:6px">${esc(fecha(ev.fecha))} · ${esc(ev.archivo)}</div>` + tabla([
-    ['Par', e => e.par],
-    ...Object.keys(nombres).map(k => [nombres[k], e => { const v = (e.condiciones || {})[k]; return v == null ? '—' : ({c: v ? 'ok' : 'bad', h: v ? '✔' : '✘'}); }]),
-    ['RSI 1h', e => e.rsi == null ? '—' : num(e.rsi, 1)],
-    ['Señal', e => ({c: e.todas ? 'ok' : 'mut', h: e.todas ? 'ENTRADA' : 'no'})],
-  ], ev.pares, '') : '<div class="vacio">Sin evaluaciones registradas.</div>';
+  if (esE2) {
+    $('evaluacion').innerHTML = ev && ev.pares && ev.pares.length ? `<div class="mut" style="font-size:12px;margin-bottom:6px">Vela diaria ${esc(ev.vela)} (UTC)${ev.es_domingo ? ' · domingo (rebalanceo)' : ''} · ${esc(fecha(ev.fecha))} · ${esc(ev.archivo)}</div>` + tabla([
+      ['Par', x => x.par], ['Cierre diario', x => precio(x.cierre)], ['SMA200', x => precio(x.sma200)],
+      ['Distancia', x => col(x.cierre - x.sma200, pct((x.cierre / x.sma200 - 1) * 100))],
+      ['Vol. 30d anual', x => x.vol30 == null ? '—' : num(x.vol30 * 100, 1) + '%'],
+      ['Peso objetivo', x => x.peso_objetivo ? num(x.peso_objetivo * 100, 1) + '%' : '0%'],
+      ['Señal', x => ({c: x.elegible ? 'ok' : 'bad', h: x.elegible ? 'MANTENER / COMPRAR' : 'FUERA'})],
+    ], ev.pares, '') : '<div class="vacio">Sin evaluaciones registradas.</div>';
+  } else {
+    const nombres = {'1_tendencia_4h': 'Tendencia 4h', '2_retroceso_1h': 'Retroceso 1h', '3_rsi': 'RSI 40–60↑', '4_sin_posicion': 'Sin posición'};
+    $('evaluacion').innerHTML = ev && ev.pares && ev.pares.length ? `<div class="mut" style="font-size:12px;margin-bottom:6px">${esc(fecha(ev.fecha))} · ${esc(ev.archivo)}</div>` + tabla([
+      ['Par', x => x.par],
+      ...Object.keys(nombres).map(k => [nombres[k], x => { const v = (x.condiciones || {})[k]; return v == null ? '—' : ({c: v ? 'ok' : 'bad', h: v ? '✔' : '✘'}); }]),
+      ['RSI 1h', x => x.rsi == null ? '—' : num(x.rsi, 1)],
+      ['Señal', x => ({c: x.todas ? 'ok' : 'mut', h: x.todas ? 'ENTRADA' : 'no'})],
+    ], ev.pares, '') : '<div class="vacio">Sin evaluaciones registradas.</div>';
+  }
 
+  $('reglasTit').textContent = esE2 ? 'Reglas de la estrategia 2 (tendencia diaria)' : 'Reglas de la estrategia 1 (intradía)';
   $('reglas').innerHTML = (d.reglas || []).map(s => `<div><h3>${esc(s.titulo)}</h3><ul>${s.items.map(i => `<li>${esc(i)}</li>`).join('')}</ul></div>`).join('') || '<div class="vacio">—</div>';
 
-  $('diario').innerHTML = (d.diario || []).map((e, i) => `<details ${i === 0 ? 'open' : ''}><summary>${esc(e.titulo)}</summary><ul>${e.lineas.map(l => `<li>${esc(l.replace(/\*\*/g, ''))}</li>`).join('')}</ul></details>`).join('') || '<div class="vacio">El diario está vacío.</div>';
+  $('diario').innerHTML = (d.diario || []).map((x, i) => `<details ${i === 0 ? 'open' : ''}><summary>${esc(x.titulo)}</summary><ul>${x.lineas.map(l => `<li>${esc(l.replace(/\*\*/g, ''))}</li>`).join('')}</ul></details>`).join('') || '<div class="vacio">El diario está vacío.</div>';
 
-  grafico(d);
+  grafico(d, e);
 }
 
-function grafico(d) {
+function grafico(d, e) {
   const pts = (d.curva || []).map(p => ({x: new Date(p.t), y: p.equity}));
   const ini = d.cuenta.capital_inicial;
   $('curvaNota').textContent = pts.length < 3 ? 'La curva se irá llenando con un punto por revisión, cada 2 horas.' : `${pts.length} puntos · línea punteada = capital inicial ${usd(ini, 0)}`;
   if (typeof Chart === 'undefined') { $('curvaNota').textContent = 'No se pudo cargar Chart.js (CDN).'; return; }
   const ult = pts.length ? pts[pts.length - 1].y : ini;
   const color = ult >= ini ? '#3fb950' : '#f85149';
-  new Chart($('curva'), {
+  if (CH.curva) CH.curva.destroy();
+  CH.curva = new Chart($('curva'), {
     type: 'line',
     data: {datasets: [
       {label: 'Equity', data: pts, borderColor: color, backgroundColor: color + '22', fill: true, tension: .15, pointRadius: pts.length > 60 ? 0 : 3, borderWidth: 2},
       {label: 'Inicio', data: pts.length ? [{x: pts[0].x, y: ini}, {x: pts[pts.length - 1].x, y: ini}] : [], borderColor: '#8b949e', borderDash: [5, 5], pointRadius: 0, borderWidth: 1},
     ]},
-    options: {
-      responsive: true, maintainAspectRatio: false, interaction: {mode: 'nearest', intersect: false},
-      plugins: {legend: {display: false}, tooltip: {callbacks: {
-        title: it => it[0].raw.x.toLocaleString('es-PR', {timeZone: TZ, dateStyle: 'medium', timeStyle: 'short'}),
-        label: it => ' ' + usd(it.raw.y)}}},
-      scales: {
-        x: {type: 'time', adapters: {date: {}}, ticks: {color: '#8b949e', maxRotation: 0, autoSkip: true, maxTicksLimit: 6,
-              callback: v => new Date(v).toLocaleString('es-PR', {timeZone: TZ, day: '2-digit', month: 'short', hour: '2-digit', hour12: false})},
-            grid: {color: '#21262d'}},
-        y: {ticks: {color: '#8b949e', callback: v => '$' + v.toLocaleString('es-PR')}, grid: {color: '#21262d'},
-            suggestedMin: Math.min(ini * 0.98, ...pts.map(p => p.y)), suggestedMax: Math.max(ini * 1.02, ...pts.map(p => p.y))}
-      }
-    }
+    options: opcionesEje(Math.min(ini * 0.98, ...pts.map(p => p.y)), Math.max(ini * 1.02, ...pts.map(p => p.y)), false)
   });
 }
 
