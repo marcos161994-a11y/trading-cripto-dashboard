@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trading cripto (papel) · Marcos</title>
+<meta name="robots" content="noindex">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--line:#30363d;--txt:#e6edf3;--mut:#8b949e;--ok:#3fb950;--bad:#f85149;--acc:#58a6ff;--warn:#d29922}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:16px 18px 6px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;justify-content:space-between}
+h1{font-size:19px;margin:0}
+h2{font-size:15px;margin:0 0 10px;color:var(--txt)}
+.mut{color:var(--mut)}.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
+main{padding:8px 14px 40px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+main>*{min-width:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}
+.kpi .l{font-size:12px;color:var(--mut)}.kpi .v{font-size:21px;font-weight:600;margin-top:2px}.kpi .s{font-size:12px;color:var(--mut)}
+.precios{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.precio .v{font-size:18px;font-weight:600}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px;white-space:nowrap}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--mut);font-weight:500;font-size:12px}
+.vacio{color:var(--mut);padding:14px 4px;text-align:center}
+.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:12px;border:1px solid var(--line)}
+.badge.ok{border-color:#238636}.badge.bad{border-color:#da3633}.badge.warn{border-color:#9e6a03}
+.alerta{border-left:4px solid var(--bad)}
+.reglas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.reglas h3{font-size:13px;margin:0 0 6px;color:var(--acc)}
+.reglas ul,.diario ul{margin:0;padding-left:18px}.reglas li,.diario li{margin:3px 0}
+.diario details{border-bottom:1px solid var(--line);padding:6px 0}
+.diario summary{cursor:pointer}
+.diario li{white-space:normal;word-break:break-word;color:var(--mut)}
+.chartbox{position:relative;height:280px}
+.cond{display:flex;gap:6px;flex-wrap:wrap}
+footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
+@media(max-width:560px){.precios{grid-template-columns:1fr}.kpi .v{font-size:18px}h1{font-size:17px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>📈 Trading cripto · cuenta de papel</h1>
+  <div class="mut" id="actualizado">Cargando…</div>
+</header>
+<main>
+  <div id="alertas"></div>
+  <section class="kpis" id="kpis"></section>
+
+  <section class="card">
+    <h2>Precios actuales</h2>
+    <div class="precios" id="precios"></div>
+  </section>
+
+  <section class="card">
+    <h2>Curva de equity (USD)</h2>
+    <div class="chartbox"><canvas id="curva"></canvas></div>
+    <div class="mut" id="curvaNota" style="font-size:12px;margin-top:6px"></div>
+  </section>
+
+  <section class="card">
+    <h2>Posiciones abiertas</h2>
+    <div class="tbl" id="posiciones"></div>
+  </section>
+
+  <section class="card">
+    <h2>Órdenes limit abiertas</h2>
+    <div class="tbl" id="ordenes"></div>
+  </section>
+
+  <section class="card">
+    <h2>Historial de operaciones (cerradas)</h2>
+    <div class="tbl" id="operaciones"></div>
+  </section>
+
+  <section class="card">
+    <h2>Ejecuciones (fills)</h2>
+    <div class="tbl" id="ejecuciones"></div>
+  </section>
+
+  <section class="card">
+    <h2>Última evaluación de señales</h2>
+    <div class="tbl" id="evaluacion"></div>
+  </section>
+
+  <section class="card">
+    <h2>Reglas de la estrategia</h2>
+    <div class="reglas" id="reglas"></div>
+  </section>
+
+  <section class="card diario">
+    <h2>Diario (últimas revisiones)</h2>
+    <div id="diario"></div>
+  </section>
+</main>
+<footer>Cuenta simulada (paper trading) en Kraken · BTC, ETH, SOL · revisión cada 2 h · no es dinero real</footer>
+
+<script>
+const TZ = 'America/Puerto_Rico';
+const $ = id => document.getElementById(id);
+const usd = (v, d = 2) => v == null || isNaN(v) ? '—' : (v < 0 ? '-' : '') + '$' + Math.abs(v).toLocaleString('es-PR', {minimumFractionDigits: d, maximumFractionDigits: d});
+const precio = v => v == null ? '—' : usd(v, v >= 1000 ? 1 : v >= 10 ? 2 : 4);
+const num = (v, d = 6) => v == null ? '—' : Number(v).toLocaleString('es-PR', {maximumFractionDigits: d});
+const pct = (v, d = 2) => v == null || isNaN(v) ? '—' : (v > 0 ? '+' : '') + Number(v).toFixed(d) + '%';
+const signo = v => v == null ? '' : v > 0 ? 'ok' : v < 0 ? 'bad' : '';
+const fecha = s => { if (!s) return '—'; const d = new Date(s); if (isNaN(d)) return s;
+  return d.toLocaleString('es-PR', {timeZone: TZ, day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false}); };
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function tabla(cols, filas, vacio) {
+  if (!filas || !filas.length) return `<div class="vacio">${esc(vacio)}</div>`;
+  const th = cols.map(c => `<th>${esc(c[0])}</th>`).join('');
+  const tr = filas.map(f => '<tr>' + cols.map(c => { const r = c[1](f); return typeof r === 'object' && r !== null ? `<td class="${r.c || ''}">${r.h}</td>` : `<td>${esc(r)}</td>`; }).join('') + '</tr>').join('');
+  return `<table><thead><tr>${th}</tr></thead><tbody>${tr}</tbody></table>`;
+}
+const col = (v, txt) => ({c: signo(v), h: esc(txt)});
+
+function kpi(l, v, s = '', cls = '') { return `<div class="kpi"><div class="l">${esc(l)}</div><div class="v ${cls}">${v}</div><div class="s">${s}</div></div>`; }
+
+function render(d) {
+  const r = d.resumen, c = d.cuenta;
+  $('actualizado').textContent = 'Actualizado: ' + new Date(d.actualizado).toLocaleString('es-PR', {timeZone: TZ, dateStyle: 'medium', timeStyle: 'short', hour12: true}) + ' (hora PR, UTC-4)';
+  const edadMin = (Date.now() - new Date(d.actualizado)) / 60000;
+
+  let al = '';
+  if (r.freno_900_activo) al += `<div class="card alerta"><b class="bad">Equity bajo $900:</b> la regla detiene las entradas nuevas hasta revisar la estrategia.</div>`;
+  else if (r.freno_diario_activo) al += `<div class="card alerta"><b class="bad">Freno diario activo:</b> el equity cayó ${pct(r.cambio_dia_pct)} hoy, así que no se abren operaciones hasta mañana.</div>`;
+  if (edadMin > 180) al += `<div class="card alerta" style="border-left-color:var(--warn)"><b class="warn">Datos con ${Math.round(edadMin / 60)} h de antigüedad.</b> La última revisión pudo haber fallado.</div>`;
+  $('alertas').innerHTML = al;
+
+  const sinOps = !r.operaciones_cerradas;
+  $('kpis').innerHTML = [
+    kpi('Equity actual', usd(r.equity), `Inicio ${usd(c.capital_inicial, 0)} · ${fecha(c.inicio)}`),
+    kpi('Ganancia/pérdida total', `<span class="${signo(r.pnl_total)}">${usd(r.pnl_total)}</span>`, `<span class="${signo(r.pnl_total_pct)}">${pct(r.pnl_total_pct)}</span> vs. $1,000`),
+    kpi('P&L realizado', `<span class="${signo(r.realizado)}">${usd(r.realizado)}</span>`, 'operaciones cerradas, neto de comisiones'),
+    kpi('P&L no realizado', `<span class="${signo(r.no_realizado)}">${usd(r.no_realizado)}</span>`, `${d.posiciones.length} posición(es) abierta(s)`),
+    kpi('Operaciones', r.operaciones_cerradas, `${r.ganadas} ganadas · ${r.perdidas} perdidas · ${r.ejecuciones} fills`),
+    kpi('Win rate', sinOps ? '—' : pct(r.win_rate, 1).replace('+', ''), sinOps ? 'sin operaciones cerradas aún' : (r.factor_beneficio != null ? `factor de beneficio ${r.factor_beneficio}` : '')),
+    kpi('Ganancia / pérdida media', `<span class="ok">${usd(r.ganancia_media)}</span> / <span class="bad">${usd(r.perdida_media)}</span>`, 'por operación cerrada'),
+    kpi('Drawdown máximo', `<span class="${r.max_drawdown_pct < 0 ? 'bad' : ''}">${pct(r.max_drawdown_pct)}</span>`, `${usd(r.max_drawdown_usd)} · actual ${pct(r.drawdown_actual_pct)}`),
+    kpi('Efectivo (USD)', usd(r.efectivo_usd), `Hoy: <span class="${signo(r.cambio_dia_pct)}">${pct(r.cambio_dia_pct)}</span> · comisión ${num(c.comision_pct, 2)}%`),
+  ].join('');
+
+  $('precios').innerHTML = ['BTCUSD', 'ETHUSD', 'SOLUSD'].map(p => {
+    const x = (d.precios || {})[p];
+    if (!x) return `<div class="kpi precio"><div class="l">${p}</div><div class="v">—</div></div>`;
+    return `<div class="kpi precio"><div class="l">${p.replace('USD', '')} / USD</div><div class="v">${precio(x.precio)}</div>
+      <div class="s"><span class="${signo(x.cambio_dia_pct)}">${pct(x.cambio_dia_pct)}</span> hoy · 24h ${precio(x.min_24h)} – ${precio(x.max_24h)}</div></div>`;
+  }).join('');
+
+  $('posiciones').innerHTML = tabla([
+    ['Par', p => p.par + (p.en_cuenta ? '' : ' ⚠')],
+    ['Entrada', p => precio(p.entrada)],
+    ['Precio actual', p => precio(p.precio)],
+    ['Volumen', p => num(p.volumen, 8)],
+    ['Valor', p => usd(p.valor)],
+    ['Stop', p => ({c: 'bad', h: esc(precio(p.stop)) + (p.dist_stop_pct != null ? ` <span class="mut">(${pct(-p.dist_stop_pct)})</span>` : '')})],
+    ['Objetivo', p => ({c: 'ok', h: esc(precio(p.objetivo)) + (p.dist_objetivo_pct != null ? ` <span class="mut">(${pct(p.dist_objetivo_pct)})</span>` : '')})],
+    ['P&L no realizado', p => col(p.pnl, `${usd(p.pnl)} (${pct(p.pnl_pct)})`)],
+    ['Desde', p => fecha(p.desde)],
+  ], d.posiciones, 'Sin posiciones abiertas. La estrategia está esperando una señal de entrada.');
+
+  $('ordenes').innerHTML = tabla([
+    ['Par', o => o.par], ['Lado', o => o.lado === 'sell' ? 'Venta' : 'Compra'], ['Tipo', o => o.tipo],
+    ['Volumen', o => num(o.volumen, 8)], ['Precio', o => precio(o.precio)],
+    ['Distancia', o => pct(o.dist_pct)], ['Reservado', o => o.reservado], ['Creada', o => fecha(o.creada)],
+  ], d.ordenes, 'No hay órdenes limit abiertas.');
+
+  $('operaciones').innerHTML = tabla([
+    ['Par', t => t.par], ['Apertura', t => fecha(t.apertura)], ['Cierre', t => fecha(t.cierre)],
+    ['Duración', t => t.duracion_h == null ? '—' : (t.duracion_h < 1 ? Math.round(t.duracion_h * 60) + ' min' : num(t.duracion_h, 1) + ' h')],
+    ['Volumen', t => num(t.volumen, 8)], ['Entrada', t => precio(t.precio_entrada)], ['Salida', t => precio(t.precio_salida)],
+    ['Comisiones', t => usd(t.comisiones)], ['Resultado', t => col(t.pnl, `${usd(t.pnl)} (${pct(t.pnl_pct)})`)],
+  ], d.operaciones, 'Todavía no hay operaciones cerradas. Aparecerán aquí cuando se cierre la primera.');
+
+  $('ejecuciones').innerHTML = tabla([
+    ['Fecha', t => fecha(t.fecha)], ['Par', t => t.par], ['Lado', t => ({c: t.lado === 'buy' ? 'ok' : 'bad', h: t.lado === 'buy' ? 'Compra' : 'Venta'})],
+    ['Volumen', t => num(t.volumen, 8)], ['Precio', t => precio(t.precio)], ['Comisión', t => usd(t.comision, 4)], ['Monto', t => usd(t.costo)],
+  ], d.ejecuciones, 'Sin ejecuciones todavía.');
+
+  const ev = d.evaluacion;
+  const nombres = {'1_tendencia_4h': 'Tendencia 4h', '2_retroceso_1h': 'Retroceso 1h', '3_rsi': 'RSI 40–60↑', '4_sin_posicion': 'Sin posición'};
+  $('evaluacion').innerHTML = ev && ev.pares && ev.pares.length ? `<div class="mut" style="font-size:12px;margin-bottom:6px">${esc(fecha(ev.fecha))} · ${esc(ev.archivo)}</div>` + tabla([
+    ['Par', e => e.par],
+    ...Object.keys(nombres).map(k => [nombres[k], e => { const v = (e.condiciones || {})[k]; return v == null ? '—' : ({c: v ? 'ok' : 'bad', h: v ? '✔' : '✘'}); }]),
+    ['RSI 1h', e => e.rsi == null ? '—' : num(e.rsi, 1)],
+    ['Señal', e => ({c: e.todas ? 'ok' : 'mut', h: e.todas ? 'ENTRADA' : 'no'})],
+  ], ev.pares, '') : '<div class="vacio">Sin evaluaciones registradas.</div>';
+
+  $('reglas').innerHTML = (d.reglas || []).map(s => `<div><h3>${esc(s.titulo)}</h3><ul>${s.items.map(i => `<li>${esc(i)}</li>`).join('')}</ul></div>`).join('') || '<div class="vacio">—</div>';
+
+  $('diario').innerHTML = (d.diario || []).map((e, i) => `<details ${i === 0 ? 'open' : ''}><summary>${esc(e.titulo)}</summary><ul>${e.lineas.map(l => `<li>${esc(l.replace(/\*\*/g, ''))}</li>`).join('')}</ul></details>`).join('') || '<div class="vacio">El diario está vacío.</div>';
+
+  grafico(d);
+}
+
+function grafico(d) {
+  const pts = (d.curva || []).map(p => ({x: new Date(p.t), y: p.equity}));
+  const ini = d.cuenta.capital_inicial;
+  $('curvaNota').textContent = pts.length < 3 ? 'La curva se irá llenando con un punto por revisión, cada 2 horas.' : `${pts.length} puntos · línea punteada = capital inicial ${usd(ini, 0)}`;
+  if (typeof Chart === 'undefined') { $('curvaNota').textContent = 'No se pudo cargar Chart.js (CDN).'; return; }
+  const ult = pts.length ? pts[pts.length - 1].y : ini;
+  const color = ult >= ini ? '#3fb950' : '#f85149';
+  new Chart($('curva'), {
+    type: 'line',
+    data: {datasets: [
+      {label: 'Equity', data: pts, borderColor: color, backgroundColor: color + '22', fill: true, tension: .15, pointRadius: pts.length > 60 ? 0 : 3, borderWidth: 2},
+      {label: 'Inicio', data: pts.length ? [{x: pts[0].x, y: ini}, {x: pts[pts.length - 1].x, y: ini}] : [], borderColor: '#8b949e', borderDash: [5, 5], pointRadius: 0, borderWidth: 1},
+    ]},
+    options: {
+      responsive: true, maintainAspectRatio: false, interaction: {mode: 'nearest', intersect: false},
+      plugins: {legend: {display: false}, tooltip: {callbacks: {
+        title: it => it[0].raw.x.toLocaleString('es-PR', {timeZone: TZ, dateStyle: 'medium', timeStyle: 'short'}),
+        label: it => ' ' + usd(it.raw.y)}}},
+      scales: {
+        x: {type: 'time', adapters: {date: {}}, ticks: {color: '#8b949e', maxRotation: 0, autoSkip: true, maxTicksLimit: 6,
+              callback: v => new Date(v).toLocaleString('es-PR', {timeZone: TZ, day: '2-digit', month: 'short', hour: '2-digit', hour12: false})},
+            grid: {color: '#21262d'}},
+        y: {ticks: {color: '#8b949e', callback: v => '$' + v.toLocaleString('es-PR')}, grid: {color: '#21262d'},
+            suggestedMin: Math.min(ini * 0.98, ...pts.map(p => p.y)), suggestedMax: Math.max(ini * 1.02, ...pts.map(p => p.y))}
+      }
+    }
+  });
+}
+
+fetch('data.json?t=' + Date.now(), {cache: 'no-store'})
+  .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+  .then(render)
+  .catch(e => { $('actualizado').textContent = 'No se pudo cargar data.json: ' + e.message; });
+</script>
+</body>
+</html>

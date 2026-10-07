@@ -1,0 +1,15 @@
+# Render Blueprint: sitio estático, se redepliega en cada push a main.
+services:
+  - type: web
+    name: trading-cripto-dashboard
+    runtime: static
+    buildCommand: echo "sitio estatico, sin build"
+    staticPublishPath: .
+    autoDeployTrigger: commit   # equivale a autoDeploy: true (campo antiguo)
+    headers:
+      - path: /data.json
+        name: Cache-Control
+        value: no-cache, no-store, must-revalidate
+      - path: /*
+        name: X-Robots-Tag
+        value: noindex
