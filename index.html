@@ -56,7 +56,7 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
 </header>
 <main>
   <section class="card">
-    <h2>Comparación: estrategia 1 vs estrategia 2 vs comprar y mantener BTC</h2>
+    <h2>Comparación: estrategias 1, 2 y 3 vs comprar y mantener BTC</h2>
     <div class="cmp" id="cmpKpis"></div>
     <div class="chartbox"><canvas id="cmpChart"></canvas></div>
     <div class="mut" id="cmpNota" style="font-size:12px;margin-top:6px"></div>
@@ -65,6 +65,7 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
   <nav class="tabs" id="tabs">
     <button class="tab" data-e="e1">Estrategia 1 · intradía (workspace global)</button>
     <button class="tab" data-e="e2">Estrategia 2 · tendencia diaria (workspace tendencia)</button>
+    <button class="tab" data-e="e3">Estrategia 3 · cruce EMA 4h (workspace cruce)</button>
   </nav>
   <div class="mut" id="actualizadoCuenta" style="font-size:12px;margin-top:-6px"></div>
   <div id="alertas"></div>
@@ -116,7 +117,7 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
     <div id="diario"></div>
   </section>
 </main>
-<footer>Cuentas simuladas (paper trading) en Kraken · BTC, ETH, SOL · E1 revisa cada 2 h, E2 una vez al día (20:00 PR) · no es dinero real</footer>
+<footer>Cuentas simuladas (paper trading) en Kraken · BTC, ETH, SOL · E1 revisa cada 2 h, E2 una vez al día (~20:22 PR), E3 tras cada cierre 4h · no es dinero real</footer>
 
 <script>
 const TZ = 'America/Puerto_Rico';
@@ -141,9 +142,9 @@ const col = (v, txt) => ({c: signo(v), h: esc(txt)});
 function kpi(l, v, s = '', cls = '') { return `<div class="kpi"><div class="l">${esc(l)}</div><div class="v ${cls}">${v}</div><div class="s">${s}</div></div>`; }
 
 let DATA = null, CH = {};
-const COLORES = {e1: '#58a6ff', e2: '#3fb950', btc: '#f7931a'};
+const COLORES = {e1: '#58a6ff', e2: '#3fb950', e3: '#bc8cff', btc: '#f7931a'};
 
-function cuentaDe(d, e) { return e === 'e2' ? d.estrategia2 : d; }
+function cuentaDe(d, e) { return e === 'e2' ? d.estrategia2 : e === 'e3' ? d.estrategia3 : d; }
 
 function render(d) {
   DATA = d;
@@ -151,18 +152,19 @@ function render(d) {
   $('actualizado').textContent = 'Actualizado: ' + new Date(gen).toLocaleString('es-PR', {timeZone: TZ, dateStyle: 'medium', timeStyle: 'short', hour12: true}) + ' (hora PR, UTC-4)';
   comparacion(d);
   document.querySelectorAll('.tab').forEach(b => b.onclick = () => { location.hash = b.dataset.e; elegir(b.dataset.e); });
-  elegir(location.hash === '#e2' && d.estrategia2 ? 'e2' : 'e1');
+  const h = location.hash.slice(1);
+  elegir((h === 'e2' && d.estrategia2) || (h === 'e3' && d.estrategia3) ? h : 'e1');
 }
 
 function elegir(e) {
   document.querySelectorAll('.tab').forEach(b => b.classList.toggle('on', b.dataset.e === e));
   const acc = cuentaDe(DATA, e);
-  if (!acc) { $('kpis').innerHTML = '<div class="vacio">La estrategia 2 todavía no tiene datos.</div>'; return; }
+  if (!acc) { $('kpis').innerHTML = '<div class="vacio">Esta estrategia todavía no tiene datos.</div>'; return; }
   renderCuenta(acc, e);
 }
 
 function comparacion(d) {
-  const c = d.comparacion, e2 = d.estrategia2;
+  const c = d.comparacion, e2 = d.estrategia2, e3 = d.estrategia3;
   if (!c) { $('cmpKpis').innerHTML = ''; return; }
   const s = c.series, ult = a => a && a.length ? a[a.length - 1].equity : null;
   const fila = (nombre, color, eq, sub) => kpi(nombre, `<span class="dot" style="background:${color}"></span>${usd(eq)}`,
@@ -170,12 +172,13 @@ function comparacion(d) {
   $('cmpKpis').innerHTML = [
     fila('Estrategia 1 (global)', COLORES.e1, d.resumen.equity, 'desde ' + fecha(d.cuenta.inicio)),
     fila('Estrategia 2 (tendencia)', COLORES.e2, e2 ? e2.resumen.equity : null, e2 ? 'desde ' + fecha(e2.cuenta.inicio) : 'sin datos'),
+    fila('Estrategia 3 (cruce)', COLORES.e3, e3 ? e3.resumen.equity : null, e3 ? 'desde ' + fecha(e3.cuenta.inicio) : 'sin datos'),
     fila('Comprar y mantener BTC', COLORES.btc, ult(s.btc_bh), `desde ${fecha(c.btc_ref.t)} a ${precio(c.btc_ref.precio)}`),
   ].join('');
   $('cmpNota').textContent = (c.nota || '') + ' Todas parten de $1,000; un punto por revisión.';
   if (typeof Chart === 'undefined') return;
   const P = a => (a || []).map(p => ({x: new Date(p.t), y: p.equity}));
-  const ds = [['Estrategia 1', s.estrategia1, COLORES.e1], ['Estrategia 2', s.estrategia2, COLORES.e2], ['B&H BTC', s.btc_bh, COLORES.btc]]
+  const ds = [['Estrategia 1', s.estrategia1, COLORES.e1], ['Estrategia 2', s.estrategia2, COLORES.e2], ['Estrategia 3', s.estrategia3, COLORES.e3], ['B&H BTC', s.btc_bh, COLORES.btc]]
     .map(([l, a, col]) => ({label: l, data: P(a), borderColor: col, backgroundColor: col, tension: .15, borderWidth: 2, pointRadius: (a || []).length > 60 ? 0 : 2}));
   const todos = ds.flatMap(x => x.data.map(p => p.y));
   if (CH.cmp) CH.cmp.destroy();
@@ -198,8 +201,8 @@ function opcionesEje(min, max, leyenda) {
 }
 
 function renderCuenta(d, e) {
-  const r = d.resumen, c = d.cuenta, esE2 = e === 'e2';
-  $('actualizadoCuenta').textContent = `${c.nombre || ''} · workspace "${c.workspace}" · datos de ${fecha(d.actualizado)}` + (esE2 && d.ultima_vela_procesada ? ` · última vela diaria procesada: ${d.ultima_vela_procesada} (UTC)` : '');
+  const r = d.resumen, c = d.cuenta, esE3 = e === 'e3', esE2 = e === 'e2' || esE3;
+  $('actualizadoCuenta').textContent = `${c.nombre || ''} · workspace "${c.workspace}" · datos de ${fecha(d.actualizado)}` + (esE2 && d.ultima_vela_procesada ? ` · última vela ${esE3 ? '4h' : 'diaria'} procesada: ${d.ultima_vela_procesada} (UTC)` : '');
   const edadMin = (Date.now() - new Date(d.actualizado)) / 60000;
 
   let al = '';
@@ -250,13 +253,13 @@ function renderCuenta(d, e) {
   $('posiciones').innerHTML = tabla([...colsBase, ...(esE2 ? colsE2 : colsE1),
     ['P&L no realizado', p => col(p.pnl, `${usd(p.pnl)} (${pct(p.pnl_pct)})`)],
     ['Desde', p => fecha(p.desde)],
-  ], d.posiciones, esE2 ? 'Sin posiciones: ninguna moneda está por encima de su SMA200 (o el filtro BTC está apagado).' : 'Sin posiciones abiertas. La estrategia está esperando una señal de entrada.');
+  ], d.posiciones, esE3 ? 'Sin posiciones: ninguna moneda cumple EMA10 > EMA100 en 4h con el filtro diario SMA200.' : esE2 ? 'Sin posiciones: ninguna moneda está por encima de su SMA200 (o el filtro BTC está apagado).' : 'Sin posiciones abiertas. La estrategia está esperando una señal de entrada.');
 
   $('ordenes').innerHTML = tabla([
     ['Par', o => o.par], ['Lado', o => o.lado === 'sell' ? 'Venta' : 'Compra'], ['Tipo', o => o.tipo],
     ['Volumen', o => num(o.volumen, 8)], ['Precio', o => precio(o.precio)],
     ['Distancia', o => pct(o.dist_pct)], ['Reservado', o => o.reservado], ['Creada', o => fecha(o.creada)],
-  ], d.ordenes, esE2 ? 'La estrategia 2 no usa órdenes limit (solo órdenes a mercado en la revisión diaria).' : 'No hay órdenes limit abiertas.');
+  ], d.ordenes, esE3 ? 'La estrategia 3 no usa órdenes limit (solo órdenes a mercado tras cada cierre 4h).' : esE2 ? 'La estrategia 2 no usa órdenes limit (solo órdenes a mercado en la revisión diaria).' : 'No hay órdenes limit abiertas.');
 
   $('operaciones').innerHTML = tabla([
     ['Par', t => t.par], ['Apertura', t => fecha(t.apertura)], ['Cierre', t => fecha(t.cierre)],
@@ -271,7 +274,16 @@ function renderCuenta(d, e) {
   ], d.ejecuciones, 'Sin ejecuciones todavía.');
 
   const ev = d.evaluacion;
-  if (esE2) {
+  if (esE3) {
+    $('evaluacion').innerHTML = ev && ev.pares && ev.pares.length ? `<div class="mut" style="font-size:12px;margin-bottom:6px">Vela 4h ${esc(ev.vela_4h)} UTC (cerró ${esc(ev.vela_4h_cierre_pr)} PR) · diaria ${esc(ev.vela_diaria)} · ${esc(fecha(ev.fecha))} · ${esc(ev.archivo)}</div>` + tabla([
+      ['Par', x => x.par], ['Cierre 4h', x => precio(x.cierre_4h)], ['EMA10 4h', x => precio(x.ema10)], ['EMA100 4h', x => precio(x.ema100)],
+      ['Cruce', x => ({c: x.cruce_alcista ? 'ok' : 'bad', h: x.cruce_alcista ? '✔ alcista' : '✘ bajista'})],
+      ['Diario vs SMA200', x => ({c: x.sobre_sma200 ? 'ok' : 'bad', h: esc(precio(x.cierre_diario) + ' / ' + precio(x.sma200))})],
+      ['Vol. anual', x => x.vol == null ? '—' : num(x.vol * 100, 1) + '%'],
+      ['Peso objetivo', x => x.peso_objetivo ? num(x.peso_objetivo * 100, 1) + '%' : '0%'],
+      ['Señal', x => ({c: x.elegible ? 'ok' : 'bad', h: x.elegible ? 'MANTENER / COMPRAR' : 'FUERA'})],
+    ], ev.pares, '') : '<div class="vacio">Sin evaluaciones registradas.</div>';
+  } else if (esE2) {
     $('evaluacion').innerHTML = ev && ev.pares && ev.pares.length ? `<div class="mut" style="font-size:12px;margin-bottom:6px">Vela diaria ${esc(ev.vela)} (UTC)${ev.es_domingo ? ' · domingo (rebalanceo)' : ''} · ${esc(fecha(ev.fecha))} · ${esc(ev.archivo)}</div>` + tabla([
       ['Par', x => x.par], ['Cierre diario', x => precio(x.cierre)], ['SMA200', x => precio(x.sma200)],
       ['Distancia', x => col(x.cierre - x.sma200, pct((x.cierre / x.sma200 - 1) * 100))],
@@ -289,7 +301,7 @@ function renderCuenta(d, e) {
     ], ev.pares, '') : '<div class="vacio">Sin evaluaciones registradas.</div>';
   }
 
-  $('reglasTit').textContent = esE2 ? 'Reglas de la estrategia 2 (tendencia diaria)' : 'Reglas de la estrategia 1 (intradía)';
+  $('reglasTit').textContent = esE3 ? 'Reglas de la estrategia 3 (cruce EMA 4h)' : esE2 ? 'Reglas de la estrategia 2 (tendencia diaria)' : 'Reglas de la estrategia 1 (intradía)';
   $('reglas').innerHTML = (d.reglas || []).map(s => `<div><h3>${esc(s.titulo)}</h3><ul>${s.items.map(i => `<li>${esc(i)}</li>`).join('')}</ul></div>`).join('') || '<div class="vacio">—</div>';
 
   $('diario').innerHTML = (d.diario || []).map((x, i) => `<details ${i === 0 ? 'open' : ''}><summary>${esc(x.titulo)}</summary><ul>${x.lineas.map(l => `<li>${esc(l.replace(/\*\*/g, ''))}</li>`).join('')}</ul></details>`).join('') || '<div class="vacio">El diario está vacío.</div>';
