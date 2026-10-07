@@ -88,3 +88,6 @@ Refresca solo E3, la comparación y `historia_cruce.json`. E1 y E2 quedan como e
 - E1: freno diario (−3% desde las 00:00 PR) y freno de $900; se muestran como alerta.
 - E2 y E3: freno de $750 (`freno_total_activo`). E2 no tiene stop, objetivo ni freno diario; la tabla de posiciones muestra el peso actual/objetivo y la condición de salida.
 - Todas las horas se muestran en hora de Puerto Rico (UTC-4).
+
+## Benchmark btc_hold (pestaña #bh)
+Cuenta de papel Kraken `btc_hold` ($1,000, comisión 0.26 %): compró BTC una sola vez el 2026-10-07 10:52 PR y lo mantiene para siempre. Sin rutina propia: `exportar_dashboard.py` la lee en modo solo lectura (`--workspace btc_hold`) en **todos** los modos (`--sin-btchold` para omitirla); si falla, se conserva el bloque anterior. Datos: `data.json` → `btc_hold`, historia en `historia_btc_hold.json`, serie `btc_hold` en la comparación (línea "BTC hold real"); la línea punteada "BTC hold teórico" (`btc_bh`) se mantiene.
