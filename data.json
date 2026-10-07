@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-06T22:17:52-04:00",
+ "actualizado": "2026-10-07T00:18:09-04:00",
  "cuenta": {
   "workspace": "global",
   "modo": "paper",
@@ -33,31 +33,31 @@
  },
  "precios": {
   "BTCUSD": {
-   "precio": 83894.0,
-   "bid": 83900.1,
-   "ask": 83900.2,
+   "precio": 84040.2,
+   "bid": 84039.4,
+   "ask": 84039.5,
    "apertura_dia": 85542.0,
    "max_24h": 86683.4,
    "min_24h": 83555.0,
-   "cambio_dia_pct": -1.926539010076922
+   "cambio_dia_pct": -1.755628813915977
   },
   "ETHUSD": {
-   "precio": 2611.16,
-   "bid": 2611.17,
-   "ask": 2611.82,
+   "precio": 2607.57,
+   "bid": 2607.56,
+   "ask": 2607.57,
    "apertura_dia": 2697.15,
    "max_24h": 2724.02,
    "min_24h": 2590.0,
-   "cambio_dia_pct": -3.1881801160484335
+   "cambio_dia_pct": -3.3212835771091687
   },
   "SOLUSD": {
-   "precio": 117.54,
-   "bid": 117.55,
-   "ask": 117.57,
+   "precio": 118.12,
+   "bid": 118.11,
+   "ask": 118.12,
    "apertura_dia": 120.69,
    "max_24h": 121.97,
    "min_24h": 117.01,
-   "cambio_dia_pct": -2.6099925428784365
+   "cambio_dia_pct": -2.1294224873643186
   }
  },
  "posiciones": [],
@@ -71,6 +71,10 @@
   },
   {
    "t": "2026-10-06T22:17:52-04:00",
+   "equity": 1000.0
+  },
+  {
+   "t": "2026-10-07T00:18:09-04:00",
    "equity": 1000.0
   }
  ],
@@ -119,6 +123,17 @@
  ],
  "diario": [
   {
+   "titulo": "2026-10-07 00:17 PR — Revisión #2 (sin entradas)",
+   "lineas": [
+    "Cuenta: equity $1,000.00 (USD 1,000 libre), 0 posiciones, 0 órdenes, 0 trades en historial.",
+    "Velas cerradas usadas: última 1h = 23:00–00:00 PR; última 4h = 20:00–00:00 PR.",
+    "BTCUSD (84,039.5): C1 ❌ (cierre 4h 84,126.1 < EMA50 84,901.6) · C2 ❌ (cierre 1h 84,126.1 < EMA20 85,299.0) · C3 ❌ (RSI 29.92) · C4 ✅",
+    "ETHUSD (2,607.57): C1 ❌ (cierre 4h 2,610.62 < EMA50 2,691.79) · C2 ❌ (cierre 1h < EMA20 2,681.83) · C3 ❌ (RSI 17.81, bajando) · C4 ✅",
+    "SOLUSD (118.12): C1 ❌ (cierre 4h 118.22 < EMA50 119.60) · C2 ❌ (cierre 1h < EMA20 120.08) · C3 ❌ (RSI 30.54, bajando) · C4 ✅",
+    "Resultado: ninguna entrada; la tendencia 4h dejó de ser alcista en los tres pares. Detalle en velas/evaluacion_2026-10-07_0017PR.json."
+   ]
+  },
+  {
    "titulo": "2026-10-06 22:13 PR — Revisión #1 (sin entradas)",
    "lineas": [
     "Cuenta: equity $1,000.00 (USD 1,000 libre), 0 posiciones, 0 órdenes.",
@@ -131,44 +146,44 @@
   }
  ],
  "evaluacion": {
-  "archivo": "evaluacion_2026-10-06_2213PR.json",
-  "fecha": "2026-10-06T22:14:35-04:00",
+  "archivo": "evaluacion_2026-10-07_0017PR.json",
+  "fecha": "2026-10-07T00:17:54-04:00",
   "pares": [
    {
     "par": "BTCUSD",
     "condiciones": {
-     "1_tendencia_4h": true,
+     "1_tendencia_4h": false,
      "2_retroceso_1h": false,
      "3_rsi": false,
      "4_sin_posicion": true
     },
     "todas": false,
-    "rsi": 27.968111787763533,
-    "precio_ref": 83917.6
+    "rsi": 29.916858583924096,
+    "precio_ref": 84039.5
    },
    {
     "par": "ETHUSD",
     "condiciones": {
-     "1_tendencia_4h": true,
+     "1_tendencia_4h": false,
      "2_retroceso_1h": false,
      "3_rsi": false,
      "4_sin_posicion": true
     },
     "todas": false,
-    "rsi": 26.668169105453856,
-    "precio_ref": 2613.45
+    "rsi": 17.806648671081263,
+    "precio_ref": 2607.57
    },
    {
     "par": "SOLUSD",
     "condiciones": {
-     "1_tendencia_4h": true,
+     "1_tendencia_4h": false,
      "2_retroceso_1h": false,
      "3_rsi": false,
      "4_sin_posicion": true
     },
     "todas": false,
-    "rsi": 35.05287537429584,
-    "precio_ref": 117.68
+    "rsi": 30.540170091847145,
+    "precio_ref": 118.12
    }
   ]
  }
