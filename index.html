@@ -62,6 +62,12 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
     <div class="mut" id="cmpNota" style="font-size:12px;margin-top:6px"></div>
   </section>
 
+  <section class="card">
+    <h2>Segunda opinión (modelos IA gratis) · últimas críticas</h2>
+    <div class="mut" style="font-size:12px;margin-bottom:6px">Las reglas deciden; los modelos sólo critican. Sólo se veta una orden si el código verifica un error de datos (vela vieja, dato faltante, precio &gt;1% distinto del ticker).</div>
+    <div id="segundaOpinion" style="white-space:normal"></div>
+  </section>
+
   <nav class="tabs" id="tabs">
     <button class="tab" data-e="e1">Estrategia 1 · intradía (workspace global)</button>
     <button class="tab" data-e="e2">Estrategia 2 · tendencia diaria (workspace tendencia)</button>
@@ -152,6 +158,12 @@ function render(d) {
   const gen = d.actualizado_general || d.actualizado;
   $('actualizado').textContent = 'Actualizado: ' + new Date(gen).toLocaleString('es-PR', {timeZone: TZ, dateStyle: 'medium', timeStyle: 'short', hour12: true}) + ' (hora PR, UTC-4)';
   comparacion(d);
+  $('segundaOpinion').innerHTML = tabla([
+    ['Fecha (PR)', r => r.fecha_pr], ['Estr.', r => r.estrategia + (r.prueba ? ' (prueba)' : '')],
+    ['Orden', r => (r.lado || '').toUpperCase() + ' ' + r.par], ['Modelo', r => (r.modelo || '—').split('/').pop()],
+    ['Veredicto', r => r.veredicto], ['Datos', r => r.veto ? 'VETO: ' + r.motivo_veto : 'OK'],
+    ['Crítica', r => ({h: `<div style="white-space:normal;min-width:260px;max-width:520px">${esc((r.critica || '').slice(0, 400))}</div>`})]
+  ], d.segunda_opinion || [], 'Todavía no hay críticas.');
   document.querySelectorAll('.tab').forEach(b => b.onclick = () => { location.hash = b.dataset.e; elegir(b.dataset.e); });
   const h = location.hash.slice(1);
   elegir((h === 'e2' && d.estrategia2) || (h === 'e3' && d.estrategia3) || (h === 'bh' && d.btc_hold) ? h : 'e1');
