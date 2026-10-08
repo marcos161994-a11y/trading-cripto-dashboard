@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-08T06:21:32-04:00",
+ "actualizado": "2026-10-08T08:18:51-04:00",
  "cuenta": {
   "workspace": "global",
   "modo": "paper",
@@ -37,31 +37,31 @@
  },
  "precios": {
   "BTCUSD": {
-   "precio": 82879.7,
-   "bid": 82879.6,
-   "ask": 82879.7,
+   "precio": 82294.5,
+   "bid": 82294.4,
+   "ask": 82294.5,
    "apertura_dia": 83276.1,
-   "max_24h": 83911.0,
-   "min_24h": 82191.8,
-   "cambio_dia_pct": -0.4760069215537288
+   "max_24h": 83690.0,
+   "min_24h": 82176.1,
+   "cambio_dia_pct": -1.1787295514559482
   },
   "ETHUSD": {
-   "precio": 2558.22,
-   "bid": 2558.22,
-   "ask": 2558.23,
+   "precio": 2531.09,
+   "bid": 2531.37,
+   "ask": 2531.38,
    "apertura_dia": 2572.82,
-   "max_24h": 2590.54,
-   "min_24h": 2533.1,
-   "cambio_dia_pct": -0.5674707130697176
+   "max_24h": 2585.31,
+   "min_24h": 2525.02,
+   "cambio_dia_pct": -1.6219556750958097
   },
   "SOLUSD": {
-   "precio": 114.84,
-   "bid": 114.83,
-   "ask": 114.84,
+   "precio": 112.91,
+   "bid": 112.92,
+   "ask": 112.93,
    "apertura_dia": 116.24,
-   "max_24h": 117.94,
-   "min_24h": 114.09,
-   "cambio_dia_pct": -1.2044046799724595
+   "max_24h": 117.18,
+   "min_24h": 112.75,
+   "cambio_dia_pct": -2.8647625602202353
   }
  },
  "posiciones": [],
@@ -140,6 +140,10 @@
   {
    "t": "2026-10-08T06:21:32-04:00",
    "equity": 1000.0
+  },
+  {
+   "t": "2026-10-08T08:18:51-04:00",
+   "equity": 1000.0
   }
  ],
  "reglas": [
@@ -195,6 +199,17 @@
   }
  ],
  "diario": [
+  {
+   "titulo": "2026-10-08 08:18 PR — Revisión #18 (sin entradas)",
+   "lineas": [
+    "Cuenta: equity $1,000.00 (USD 1,000 libre), 0 posiciones, 0 órdenes, 0 trades en historial.",
+    "Velas cerradas usadas: última 1h = 07:00–08:00 PR; última 4h = 04:00–08:00 PR.",
+    "BTCUSD (82,332.9): C1 ❌ (cierre 4h 82,438.7 < EMA50 84,436.1; EMA20 84,147.0 < EMA50) · C2 ❌ (cierre 1h 82,438.7 < EMA20 83,056.1) · C3 ❌ (RSI 33.35, bajando desde 36.55) · C4 ✅",
+    "ETHUSD (2,532.97): C1 ❌ (cierre 4h 2,535.50 < EMA50 2,658.30; EMA20 2,624.00 < EMA50) · C2 ❌ (cierre 1h 2,535.50 < EMA20 2,568.18) · C3 ❌ (RSI 28.18, bajando desde 32.66) · C4 ✅",
+    "SOLUSD (112.95): C1 ❌ (cierre 4h 113.08 < EMA50 118.59; EMA20 117.71 < EMA50) · C2 ❌ (cierre 1h 113.08 < EMA20 115.50) · C3 ❌ (RSI 25.70, bajando desde 32.05) · C4 ✅",
+    "Resultado: ninguna entrada; la tendencia 4h sigue bajista en los tres pares. Detalle en velas/evaluacion_2026-10-08_0818PR.json."
+   ]
+  },
   {
    "titulo": "2026-10-08 06:21 PR — Revisión #17 (sin entradas)",
    "lineas": [
@@ -293,34 +308,23 @@
     "SOLUSD (116.45): C1 ❌ (cierre 4h 116.72 < EMA50 119.36) · C2 ❌ (cierre 1h 116.27 < EMA20 117.79) · C3 ❌ (RSI 30.98, bajando desde 33.95) · C4 ✅",
     "Resultado: ninguna entrada; la tendencia 4h sigue sin ser alcista en los tres pares. Detalle en velas/evaluacion_2026-10-07_1419PR.json."
    ]
-  },
-  {
-   "titulo": "2026-10-07 12:28 PR — Revisión #8 (sin entradas)",
-   "lineas": [
-    "Cuenta: equity $1,000.00 (USD 1,000 libre), 0 posiciones, 0 órdenes, 0 trades en historial.",
-    "Velas cerradas usadas: última 1h = 11:00–12:00 PR; última 4h = 08:00–12:00 PR.",
-    "BTCUSD (83,522.1): C1 ❌ (cierre 4h 83,415.5 < EMA50 84,769.6) · C2 ❌ (cierre 1h 83,415.5 < EMA20 84,119.5) · C3 ❌ (RSI 32.71, sube desde 21.07 pero < 40) · C4 ✅",
-    "ETHUSD (2,569.69): C1 ❌ (cierre 4h 2,569.45 < EMA50 2,679.91; EMA20 2,665.71 < EMA50) · C2 ❌ (cierre 1h 2,569.45 < EMA20 2,614.16) · C3 ❌ (RSI 20.16, < 40) · C4 ✅",
-    "SOLUSD (116.91): C1 ❌ (cierre 4h 116.72 < EMA50 119.36) · C2 ❌ (cierre 1h 116.72 < EMA20 118.08) · C3 ❌ (RSI 33.58, sube desde 21.48 pero < 40) · C4 ✅",
-    "Resultado: ninguna entrada; la tendencia 4h sigue sin ser alcista en los tres pares. Detalle en velas/evaluacion_2026-10-07_1228PR.json."
-   ]
   }
  ],
  "evaluacion": {
-  "archivo": "evaluacion_2026-10-08_0621PR.json",
-  "fecha": "2026-10-08T06:21:16-04:00",
+  "archivo": "evaluacion_2026-10-08_0818PR.json",
+  "fecha": "2026-10-08T08:18:24-04:00",
   "pares": [
    {
     "par": "BTCUSD",
     "condiciones": {
      "1_tendencia_4h": false,
      "2_retroceso_1h": false,
-     "3_rsi": true,
+     "3_rsi": false,
      "4_sin_posicion": true
     },
     "todas": false,
-    "rsi": 43.092920195918445,
-    "precio_ref": 82879.7
+    "rsi": 33.35129421502231,
+    "precio_ref": 82332.9
    },
    {
     "par": "ETHUSD",
@@ -331,8 +335,8 @@
      "4_sin_posicion": true
     },
     "todas": false,
-    "rsi": 39.59816107841681,
-    "precio_ref": 2558.23
+    "rsi": 28.17709788225831,
+    "precio_ref": 2532.97
    },
    {
     "par": "SOLUSD",
@@ -343,112 +347,13 @@
      "4_sin_posicion": true
     },
     "todas": false,
-    "rsi": 37.27103847076025,
-    "precio_ref": 114.84
+    "rsi": 25.699868916177195,
+    "precio_ref": 112.95
    }
   ]
  },
- "segunda_opinion": [
-  {
-   "fecha_pr": "2026-10-08 04:16",
-   "estrategia": "e3",
-   "par": "SOLUSD",
-   "lado": "sell",
-   "modelo": "nvidia/nemotron-3-ultra-550b-a55b:free",
-   "veredicto": "SIN VEREDICTO",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": false,
-   "critica": "The user wants me to act as a skeptical crypto trading strategy reviewer. I need to analyze the given order and context, looking for flaws like overfitting, look-ahead bias, costs, few trades, market regime issues. I must respond in Spanish, concisely, starting with a verdict line (DE ACUERDO, DUDA, EN CONTRA), then up to 4 bullet points with concrete risks and any data errors.\n\nLet me analyze the order and context:\n\nOrder: Sell SOLUSD, volume 1.41225696, price_ref 114.75, reason \"salida: EMA10 ≤ EMA100 (4h)\"\n\nContext:\n- Signal data: close_4h 114.86, ema10_4h 117.043625, ema100_4h 117.117937, bullish_cross false, daily_close 116.25, sma200_daily 86.40945, above_sma200 true, annual_vol 0.517227, eligible false, target_weight 0.0\n- Equity: 980.387314295956\n- Cash: 655.4813417903559\n- Holdings: BTCUSD 0.00196494, ETHUSD 0.0, SOLUSD 1.41225696\n- Candle: \"2026-10-08 04:00\"\n\nCurrent date/time: 2026-10-08 04:15 PR (UTC-4). The candle is 2026-10-08 04:00, which is 15 minutes ago. That seems plausible for a 4h candle that just closed? Actually 4h candles typically close at 00:00, 04:00, 08:00, 12:00, 16:00, 20:00 UTC. But the timezone is PR (UTC-4). So 04:00 PR is 08:00 UTC. That could be a 4h candle close at 08:00 UTC. The current time is 04:15 PR, so 15 minutes after the candle close. That's fine.\n\nNow check the signal: EMA10 (117.04) ≤ EMA100 (117.12) is true (117.043625 ≤ 117.117937). So the exit condition is met. The reason matches.\n\nBut note: The signal says \"elegible\": false, \""
-  },
-  {
-   "fecha_pr": "2026-10-08 04:15",
-   "estrategia": "e3",
-   "par": "BTCUSD",
-   "lado": "sell",
-   "modelo": null,
-   "veredicto": "ERROR_API",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": false,
-   "critica": "Ningún modelo respondió a tiempo: nvidia/nemotron-3-ultra-550b-a55b:free: "
-  },
-  {
-   "fecha_pr": "2026-10-07 16:14",
-   "estrategia": "e3",
-   "par": "SOLUSD",
-   "lado": "sell",
-   "modelo": null,
-   "veredicto": "ERROR_API",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": false,
-   "critica": "Ningún modelo respondió a tiempo: nvidia/nemotron-3-ultra-550b-a55b:free: "
-  },
-  {
-   "fecha_pr": "2026-10-07 16:13",
-   "estrategia": "e3",
-   "par": "BTCUSD",
-   "lado": "sell",
-   "modelo": "nvidia/nemotron-3-ultra-550b-a55b:free",
-   "veredicto": "SIN VEREDICTO",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": false,
-   "critica": "The user wants me to act as a skeptical crypto trading strategy reviewer. I need to analyze the given order and context, looking for flaws like overfitting, look-ahead bias, costs, few trades, market regime issues. I must respond in Spanish, concisely, starting with a verdict line (DE ACUERDO, DUDA, EN CONTRA), then up to 4 bullet points with concrete risks or data errors.\n\nFirst, understand the order: It's a sell order for BTCUSD, volume 0.00198871, price_ref 83509.1. Reason: \"rebalanceo único a FRACCION_CAPITAL 50% (aprobado por Marcos 2026-10-07): valor $330.17 → objetivo $164.09 (peso 0.3333 × 0.5 × equity $984.54)\". So they are rebalancing to reduce BTC position to 50% of target weight? Let's parse: target weight is 0.3333 (1/3). FRACCION_CAPITAL 50% means they want to allocate 50% of capital to this strategy? Or they are reducing the position to half of the target weight? The reason says: \"valor $330.17 → objetivo $164.09 (peso 0.3333 × 0.5 × equity $984.54)\". Current BTC holding: 0.00395365 BTC. At price_ref 83509.1, value = 0.00395365 * 83509.1 = 330.17 (matches). Target value = 0.3333 * 0.5 * 984.54 = 164.09. So they want to reduce BTC position to half of the usual target weight (maybe due to risk reduction). The order sells 0.00198871 BTC (half of current holdings? 0.00395365 / 2 = 0.001976825, close but not exact). Actually 0.00198871 * 83509.1 = 166.08, not 166.08? Let's compute: 0.00198871 * 83509.1 = 166.08. But target reduction is from 330.17 to 164.09, differe"
-  },
-  {
-   "fecha_pr": "2026-10-07 12:55",
-   "estrategia": "e1",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "nvidia/nemotron-3-ultra-550b-a55b:free",
-   "veredicto": "EN CONTRA",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "VEREDICTO: EN CONTRA\n\n- **Sin gestión de riesgo**: Falta stop-loss y take-profit; una orden \"PRUEBA\" sin protección expone a pérdida ilimitada.\n- **Señal nula**: RSI 50 es neutral, no da edge direccional; entrar solo por \"PRUEBA\" es apostar, no operar.\n- **Tamaño polvo**: 0.001 BTC ≈ 83 USD; comisiones y slippage comerán gran parte del PnL potencial.\n- **Datos desfasados**: La vela (1791385200 = 2026-10-07 10:00 UTC) cerró hace ~6.5 h; el precio de referencia 83376.5 ya es stale para ejecución actual."
-  },
-  {
-   "fecha_pr": "2026-10-07 12:55",
-   "estrategia": "e1",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": null,
-   "veredicto": "ERROR_API",
-   "veto": true,
-   "motivo_veto": "dato faltante/no válido: rsi14_1h=None; vela vieja: cerró hace 25385.7 h (intervalo 1 h); precio_ref 1000 difiere 8237.39% del ticker 83373.9",
-   "prueba": true,
-   "critica": "Falta OPENROUTER_API_KEY"
-  },
-  {
-   "fecha_pr": "2026-10-07 12:54",
-   "estrategia": "e3",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "nvidia/nemotron-3-ultra-550b-a55b:free",
-   "veredicto": "EN CONTRA",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "VEREDICTO: EN CONTRA\n\n- **Señal falsa admitida**: El motivo `\"PRUEBA: señal falsa forzada\"` confirma que es una orden de test, no una señal real; ejecutarla en papel contamina métricas y en real pierde dinero.\n- **Fecha de vela en el futuro**: `\"2026-10-07 12:00\"` es posterior a hoy (2025) → *look-ahead bias* / error de datos; invalida cualquier backtest o paper trading serio.\n- **Inconsistencia de precios y cruce**: Cierre 4h (83.415) **por debajo** de EMA10 (84.627) y EMA100 (83.850), sin embargo `cruce_alcista: true` — o el cruce ya ocurrió y precio retrocedió (señal tardía) o el flag es erróneo.\n- **Tamaño irrelevante vs objetivo**: Orden 0,0001 BTC ≈ 8,3 $ (0,8 % equity) mientras `peso_objetivo: 33 %`; no acerca la cartera al target y solo genera ruido/comisiones."
-  },
-  {
-   "fecha_pr": "2026-10-07 12:53",
-   "estrategia": "e2",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "nvidia/nemotron-3-ultra-550b-a55b:free",
-   "veredicto": "SIN VEREDICTO",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "The user wants me to act as a skeptical crypto trading strategy reviewer.\nI need to critique a specific order (e2 strategy, paper trading) based on provided context.\nI must start with a specific verdict line: 'VEREDICTO: DE ACUERDO', 'VEREDICTO: DUDA', or 'VEREDICTO: EN CONTRA'.\nThen max 4 bullet points with concrete risks or explicit data errors.\nLanguage: Spanish, concise.\n\nOrder details:\n- Pair: BTCUSD\n- Side: buy\n- Volume: 0.0001 BTC\n- Ref Price: 83,373.0\n- Reason: \"PRUEBA: señal falsa forzada\" (TEST: forced false signal)\n\nContext details:\n- Signal: Close 85,542.1, SMA200 71,656.489, Vol30 Annualized 0.3767, Eligible true, Target Weight 0.3333\n- Equity: ~984.59\n- Cash: ~1.94\n- Holdings: BTC 0.00395, ETH 0.127, SOL 2.79\n- Candle date: 2026-10-06 (Future date relative to now, but assuming backtest/paper context)\n\nAnalysis:\n1.  **Reason \"PRUEBA: señal falsa forzada\"**: This is a massive red flag. A live strategy (even paper) executing a \"forced false signal\" intentionally invalidates the strategy logic. It's a test order masquerading as a real trade.\n2.  **Price Discrepancy**: Order ref price is 83,373. Signal close is 85,542.1. That's a ~2.5% difference. Which price is real? Slippage? Stale data?\n3.  **Cash Constraint**: Cash is 1.94 USD. Order volume 0.0001 BTC * 83,373 = ~8.34 USD required. **Insufficient funds**. The order cannot be filled with current cash.\n4.  **Date**: 2026-10-06 is in the future (lookahead bias if backtesting, or just simulation date).\n5.  **Sizing**"
-  }
- ],
- "actualizado_general": "2026-10-08T08:18:31-04:00",
  "estrategia2": {
-  "actualizado": "2026-10-08T06:21:32-04:00",
+  "actualizado": "2026-10-08T08:18:51-04:00",
   "cuenta": {
    "workspace": "tendencia",
    "modo": "paper",
@@ -458,13 +363,13 @@
    "nombre": "Estrategia 2 · tendencia diaria SMA200"
   },
   "resumen": {
-   "equity": 976.45,
-   "equity_calculado": 976.41,
+   "equity": 965.45,
+   "equity_calculado": 965.42,
    "efectivo_usd": 1.94,
-   "pnl_total": -23.55,
-   "pnl_total_pct": -2.355,
+   "pnl_total": -34.55,
+   "pnl_total_pct": -3.455,
    "realizado": 0.0,
-   "no_realizado": -23.59,
+   "no_realizado": -34.58,
    "operaciones_cerradas": 0,
    "ejecuciones": 3,
    "ganadas": 0,
@@ -473,10 +378,10 @@
    "ganancia_media": null,
    "perdida_media": null,
    "factor_beneficio": null,
-   "max_drawdown_pct": -2.68,
-   "max_drawdown_usd": -26.76,
-   "drawdown_actual_pct": -2.35,
-   "cambio_dia_pct": -0.56,
+   "max_drawdown_pct": -3.45,
+   "max_drawdown_usd": -34.55,
+   "drawdown_actual_pct": -3.45,
+   "cambio_dia_pct": -1.68,
    "freno_diario_activo": false,
    "freno_900_activo": false,
    "freno_total_usd": 750,
@@ -486,31 +391,31 @@
   },
   "precios": {
    "BTCUSD": {
-    "precio": 82892.9,
-    "bid": 82892.8,
-    "ask": 82892.9,
+    "precio": 82318.3,
+    "bid": 82316.8,
+    "ask": 82316.9,
     "apertura_dia": 83276.1,
-    "max_24h": 83911.0,
-    "min_24h": 82191.8,
-    "cambio_dia_pct": -0.4601560351649603
+    "max_24h": 83690.0,
+    "min_24h": 82176.1,
+    "cambio_dia_pct": -1.150149922967092
    },
    "ETHUSD": {
-    "precio": 2558.51,
-    "bid": 2559.08,
-    "ask": 2559.09,
+    "precio": 2531.6,
+    "bid": 2531.59,
+    "ask": 2531.6,
     "apertura_dia": 2572.82,
-    "max_24h": 2590.54,
-    "min_24h": 2533.1,
-    "cambio_dia_pct": -0.556199034522431
+    "max_24h": 2585.31,
+    "min_24h": 2525.02,
+    "cambio_dia_pct": -1.602133067995437
    },
    "SOLUSD": {
-    "precio": 114.84,
-    "bid": 114.83,
-    "ask": 114.84,
+    "precio": 112.95,
+    "bid": 112.96,
+    "ask": 112.97,
     "apertura_dia": 116.24,
-    "max_24h": 117.94,
-    "min_24h": 114.09,
-    "cambio_dia_pct": -1.2044046799724595
+    "max_24h": 117.18,
+    "min_24h": 112.75,
+    "cambio_dia_pct": -2.8303509979353048
    }
   },
   "posiciones": [
@@ -518,12 +423,12 @@
     "par": "BTCUSD",
     "volumen": 0.00395268,
     "entrada": 84112.1,
-    "precio": 82892.9,
-    "valor": 327.64910797199997,
+    "precio": 82318.3,
+    "valor": 325.377898044,
     "stop": null,
     "objetivo": null,
-    "pnl": -5.683524816112822,
-    "pnl_pct": -1.709494186924361,
+    "pnl": -7.954734744112784,
+    "pnl_pct": -2.3926301447710805,
     "dist_stop_pct": null,
     "dist_objetivo_pct": null,
     "riesgo_usd": null,
@@ -537,12 +442,12 @@
     "par": "ETHUSD",
     "volumen": 0.12731333,
     "entrada": 2611.42,
-    "precio": 2558.51,
-    "valor": 325.7324279383,
+    "precio": 2531.6,
+    "valor": 322.306426228,
     "stop": null,
     "objetivo": null,
-    "pnl": -7.60056658849436,
-    "pnl_pct": -2.2861007421249737,
+    "pnl": -11.02656829879436,
+    "pnl_pct": -3.3165745839428356,
     "dist_stop_pct": null,
     "dist_objetivo_pct": null,
     "riesgo_usd": null,
@@ -556,12 +461,12 @@
     "par": "SOLUSD",
     "volumen": 2.79591114,
     "entrada": 118.22,
-    "precio": 114.84,
-    "valor": 321.0824353176,
+    "precio": 112.95,
+    "valor": 315.798163263,
     "stop": null,
     "objetivo": null,
-    "pnl": -10.30956445212405,
-    "pnl_pct": -3.119076298426654,
+    "pnl": -15.593836506724074,
+    "pnl_pct": -4.717790559972931,
     "dist_stop_pct": null,
     "dist_objetivo_pct": null,
     "riesgo_usd": null,
@@ -675,6 +580,10 @@
    {
     "t": "2026-10-08T06:21:32-04:00",
     "equity": 976.45
+   },
+   {
+    "t": "2026-10-08T08:18:51-04:00",
+    "equity": 965.45
    }
   ],
   "reglas": [
@@ -805,7 +714,7 @@
   "ultima_vela_procesada": "2026-10-07"
  },
  "estrategia3": {
-  "actualizado": "2026-10-08T08:18:31-04:00",
+  "actualizado": "2026-10-08T08:18:51-04:00",
   "cuenta": {
    "workspace": "cruce",
    "modo": "paper",
@@ -843,31 +752,31 @@
   },
   "precios": {
    "BTCUSD": {
-    "precio": 82294.5,
-    "bid": 82294.4,
-    "ask": 82294.5,
+    "precio": 82318.3,
+    "bid": 82316.8,
+    "ask": 82316.9,
     "apertura_dia": 83276.1,
     "max_24h": 83690.0,
     "min_24h": 82176.1,
-    "cambio_dia_pct": -1.1787295514559482
+    "cambio_dia_pct": -1.150149922967092
    },
    "ETHUSD": {
-    "precio": 2531.09,
-    "bid": 2531.37,
-    "ask": 2531.38,
+    "precio": 2531.6,
+    "bid": 2531.59,
+    "ask": 2531.6,
     "apertura_dia": 2572.82,
     "max_24h": 2585.31,
     "min_24h": 2525.02,
-    "cambio_dia_pct": -1.6219556750958097
+    "cambio_dia_pct": -1.602133067995437
    },
    "SOLUSD": {
-    "precio": 112.91,
-    "bid": 112.92,
-    "ask": 112.93,
+    "precio": 112.95,
+    "bid": 112.96,
+    "ask": 112.97,
     "apertura_dia": 116.24,
     "max_24h": 117.18,
     "min_24h": 112.75,
-    "cambio_dia_pct": -2.8647625602202353
+    "cambio_dia_pct": -2.8303509979353048
    }
   },
   "posiciones": [],
@@ -1070,7 +979,7 @@
     "equity": 979.9
    },
    {
-    "t": "2026-10-08T08:18:31-04:00",
+    "t": "2026-10-08T08:18:51-04:00",
     "equity": 979.9
    }
   ],
@@ -1312,7 +1221,7 @@
   "ultima_vela_procesada": "2026-10-08 08:00"
  },
  "btc_hold": {
-  "actualizado": "2026-10-08T08:18:31-04:00",
+  "actualizado": "2026-10-08T08:18:51-04:00",
   "cuenta": {
    "workspace": "btc_hold",
    "modo": "paper",
@@ -1322,13 +1231,13 @@
    "nombre": "Benchmark · comprar y mantener BTC"
   },
   "resumen": {
-   "equity": 989.12,
-   "equity_calculado": 989.12,
+   "equity": 989.39,
+   "equity_calculado": 989.4,
    "efectivo_usd": 0.5,
-   "pnl_total": -10.88,
-   "pnl_total_pct": -1.088,
+   "pnl_total": -10.61,
+   "pnl_total_pct": -1.061,
    "realizado": 0.0,
-   "no_realizado": -10.88,
+   "no_realizado": -10.6,
    "operaciones_cerradas": 0,
    "ejecuciones": 1,
    "ganadas": 0,
@@ -1337,44 +1246,44 @@
    "ganancia_media": null,
    "perdida_media": null,
    "factor_beneficio": null,
-   "max_drawdown_pct": -1.46,
-   "max_drawdown_usd": -14.63,
-   "drawdown_actual_pct": -1.46,
-   "cambio_dia_pct": -0.83,
+   "max_drawdown_pct": -1.43,
+   "max_drawdown_usd": -14.36,
+   "drawdown_actual_pct": -1.43,
+   "cambio_dia_pct": -0.81,
    "freno_diario_activo": false,
    "freno_900_activo": false,
    "freno_total_usd": 0,
    "freno_total_activo": false,
    "ordenes_abiertas": 0,
-   "exposicion_pct": 99.9
+   "exposicion_pct": 100.0
   },
   "precios": {
    "BTCUSD": {
-    "precio": 82294.5,
-    "bid": 82294.4,
-    "ask": 82294.5,
+    "precio": 82318.3,
+    "bid": 82316.8,
+    "ask": 82316.9,
     "apertura_dia": 83276.1,
     "max_24h": 83690.0,
     "min_24h": 82176.1,
-    "cambio_dia_pct": -1.1787295514559482
+    "cambio_dia_pct": -1.150149922967092
    },
    "ETHUSD": {
-    "precio": 2531.09,
-    "bid": 2531.37,
-    "ask": 2531.38,
+    "precio": 2531.6,
+    "bid": 2531.59,
+    "ask": 2531.6,
     "apertura_dia": 2572.82,
     "max_24h": 2585.31,
     "min_24h": 2525.02,
-    "cambio_dia_pct": -1.6219556750958097
+    "cambio_dia_pct": -1.602133067995437
    },
    "SOLUSD": {
-    "precio": 112.91,
-    "bid": 112.92,
-    "ask": 112.93,
+    "precio": 112.95,
+    "bid": 112.96,
+    "ask": 112.97,
     "apertura_dia": 116.24,
     "max_24h": 117.18,
     "min_24h": 112.75,
-    "cambio_dia_pct": -2.8647625602202353
+    "cambio_dia_pct": -2.8303509979353048
    }
   },
   "posiciones": [
@@ -1382,12 +1291,12 @@
     "par": "BTCUSD",
     "volumen": 0.01201318,
     "entrada": 82984.5,
-    "precio": 82294.5,
-    "valor": 988.61864151,
+    "precio": 82318.3,
+    "valor": 988.9045551940001,
     "stop": null,
     "objetivo": null,
-    "pnl": -10.881054312846004,
-    "pnl_pct": -1.0914805776982452,
+    "pnl": -10.595140628845911,
+    "pnl_pct": -1.0628005229892241,
     "dist_stop_pct": null,
     "dist_objetivo_pct": null,
     "riesgo_usd": null,
@@ -1473,8 +1382,8 @@
     "equity": 996.31
    },
    {
-    "t": "2026-10-08T08:18:31-04:00",
-    "equity": 989.12
+    "t": "2026-10-08T08:18:51-04:00",
+    "equity": 989.39
    }
   ],
   "reglas": [
@@ -1581,6 +1490,10 @@
     {
      "t": "2026-10-08T06:21:32-04:00",
      "equity": 1000.0
+    },
+    {
+     "t": "2026-10-08T08:18:51-04:00",
+     "equity": 1000.0
     }
    ],
    "estrategia2": [
@@ -1655,6 +1568,10 @@
     {
      "t": "2026-10-08T06:21:32-04:00",
      "equity": 976.45
+    },
+    {
+     "t": "2026-10-08T08:18:51-04:00",
+     "equity": 965.45
     }
    ],
    "estrategia3": [
@@ -1743,7 +1660,7 @@
      "equity": 979.9
     },
     {
-     "t": "2026-10-08T08:18:31-04:00",
+     "t": "2026-10-08T08:18:51-04:00",
      "equity": 979.9
     }
    ],
@@ -1809,8 +1726,8 @@
      "equity": 996.31
     },
     {
-     "t": "2026-10-08T08:18:31-04:00",
-     "equity": 989.12
+     "t": "2026-10-08T08:18:51-04:00",
+     "equity": 989.39
     }
    ],
    "btc_bh": [
@@ -1911,10 +1828,109 @@
      "equity": 985.5
     },
     {
-     "t": "2026-10-08T08:18:31-04:00",
-     "equity": 978.38
+     "t": "2026-10-08T08:18:51-04:00",
+     "equity": 978.67
     }
    ]
   }
- }
+ },
+ "segunda_opinion": [
+  {
+   "fecha_pr": "2026-10-08 04:16",
+   "estrategia": "e3",
+   "par": "SOLUSD",
+   "lado": "sell",
+   "modelo": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "veredicto": "SIN VEREDICTO",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": false,
+   "critica": "The user wants me to act as a skeptical crypto trading strategy reviewer. I need to analyze the given order and context, looking for flaws like overfitting, look-ahead bias, costs, few trades, market regime issues. I must respond in Spanish, concisely, starting with a verdict line (DE ACUERDO, DUDA, EN CONTRA), then up to 4 bullet points with concrete risks and any data errors.\n\nLet me analyze the order and context:\n\nOrder: Sell SOLUSD, volume 1.41225696, price_ref 114.75, reason \"salida: EMA10 ≤ EMA100 (4h)\"\n\nContext:\n- Signal data: close_4h 114.86, ema10_4h 117.043625, ema100_4h 117.117937, bullish_cross false, daily_close 116.25, sma200_daily 86.40945, above_sma200 true, annual_vol 0.517227, eligible false, target_weight 0.0\n- Equity: 980.387314295956\n- Cash: 655.4813417903559\n- Holdings: BTCUSD 0.00196494, ETHUSD 0.0, SOLUSD 1.41225696\n- Candle: \"2026-10-08 04:00\"\n\nCurrent date/time: 2026-10-08 04:15 PR (UTC-4). The candle is 2026-10-08 04:00, which is 15 minutes ago. That seems plausible for a 4h candle that just closed? Actually 4h candles typically close at 00:00, 04:00, 08:00, 12:00, 16:00, 20:00 UTC. But the timezone is PR (UTC-4). So 04:00 PR is 08:00 UTC. That could be a 4h candle close at 08:00 UTC. The current time is 04:15 PR, so 15 minutes after the candle close. That's fine.\n\nNow check the signal: EMA10 (117.04) ≤ EMA100 (117.12) is true (117.043625 ≤ 117.117937). So the exit condition is met. The reason matches.\n\nBut note: The signal says \"elegible\": false, \""
+  },
+  {
+   "fecha_pr": "2026-10-08 04:15",
+   "estrategia": "e3",
+   "par": "BTCUSD",
+   "lado": "sell",
+   "modelo": null,
+   "veredicto": "ERROR_API",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": false,
+   "critica": "Ningún modelo respondió a tiempo: nvidia/nemotron-3-ultra-550b-a55b:free: "
+  },
+  {
+   "fecha_pr": "2026-10-07 16:14",
+   "estrategia": "e3",
+   "par": "SOLUSD",
+   "lado": "sell",
+   "modelo": null,
+   "veredicto": "ERROR_API",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": false,
+   "critica": "Ningún modelo respondió a tiempo: nvidia/nemotron-3-ultra-550b-a55b:free: "
+  },
+  {
+   "fecha_pr": "2026-10-07 16:13",
+   "estrategia": "e3",
+   "par": "BTCUSD",
+   "lado": "sell",
+   "modelo": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "veredicto": "SIN VEREDICTO",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": false,
+   "critica": "The user wants me to act as a skeptical crypto trading strategy reviewer. I need to analyze the given order and context, looking for flaws like overfitting, look-ahead bias, costs, few trades, market regime issues. I must respond in Spanish, concisely, starting with a verdict line (DE ACUERDO, DUDA, EN CONTRA), then up to 4 bullet points with concrete risks or data errors.\n\nFirst, understand the order: It's a sell order for BTCUSD, volume 0.00198871, price_ref 83509.1. Reason: \"rebalanceo único a FRACCION_CAPITAL 50% (aprobado por Marcos 2026-10-07): valor $330.17 → objetivo $164.09 (peso 0.3333 × 0.5 × equity $984.54)\". So they are rebalancing to reduce BTC position to 50% of target weight? Let's parse: target weight is 0.3333 (1/3). FRACCION_CAPITAL 50% means they want to allocate 50% of capital to this strategy? Or they are reducing the position to half of the target weight? The reason says: \"valor $330.17 → objetivo $164.09 (peso 0.3333 × 0.5 × equity $984.54)\". Current BTC holding: 0.00395365 BTC. At price_ref 83509.1, value = 0.00395365 * 83509.1 = 330.17 (matches). Target value = 0.3333 * 0.5 * 984.54 = 164.09. So they want to reduce BTC position to half of the usual target weight (maybe due to risk reduction). The order sells 0.00198871 BTC (half of current holdings? 0.00395365 / 2 = 0.001976825, close but not exact). Actually 0.00198871 * 83509.1 = 166.08, not 166.08? Let's compute: 0.00198871 * 83509.1 = 166.08. But target reduction is from 330.17 to 164.09, differe"
+  },
+  {
+   "fecha_pr": "2026-10-07 12:55",
+   "estrategia": "e1",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "veredicto": "EN CONTRA",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "VEREDICTO: EN CONTRA\n\n- **Sin gestión de riesgo**: Falta stop-loss y take-profit; una orden \"PRUEBA\" sin protección expone a pérdida ilimitada.\n- **Señal nula**: RSI 50 es neutral, no da edge direccional; entrar solo por \"PRUEBA\" es apostar, no operar.\n- **Tamaño polvo**: 0.001 BTC ≈ 83 USD; comisiones y slippage comerán gran parte del PnL potencial.\n- **Datos desfasados**: La vela (1791385200 = 2026-10-07 10:00 UTC) cerró hace ~6.5 h; el precio de referencia 83376.5 ya es stale para ejecución actual."
+  },
+  {
+   "fecha_pr": "2026-10-07 12:55",
+   "estrategia": "e1",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": null,
+   "veredicto": "ERROR_API",
+   "veto": true,
+   "motivo_veto": "dato faltante/no válido: rsi14_1h=None; vela vieja: cerró hace 25385.7 h (intervalo 1 h); precio_ref 1000 difiere 8237.39% del ticker 83373.9",
+   "prueba": true,
+   "critica": "Falta OPENROUTER_API_KEY"
+  },
+  {
+   "fecha_pr": "2026-10-07 12:54",
+   "estrategia": "e3",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "veredicto": "EN CONTRA",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "VEREDICTO: EN CONTRA\n\n- **Señal falsa admitida**: El motivo `\"PRUEBA: señal falsa forzada\"` confirma que es una orden de test, no una señal real; ejecutarla en papel contamina métricas y en real pierde dinero.\n- **Fecha de vela en el futuro**: `\"2026-10-07 12:00\"` es posterior a hoy (2025) → *look-ahead bias* / error de datos; invalida cualquier backtest o paper trading serio.\n- **Inconsistencia de precios y cruce**: Cierre 4h (83.415) **por debajo** de EMA10 (84.627) y EMA100 (83.850), sin embargo `cruce_alcista: true` — o el cruce ya ocurrió y precio retrocedió (señal tardía) o el flag es erróneo.\n- **Tamaño irrelevante vs objetivo**: Orden 0,0001 BTC ≈ 8,3 $ (0,8 % equity) mientras `peso_objetivo: 33 %`; no acerca la cartera al target y solo genera ruido/comisiones."
+  },
+  {
+   "fecha_pr": "2026-10-07 12:53",
+   "estrategia": "e2",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "nvidia/nemotron-3-ultra-550b-a55b:free",
+   "veredicto": "SIN VEREDICTO",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "The user wants me to act as a skeptical crypto trading strategy reviewer.\nI need to critique a specific order (e2 strategy, paper trading) based on provided context.\nI must start with a specific verdict line: 'VEREDICTO: DE ACUERDO', 'VEREDICTO: DUDA', or 'VEREDICTO: EN CONTRA'.\nThen max 4 bullet points with concrete risks or explicit data errors.\nLanguage: Spanish, concise.\n\nOrder details:\n- Pair: BTCUSD\n- Side: buy\n- Volume: 0.0001 BTC\n- Ref Price: 83,373.0\n- Reason: \"PRUEBA: señal falsa forzada\" (TEST: forced false signal)\n\nContext details:\n- Signal: Close 85,542.1, SMA200 71,656.489, Vol30 Annualized 0.3767, Eligible true, Target Weight 0.3333\n- Equity: ~984.59\n- Cash: ~1.94\n- Holdings: BTC 0.00395, ETH 0.127, SOL 2.79\n- Candle date: 2026-10-06 (Future date relative to now, but assuming backtest/paper context)\n\nAnalysis:\n1.  **Reason \"PRUEBA: señal falsa forzada\"**: This is a massive red flag. A live strategy (even paper) executing a \"forced false signal\" intentionally invalidates the strategy logic. It's a test order masquerading as a real trade.\n2.  **Price Discrepancy**: Order ref price is 83,373. Signal close is 85,542.1. That's a ~2.5% difference. Which price is real? Slippage? Stale data?\n3.  **Cash Constraint**: Cash is 1.94 USD. Order volume 0.0001 BTC * 83,373 = ~8.34 USD required. **Insufficient funds**. The order cannot be filled with current cash.\n4.  **Date**: 2026-10-06 is in the future (lookahead bias if backtesting, or just simulation date).\n5.  **Sizing**"
+  }
+ ],
+ "actualizado_general": "2026-10-08T08:18:51-04:00"
 }
