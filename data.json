@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-10-11T10:22:15-04:00",
+ "actualizado": "2026-10-11T12:21:49-04:00",
  "cuenta": {
   "workspace": "global",
   "modo": "paper",
@@ -37,31 +37,31 @@
  },
  "precios": {
   "BTCUSD": {
-   "precio": 82964.0,
-   "bid": 82963.9,
-   "ask": 82964.0,
+   "precio": 83721.4,
+   "bid": 83721.3,
+   "ask": 83721.4,
    "apertura_dia": 82912.7,
-   "max_24h": 83168.0,
+   "max_24h": 83897.2,
    "min_24h": 82716.1,
-   "cambio_dia_pct": 0.06187230665508636
+   "cambio_dia_pct": 0.9753632435079318
   },
   "ETHUSD": {
-   "precio": 2499.78,
-   "bid": 2499.77,
-   "ask": 2499.78,
+   "precio": 2531.21,
+   "bid": 2531.13,
+   "ask": 2531.18,
    "apertura_dia": 2504.1,
-   "max_24h": 2516.65,
+   "max_24h": 2538.28,
    "min_24h": 2495.31,
-   "cambio_dia_pct": -0.1725170720019098
+   "cambio_dia_pct": 1.082624495826856
   },
   "SOLUSD": {
-   "precio": 109.3,
-   "bid": 109.29,
-   "ask": 109.3,
+   "precio": 111.5,
+   "bid": 111.48,
+   "ask": 111.49,
    "apertura_dia": 109.99,
-   "max_24h": 110.67,
+   "max_24h": 111.98,
    "min_24h": 108.86,
-   "cambio_dia_pct": -0.6273297572506609
+   "cambio_dia_pct": 1.3728520774615838
   }
  },
  "posiciones": [],
@@ -276,6 +276,10 @@
   {
    "t": "2026-10-11T10:22:15-04:00",
    "equity": 1000.0
+  },
+  {
+   "t": "2026-10-11T12:21:49-04:00",
+   "equity": 1000.0
   }
  ],
  "reglas": [
@@ -331,6 +335,18 @@
   }
  ],
  "diario": [
+  {
+   "titulo": "2026-10-11 12:21 PR — Revisión #52 (sin entradas)",
+   "lineas": [
+    "Cuenta: equity $1,000.00 (USD 1,000 libre), 0 posiciones, 0 órdenes, 0 trades en historial. (Datos de la cuenta \"global\" leídos con el CLI `--workspace global`, solo lectura.)",
+    "Velas cerradas usadas: última 1h = 11:00–12:00 PR; última 4h = 08:00–12:00 PR.",
+    "BTCUSD (83,730.4): C1 ❌ (cierre 4h 83,801.5 > EMA50 83,518.1, pero EMA20 83,041.1 < EMA50) · C2 ✅ (tocó EMA20 en ult3 y cierre 1h 83,801.5 > EMA20 83,036.0) · C3 ❌ (RSI 74.69 > 60, sube desde 55.69) · C4 ✅",
+    "ETHUSD (2,531.90): C1 ❌ (cierre 4h 2,533.16 < EMA50 2,571.52; EMA20 2,518.20 < EMA50) · C2 ✅ (tocó EMA20 en ult3 y cierre 1h 2,533.16 > EMA20 2,504.93) · C3 ❌ (RSI 71.63 > 60) · C4 ✅",
+    "SOLUSD (111.52): C1 ❌ (cierre 4h 111.85 < EMA50 113.93; EMA20 111.08 < EMA50) · C2 ✅ (tocó EMA20 en ult3 y cierre 1h 111.85 > EMA20 109.80) · C3 ❌ (RSI 70.53 > 60) · C4 ✅",
+    "Freno diario −3%: no (equity día $1,000 = 0%). Equity ≥ $900: sí.",
+    "Resultado: ninguna entrada; subida fuerte en la última hora (RSI >70 en los tres) pero la tendencia 4h sigue sin confirmar (EMA20 4h < EMA50 4h). Detalle en velas/evaluacion_2026-10-11_1221PR.json."
+   ]
+  },
   {
    "titulo": "2026-10-11 10:21 PR — Revisión #51 (sin entradas)",
    "lineas": [
@@ -438,23 +454,11 @@
     "Freno diario −3%: no (equity día $1,000 = 0%). Equity ≥ $900: sí.",
     "Resultado: ninguna entrada; la tendencia 4h sigue bajista en los tres pares (C1). Detalle en velas/evaluacion_2026-10-10_1815PR.json."
    ]
-  },
-  {
-   "titulo": "2026-10-10 16:19 PR — Revisión #42 (sin entradas)",
-   "lineas": [
-    "Cuenta: equity $1,000.00 (USD 1,000 libre), 0 posiciones, 0 órdenes, 0 trades en historial. (Datos de la cuenta \"global\" leídos con el CLI `--workspace global`, solo lectura.)",
-    "Velas cerradas usadas: última 1h = 15:00–16:00 PR; última 4h = 12:00–16:00 PR.",
-    "BTCUSD (82,975.0): C1 ❌ (cierre 4h 82,994.9 < EMA50 83,608.1; EMA20 82,977.9 < EMA50) · C2 ❌ (no tocó la EMA20 1h en las últimas 3 velas; cierre 1h 82,994.9 > EMA20 82,801.3) · C3 ❌ (RSI 60.15 > 60) · C4 ✅",
-    "ETHUSD (2,506.19): C1 ❌ (cierre 4h 2,510.93 < EMA50 2,585.62; EMA20 2,524.38 < EMA50) · C2 ❌ (no tocó la EMA20 1h en las últimas 3 velas; cierre 1h 2,510.93 > EMA20 2,499.23) · C3 ❌ (RSI 62.97 > 60) · C4 ✅",
-    "SOLUSD (110.22): C1 ❌ (cierre 4h 110.34 < EMA50 114.80; EMA20 111.76 < EMA50) · C2 ✅ (tocó EMA20 en ult3 y cierre 1h 110.34 > EMA20 109.94) · C3 ✅ (RSI 55.11, sube desde 53.29) · C4 ✅",
-    "Freno diario −3%: no (equity día $1,000 = 0%). Equity ≥ $900: sí.",
-    "Resultado: ninguna entrada; la tendencia 4h sigue bajista en los tres pares (C1). Detalle en velas/evaluacion_2026-10-10_1619PR.json."
-   ]
   }
  ],
  "evaluacion": {
-  "archivo": "evaluacion_2026-10-11_1021PR.json",
-  "fecha": "2026-10-11T10:22:14-04:00",
+  "archivo": "evaluacion_2026-10-11_1221PR.json",
+  "fecha": "2026-10-11T12:21:49-04:00",
   "pares": [
    {
     "par": "BTCUSD",
@@ -465,160 +469,37 @@
      "4_sin_posicion": true
     },
     "todas": false,
-    "rsi": 54.01619817323466,
-    "precio_ref": 82964.0
+    "rsi": 74.69395542521404,
+    "precio_ref": 83730.4
    },
    {
     "par": "ETHUSD",
     "condiciones": {
      "1_tendencia_4h": false,
-     "2_retroceso_1h": false,
+     "2_retroceso_1h": true,
      "3_rsi": false,
      "4_sin_posicion": true
     },
     "todas": false,
-    "rsi": 49.187972504924026,
-    "precio_ref": 2499.78
+    "rsi": 71.63289435908598,
+    "precio_ref": 2531.9
    },
    {
     "par": "SOLUSD",
     "condiciones": {
      "1_tendencia_4h": false,
-     "2_retroceso_1h": false,
+     "2_retroceso_1h": true,
      "3_rsi": false,
      "4_sin_posicion": true
     },
     "todas": false,
-    "rsi": 45.25889648106616,
-    "precio_ref": 109.3
+    "rsi": 70.53468776124707,
+    "precio_ref": 111.52
    }
   ]
  },
- "segunda_opinion": [
-  {
-   "fecha_pr": "2026-10-09 10:34",
-   "estrategia": "e1",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
-   "veredicto": "DUDA",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "VEREDICTO: DUDA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: DUDA, gemini-3.5-flash: DUDA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   El motivo \"PRUEBA: contexto ficticio\" invalida cualquier validación estadística real y sugiere un entorno de backtest no verificado.\n*   RSI en 31.5 indica debilidad extrema, no reversión confirmada; comprar contra la tendencia sin filtro adicional es capturar cuchillos cayendo.\n*   Ratio riesgo/beneficio asimétrico negativo (2% pérdida vs 3% ganancia) no compensa la baja probabilidad de éxito en sobreventa sin divergencia.\n*   Precio de referencia coincide exactamente con EMA20, lo que delata posible sobreajuste o sesgo de anticipación al asumir soporte inmediato sin confirmación.\n[deepseek-v4-pro] VEREDICTO: DUDA\n- RSI(14)=31.5 en 1h está en zona de sobreventa leve, pero no es una señal de compra fuerte por sí sola sin divergencias o confirmación de volumen.\n- El stop-loss está a solo -2% (81496.8), mientras que el objetivo está a +3% (85654.8), dando un ratio riesgo/beneficio de 1:1.5, apenas aceptable antes de comisiones.\n- El precio de entrada coincide exactamente con la EMA20 (83160.0), lo cual es sospechosamente perfecto y sugiere posible ajuste artificial de datos o sobreajuste.\n- El contexto se declara explícitamente como \"ficticio/PRUEBA\", por lo que no hay validez estadística ni condiciones reales de mercado que evaluar.\n[gemini-3.5-flash] VEREDICTO: DUDA\n\n* **Incongruencia en indicadores:** Un RSI de 31.5 (cerca de sobreventa) es técnicamente inconsistente con un precio cotizando exactamente sobre la EMA20 (83160), lo que sugiere anomalía en los datos o un desplome vertical previo.\n* **Atrapar un cuchillo cayendo:** El RSI tan bajo indica un fuerte impulso bajista; comprar sin confirmación de suelo ni divergencia es altamente riesgoso.\n* **Stop vulnerable:** Un stop del 2% (81496.8) es fácilmente alcanzable mediante ruido de mercado en un régimen de alta volatilidad implícita por la caída actual.\n* **Sin considerar costos:** El tamaño de la orden (0.001 BTC) es insignificante y los costos de transacción devorarán el beneficio"
-  },
-  {
-   "fecha_pr": "2026-10-09 10:34",
-   "estrategia": "e3",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
-   "veredicto": "EN CONTRA",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "VEREDICTO: EN CONTRA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: EN CONTRA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   La señal marca explícitamente `elegible: false` y `peso_objetivo: 0.0`, contradiciendo directamente la ejecución de la orden.\n*   El motivo \"señal falsa forzada\" confirma que es una prueba artificial sin validez estadística ni lógica de mercado real.\n*   No existe cruce alcista (`cruce_alcista: false`) y el precio está por debajo de la EMA100, careciendo de confirmación técnica básica.\n*   Ejecutar compras forzadas en papel genera sesgo de supervivencia y métricas de rendimiento irreales al ignorar los filtros de entrada.\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- El motivo indica \"PRUEBA: señal falsa forzada\", lo que contradice directamente el objetivo de una estrategia realista y no sobreajustada.\n- La señal es explícitamente no elegible (elegible: false) y el peso objetivo es 0.0, por lo que ejecutar una compra va contra las propias reglas de la estrategia.\n- El cruce alcista está marcado como falso y el precio de referencia (83158.2) está por debajo de la EMA100 (83575.44), lo que confirma que técnicamente no hay justificación para una entrada larga.\n- Sin tenencias previas y con señal nula, entrar genera exposición injustificada y riesgo de pérdida inmediata, especialmente en un entorno donde el precio ya cotiza bajo la med\n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Inconsistencia algorítmica:** Se ejecuta una compra a pesar de que el sistema clasifica el par como no elegible (`elegible: false`) y con peso objetivo cero.\n* **Tendencia bajista local:** El precio de cierre (83,175.9) cotiza por debajo de la EMA100 de 4h (83,575.4) sin cruce alcista activo; es una entrada contra tendencia a mediano plazo.\n* **Costos y granularidad:** Operar un volumen tan insignificante (0.0001 BTC, ~$8.3 USD) con una cuenta de ~$980 carece de sentido financiero y las comisiones absorberán cualquier beneficio.\n* **Sesgo por pruebas manuales:** Forzar \"señales falsas\" en un entorno real o de papel ensucia el histórico de ejecución y sesga la evalua"
-  },
-  {
-   "fecha_pr": "2026-10-09 10:33",
-   "estrategia": "e2",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
-   "veredicto": "EN CONTRA",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "VEREDICTO: EN CONTRA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: EN CONTRA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   El motivo \"señal falsa forzada\" confirma explícitamente la ausencia de ventaja estadística y valida el riesgo de sobreajuste o prueba arbitraria.\n*   Discrepancia crítica de datos: el precio de referencia (83,113) difiere en +1,429 del cierre de señal (81,683), indicando posible sesgo de anticipación o error de ejecución.\n*   La vela de contexto es del día anterior (2026-10-08), generando latencia informativa inaceptable para una entrada a mercado actual.\n*   El volumen de 0.0001 BTC carece de significancia estadística para validar la estrategia, siendo vulnerable a distorsiones por costos fijos y slippage.\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- Motivo declarado como \"PRUEBA: señal falsa forzada\", lo que invalida cualquier mérito real de la orden.\n- El precio_ref (83113.5) está muy por encima del cierre de la vela (81683.8), sugiriendo un sesgo de anticipación o precio mal justificado.\n- Volumen de 0.0001 BTC (~8.3 USD) es insignificante frente al equity de 956 USD; no hay gestión de riesgo real.\n- La vela es del día anterior (2026-10-08) pero la fecha actual es 2026-10-09; la señal usa datos desfasados sin confirmación del precio actual.\n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Falta de efectivo**: La compra requiere aproximadamente $8.31 USD (0.0001 x 83113.5), pero la cuenta solo dispone de $1.94 USD de liquidez. La orden será rechazada.\n* **Discrepancia de precio**: El precio de referencia ($83,113.5) es un 1.75% más alto que el cierre informado ($81,683.8), lo que refleja un deslizamiento severo o inconsistencia en los datos.\n* **Señal forzada**: Ejecutar órdenes bajo el motivo de \"señal falsa forzada\" contamina la pureza estadística de la estrategia y carece de validez técnica.\n* **Costos de transacción**: Operar con un volumen tan pequeño (0.0001 BTC) frente a saldos de efectivo marginales solo diluye el portafolio en comisiones."
-  },
-  {
-   "fecha_pr": "2026-10-09 10:33",
-   "estrategia": "e1",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
-   "veredicto": "DUDA",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "VEREDICTO: DUDA (3/3 con veredicto — qwen3.7-max: DUDA, deepseek-v4-pro: DUDA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: DUDA\n\n*   El motivo \"PRUEBA: contexto ficticio\" invalida cualquier validación estadística real y sugiere un entorno de backtest no verificado.\n*   RSI en 31.5 indica sobreventa, pero comprar ciegamente sin confirmación de estructura es propenso a fallos en tendencias bajistas fuertes.\n*   Ratio riesgo/beneficio de 1.5:1 es marginal para una estrategia de reversión a la media con alta tasa de falsos positivos.\n*   La fecha de la vela (2026) confirma que los datos son sintéticos; no se puede evaluar el régimen de mercado ni la liquidez real.\n[deepseek-v4-pro] VEREDICTO: DUDA\n- Ratio riesgo/recompensa de 1.5:1 (riesgo 1662.4, ganancia 2493.6) es marginal, especialmente con BTC que suele necesitar ratios superiores por volatilidad.\n- RSI en 31.5 está cerca de sobreventa pero no la confirma del todo; en tendencias bajistas fuertes puede seguir cayendo.\n- El precio de entrada coincide exactamente con la EMA20, lo que sugiere posible sobreajuste o cherry picking.\n- El contexto es explícitamente ficticio (\"PRUEBA\"), por lo que cualquier validación estadística es imposible; no hay certeza de que este setup funcione en condiciones reales con spreads y comisiones.\n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Sesgo de anticipación temporal:** El timestamp de la vela (1791550800) corresponde al 10 de octubre de 2026, es decir, un día en el futuro respecto a la fecha actual del sistema (9 de octubre), lo que invalida la consistencia de los datos.\n* **Atrapado contra tendencia:** Intentar una compra con un RSI en 31.5 (fuerte impulso bajista) y justo en la EMA20 como resistencia dinámica es una entrada altamente peligrosa y sin confirmación de reversión.\n* **Stop loss vulnerable:** El stop está colocado a menos de un 2% del precio de entrada, una distancia extremadamente corta para la volatilidad habitual de BTC, lo que asegura un barrido rápido.\n* **Falta de volumen y cont"
-  },
-  {
-   "fecha_pr": "2026-10-09 10:33",
-   "estrategia": "e3",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
-   "veredicto": "EN CONTRA",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "VEREDICTO: EN CONTRA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: EN CONTRA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   La señal marca explícitamente `elegible: false` y `peso_objetivo: 0.0`, contradiciendo directamente la ejecución de la orden.\n*   No existe cruce alcista (`cruce_alcista: false`) y el precio está por debajo de la EMA100, invalidando cualquier premisa de tendencia positiva.\n*   El motivo \"señal falsa forzada\" confirma que es una prueba artificial sin validez estadística ni edge real en el régimen actual.\n*   Ejecutar compras contra filtros negativos sistemáticos genera sobreajuste inverso y costos de transacción injustificados en papel.\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- El motivo indica explícitamente \"señal falsa forzada\", lo que contradice cualquier disciplina de sistema\n- El precio de referencia (83123.4) está por debajo del cierre de la vela actual (83175.9), sugiriendo sesgo de anticipación o manipulación\n- La señal es \"elegible: false\" y peso objetivo 0.0, por lo que la orden viola las propias condiciones del sistema\n- El precio de entrada está por debajo de la EMA100 (83575.44), confirmando tendencia bajista de medio plazo sin soporte técnico real\n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Violación de reglas:** El activo está marcado como no elegible (`elegible: false`) y con peso objetivo de 0.0; ejecutar esta orden rompe la disciplina del algoritmo.\n* **Contaminación del backtest:** Forzar \"señales falsas\" de forma manual introduce sesgo humano y distorsiona las métricas de rendimiento real de la estrategia e3.\n* **Tendencia bajista local:** El precio se sitúa por debajo de la EMA100 de 4 horas (83,575.4), lo que significa operar en contra del impulso de mediano plazo.\n* **Ejecución optimista:** El precio de referencia (83,123.4) es inferior al cierre de la vela (83,175.9), asumiendo un deslizamiento positivo poco realista en condiciones de mercado"
-  },
-  {
-   "fecha_pr": "2026-10-09 10:33",
-   "estrategia": "e2",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
-   "veredicto": "EN CONTRA",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "VEREDICTO: EN CONTRA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: EN CONTRA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   El motivo \"señal falsa forzada\" confirma que la orden es un artefacto de prueba y no una señal válida de mercado.\n*   Discrepancia crítica de datos: el precio de referencia (83,125.4) difiere significativamente del cierre de contexto (81,683.8), indicando desincronización o error en la fuente de precios.\n*   Liquidez insuficiente: el efectivo disponible (1.94 USD) es menor al costo estimado de la orden (~8.31 USD), haciendo la ejecución imposible sin apalancamiento no declarado.\n*   La vela de contexto corresponde al día anterior (2026-10-08), introduciendo riesgo de latencia y datos obsoletos para una decisión en tiempo real.\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- El precio de cierre usado en la señal (81683.8) no coincide con el precio_ref de la orden (83125.4), lo que sugiere un posible desfase temporal o error de datos que invalida la coherencia de la entrada.\n- El motivo declarado es \"PRUEBA: señal falsa forzada\", lo que indica explícitamente que no hay una señal real válida detrás de la operación.\n- El volumen de la orden (0.0001 BTC) es insignificante y no justifica el riesgo operativo ni los costos de comisión asociados.\n- La vela corresponde al día anterior (2026-10-08), lo que implica un posible sesgo de anticipación si la orden se ejecuta con información ya conocida.\n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Falta de liquidez:** El efectivo disponible es de solo $1.94 USD, mientras que la orden requiere $8.31 USD (0.0001 BTC a $83,125.40), lo que provocará un rechazo por saldo insuficiente.\n* **Sobreexposición:** La tenencia actual en BTC (~$328 USD) ya representa el 34.3% del patrimonio total ($956.86 USD), superando el peso objetivo asignado del 33.3%.\n* **Desfase de precios:** El precio de referencia ($83,125.40) es un 1.76% superior al cierre de la vela del día anterior ($81,683.80), ejecutando con un deslizamiento adverso innecesario.\n* **Ruido en la estrategia:** Forzar \"señales falsas\" de prueba en una cuenta activa (aunque sea papel) sesga las métricas de rendim"
-  },
-  {
-   "fecha_pr": "2026-10-09 10:33",
-   "estrategia": "e1",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
-   "veredicto": "DUDA",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "VEREDICTO: DUDA (3/3 con veredicto — qwen3.7-max: DUDA, deepseek-v4-pro: DUDA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: DUDA\n\n*   El motivo \"PRUEBA: contexto ficticio\" invalida cualquier validación estadística y sugiere sobreajuste a datos sintéticos.\n*   RSI en 31.5 indica tendencia bajista fuerte; comprar al tocar la EMA20 es capturar cuchillos sin confirmación de reversión.\n*   Ratio riesgo/beneficio asimétrico negativo (2% pérdida vs 3% ganancia) no compensa la baja probabilidad de éxito en contra-tendencia.\n*   Timestamp de vela (1791550800) corresponde a octubre 2026, confirmando que los datos no son reales y el backtest carece de valor predictivo.\n[deepseek-v4-pro] VEREDICTO: DUDA\n- RSI14 en 31.5 sugiere zona de posible sobreventa, pero no es una señal de entrada clara sin confirmación adicional de soporte o giro.\n- EMA20 igual al precio de referencia indica mercado sin tendencia definida en ese marco temporal; no respalda momentum alcista.\n- Relación riesgo/recompensa: stop a -2.0% del precio, objetivo a +3.0%; ratio 1:1.5, apenas aceptable sin considerar costos de ejecución ni slippage.\n- Contexto etiquetado como \"PRUEBA: ficticio\" impide validar la coincidencia temporal de la vela (timestamp 2026-10-09 aproximadamente 13:00 UTC) con los indicadores; posible inconsistencia de datos no verificable.\n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Inconsistencia de datos:** Un RSI de 31.5 (fuerte impulso bajista) es matemáticamente incompatible con un precio cotizando exactamente sobre la EMA de 20 períodos.\n* **Cazar cuchillos cayendo:** Intentar una compra con el RSI al límite de la sobreventa (31.5) es operar contra una tendencia bajista acelerada de corto plazo sin confirmación de giro.\n* **Relación Riesgo/Beneficio ajustada:** Un ratio de 1.5:1 es mediocre para una operación en contra de la tendencia inmediata en cripto.\n* **Sin validación de volumen:** La orden ignora el volumen y el spread en el precio de referencia, lo que suele inflar artificialmente los resultados en papel."
-  },
-  {
-   "fecha_pr": "2026-10-09 10:33",
-   "estrategia": "e3",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-2.5-flash",
-   "veredicto": "EN CONTRA",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "VEREDICTO: EN CONTRA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: EN CONTRA, gemini-2.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   La señal marca explícitamente `elegible: false` y `peso_objetivo: 0.0`, contradiciendo directamente la ejecución de la orden.\n*   No existe cruce alcista (`cruce_alcista: false`) y el precio está por debajo de la EMA100, invalidando cualquier premisa de tendencia positiva.\n*   El motivo \"señal falsa forzada\" confirma que es una prueba artificial sin valor estadístico ni validación de régimen de mercado real.\n*   Ejecutar compras contra filtros negativos explícitos en papel genera un sesgo de supervivencia falso al ignorar las reglas de gestión de riesgo definidas.\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- El propio contexto indica que la señal es falsa (\"elegible\": false, peso_objetivo: 0.0), contradiciendo abiertamente el motivo de la orden.\n- Precio_ref (83133.2) está por debajo del cierre de la vela (83175.9), sin justificación por slippage o spread.\n- El cruce alcista es falso (cruce_alcista: false) y el precio está bajo la EMA100 (83575.44), estructura bajista.\n- Orden de prueba forzada sin lógica de gestión de riesgo ni alineación con el régimen de mercado.\n[gemini-2.5-flash] VEREDICTO: EN CONTRA\n*   Motivo \"señal falsa forzada\" invalida cualquier análisis de la estrategia real.\n*   \"Elegible: false\" indica que la estrategia no debería operar, sugiriendo una falla en la lógica de ejecución.\n*   Peso objetivo de 0.0 implica que no hay una asignación justificada para esta posición.\n*   Cruce alcista es falso; la señal de compra no tiene base en los indicadores proporcionados.\n(fallaron: gemini/gemini-3.5-flash: HTTP 503)"
-  },
-  {
-   "fecha_pr": "2026-10-09 10:32",
-   "estrategia": "e2",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
-   "veredicto": "EN CONTRA",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "VEREDICTO: EN CONTRA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: EN CONTRA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   La orden se autodeclara como \"señal falsa forzada\", lo que invalida cualquier validación estadística y confirma sesgo de anticipación artificial.\n*   Discrepancia crítica de datos: el precio de referencia (83,134.9) difiere en +1.78% del cierre de la vela señalizada (81,683.8), sugiriendo ejecución a precio irreal o desfasado.\n*   El volumen de 0.0001 BTC es insignificante frente al equity (~$8.30), haciendo imposible medir impacto real de slippage o comisiones en papel.\n*   Usar una prueba forzada contamina el backtest con ruido no orgánico, generando métricas de rendimiento y riesgo totalmente ficticias.\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- El volumen de 0.0001 BTC es insignificante (~8.3 USD), lo que sugiere que la estrategia no tiene convicción real o está probando con tamaño no representativo.\n- El motivo \"PRUEBA: señal falsa forzada\" es una admisión explícita de que la orden no sigue la lógica real de la estrategia, invalidando cualquier evaluación de su desempeño genuino.\n- El precio de cierre usado (81683.8) es de la vela 2026-10-08, pero la orden se evalúa el 2026-10-09; si el SMA200 depende de ese cierre, hay sesgo de anticipación si el indicador se recalcula después.\n- Con equity de 956.9 y efectivo de solo 1.94, la cuenta está casi totalmente invertida; añadir esta compra minúscula no mejora la \n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Liquidez insuficiente:** El efectivo disponible de 1.94 USD es insuficiente para cubrir el costo de la orden de aproximadamente 8.31 USD (0.0001 BTC a 83,134.9 USD).\n* **Señal inválida por diseño:** Forzar \"señales falsas\" en producción o papel ensucia la muestra estadística de la estrategia y sesga el análisis de rendimiento real.\n* **Desviación de precio:** Existe un desfase del 1.7% entre el precio de referencia de la orden (83,134.9 USD) y el cierre de la vela del día anterior (81,683.8 USD)."
-  },
-  {
-   "fecha_pr": "2026-10-09 09:57",
-   "estrategia": "e1",
-   "par": "BTCUSD",
-   "lado": "buy",
-   "modelo": "qwen/qwen-2.5-72b-instruct + deepseek/deepseek-v4-pro",
-   "veredicto": "DUDA",
-   "veto": false,
-   "motivo_veto": "",
-   "prueba": true,
-   "critica": "VEREDICTO: DUDA (2/2 con veredicto — qwen-2.5-72b-instruct: EN CONTRA, deepseek-v4-pro: DUDA)\n[qwen-2.5-72b-instruct] VEREDICTO: EN CONTRA\n- Riesgo alto de sobreajuste con indicadores específicos en contexto ficticio.\n- Volumen de operación muy pequeño, poco significativo.\n- Precio de referencia y objetivo muy ajustados, poco margen de error.\n- Sesgo de anticipación en estrategia de prueba.\n[deepseek-v4-pro] VEREDICTO: DUDA\n- Señal de sobreventa (RSI 31.5) aislada es insuficiente; no hay confirmación de divergencia ni estructura de soporte.\n- El stop queda a solo 2% del precio de referencia, mientras el objetivo está a 3%; relación riesgo/beneficio pobre (~0.67R) sin considerar comisiones ni slippage.\n- El precio de referencia coincide exactamente con la EMA20; esto es sospechoso y sugiere datos sintéticos o posible error en el cálculo del indicador.\n- Volumen minúsculo (0.001 BTC) genera dudas sobre viabilidad real; los costos de ejecución pueden erosionar completamente cualquier ganancia.\n(fallaron: nvidia/nemotron-3-super-120b-a12b:free: respuesta vacía; nvidia/nemotron-3-ultra-550b-a55b:free: sin 'choices' (503 Upstream error from Nvidia: Service temporarily ov); google/gemma-4-31b-it:free: HTTP 429; google/gemma-4-26b-a4b-it:free: HTTP 429)"
-  }
- ],
- "actualizado_general": "2026-10-11T12:09:25-04:00",
  "estrategia2": {
-  "actualizado": "2026-10-11T10:22:15-04:00",
+  "actualizado": "2026-10-11T12:21:49-04:00",
   "cuenta": {
    "workspace": "tendencia",
    "modo": "paper",
@@ -628,13 +509,13 @@
    "nombre": "Estrategia 2 · tendencia diaria SMA200"
   },
   "resumen": {
-   "equity": 953.69,
-   "equity_calculado": 953.72,
+   "equity": 966.8,
+   "equity_calculado": 966.87,
    "efectivo_usd": 1.94,
-   "pnl_total": -46.31,
-   "pnl_total_pct": -4.631,
+   "pnl_total": -33.2,
+   "pnl_total_pct": -3.32,
    "realizado": 0.0,
-   "no_realizado": -46.28,
+   "no_realizado": -33.13,
    "operaciones_cerradas": 0,
    "ejecuciones": 3,
    "ganadas": 0,
@@ -645,8 +526,8 @@
    "factor_beneficio": null,
    "max_drawdown_pct": -5.8,
    "max_drawdown_usd": -57.96,
-   "drawdown_actual_pct": -4.63,
-   "cambio_dia_pct": -0.27,
+   "drawdown_actual_pct": -3.32,
+   "cambio_dia_pct": 1.1,
    "freno_diario_activo": false,
    "freno_900_activo": false,
    "freno_total_usd": 750,
@@ -656,31 +537,31 @@
   },
   "precios": {
    "BTCUSD": {
-    "precio": 82964.0,
-    "bid": 82963.9,
-    "ask": 82964.0,
+    "precio": 83721.4,
+    "bid": 83721.3,
+    "ask": 83721.4,
     "apertura_dia": 82912.7,
-    "max_24h": 83168.0,
+    "max_24h": 83897.2,
     "min_24h": 82716.1,
-    "cambio_dia_pct": 0.06187230665508636
+    "cambio_dia_pct": 0.9753632435079318
    },
    "ETHUSD": {
-    "precio": 2499.78,
-    "bid": 2499.77,
-    "ask": 2499.78,
+    "precio": 2531.21,
+    "bid": 2531.13,
+    "ask": 2531.18,
     "apertura_dia": 2504.1,
-    "max_24h": 2516.65,
+    "max_24h": 2538.28,
     "min_24h": 2495.31,
-    "cambio_dia_pct": -0.1725170720019098
+    "cambio_dia_pct": 1.082624495826856
    },
    "SOLUSD": {
-    "precio": 109.3,
-    "bid": 109.29,
-    "ask": 109.3,
+    "precio": 111.5,
+    "bid": 111.48,
+    "ask": 111.49,
     "apertura_dia": 109.99,
-    "max_24h": 110.67,
+    "max_24h": 111.98,
     "min_24h": 108.86,
-    "cambio_dia_pct": -0.6273297572506609
+    "cambio_dia_pct": 1.3728520774615838
    }
   },
   "posiciones": [
@@ -688,12 +569,12 @@
     "par": "BTCUSD",
     "volumen": 0.00395268,
     "entrada": 84112.1,
-    "precio": 82964.0,
-    "valor": 327.93014352,
+    "precio": 83721.4,
+    "valor": 330.92390335199997,
     "stop": null,
     "objetivo": null,
-    "pnl": -5.402489268112788,
-    "pnl_pct": -1.6249641371455439,
+    "pnl": -2.4087294361128215,
+    "pnl_pct": -0.7244991624272911,
     "dist_stop_pct": null,
     "dist_objetivo_pct": null,
     "riesgo_usd": null,
@@ -707,12 +588,12 @@
     "par": "ETHUSD",
     "volumen": 0.12731333,
     "entrada": 2611.42,
-    "precio": 2499.78,
-    "valor": 318.25531606740003,
+    "precio": 2531.21,
+    "valor": 322.2567740293,
     "stop": null,
     "objetivo": null,
-    "pnl": -15.077678459394349,
-    "pnl_pct": -4.53506873654946,
+    "pnl": -11.076220497494376,
+    "pnl_pct": -3.3315089874474473,
     "dist_stop_pct": null,
     "dist_objetivo_pct": null,
     "riesgo_usd": null,
@@ -726,12 +607,12 @@
     "par": "SOLUSD",
     "volumen": 2.79591114,
     "entrada": 118.22,
-    "precio": 109.3,
-    "valor": 305.59308760199997,
+    "precio": 111.5,
+    "valor": 311.74409211,
     "stop": null,
     "objetivo": null,
-    "pnl": -25.798912167724097,
-    "pnl_pct": -7.805254610049067,
+    "pnl": -19.64790765972407,
+    "pnl_pct": -5.944317374386735,
     "dist_stop_pct": null,
     "dist_objetivo_pct": null,
     "riesgo_usd": null,
@@ -985,6 +866,10 @@
    {
     "t": "2026-10-11T10:22:15-04:00",
     "equity": 953.69
+   },
+   {
+    "t": "2026-10-11T12:21:49-04:00",
+    "equity": 966.8
    }
   ],
   "reglas": [
@@ -1148,7 +1033,7 @@
   "ultima_vela_procesada": "2026-10-10"
  },
  "estrategia3": {
-  "actualizado": "2026-10-11T12:09:25-04:00",
+  "actualizado": "2026-10-11T12:21:49-04:00",
   "cuenta": {
    "workspace": "cruce",
    "modo": "paper",
@@ -1186,31 +1071,31 @@
   },
   "precios": {
    "BTCUSD": {
-    "precio": 83697.8,
-    "bid": 83697.7,
-    "ask": 83697.8,
+    "precio": 83721.4,
+    "bid": 83721.3,
+    "ask": 83721.4,
     "apertura_dia": 82912.7,
     "max_24h": 83897.2,
     "min_24h": 82716.1,
-    "cambio_dia_pct": 0.9468995702708982
+    "cambio_dia_pct": 0.9753632435079318
    },
    "ETHUSD": {
-    "precio": 2530.09,
-    "bid": 2530.09,
-    "ask": 2530.1,
+    "precio": 2531.21,
+    "bid": 2531.13,
+    "ask": 2531.18,
     "apertura_dia": 2504.1,
     "max_24h": 2538.28,
     "min_24h": 2495.31,
-    "cambio_dia_pct": 1.037897847530056
+    "cambio_dia_pct": 1.082624495826856
    },
    "SOLUSD": {
-    "precio": 111.72,
-    "bid": 111.72,
-    "ask": 111.74,
+    "precio": 111.5,
+    "bid": 111.48,
+    "ask": 111.49,
     "apertura_dia": 109.99,
     "max_24h": 111.98,
     "min_24h": 108.86,
-    "cambio_dia_pct": 1.5728702609328238
+    "cambio_dia_pct": 1.3728520774615838
    }
   },
   "posiciones": [],
@@ -1563,6 +1448,10 @@
    {
     "t": "2026-10-11T12:09:25-04:00",
     "equity": 979.9
+   },
+   {
+    "t": "2026-10-11T12:21:49-04:00",
+    "equity": 979.9
    }
   ],
   "reglas": [
@@ -1810,7 +1699,7 @@
   "ultima_vela_procesada": "2026-10-11 12:00"
  },
  "estrategia4": {
-  "actualizado": "2026-10-11T11:10:56-04:00",
+  "actualizado": "2026-10-11T12:21:49-04:00",
   "cuenta": {
    "workspace": "semivol",
    "modo": "paper",
@@ -1848,31 +1737,31 @@
   },
   "precios": {
    "BTCUSD": {
-    "precio": 83041.3,
-    "bid": 83041.2,
-    "ask": 83041.3,
+    "precio": 83721.4,
+    "bid": 83721.3,
+    "ask": 83721.4,
     "apertura_dia": 82912.7,
-    "max_24h": 83168.0,
+    "max_24h": 83897.2,
     "min_24h": 82716.1,
-    "cambio_dia_pct": 0.15510289738485117
+    "cambio_dia_pct": 0.9753632435079318
    },
    "ETHUSD": {
-    "precio": 2504.94,
-    "bid": 2504.94,
-    "ask": 2504.95,
+    "precio": 2531.21,
+    "bid": 2531.13,
+    "ask": 2531.18,
     "apertura_dia": 2504.1,
-    "max_24h": 2516.65,
+    "max_24h": 2538.28,
     "min_24h": 2495.31,
-    "cambio_dia_pct": 0.03354498622261115
+    "cambio_dia_pct": 1.082624495826856
    },
    "SOLUSD": {
-    "precio": 109.59,
-    "bid": 109.59,
-    "ask": 109.6,
+    "precio": 111.5,
+    "bid": 111.48,
+    "ask": 111.49,
     "apertura_dia": 109.99,
-    "max_24h": 110.58,
+    "max_24h": 111.98,
     "min_24h": 108.86,
-    "cambio_dia_pct": -0.36366942449312933
+    "cambio_dia_pct": 1.3728520774615838
    }
   },
   "posiciones": [],
@@ -1886,6 +1775,10 @@
    },
    {
     "t": "2026-10-11T11:10:56-04:00",
+    "equity": 1000.0
+   },
+   {
+    "t": "2026-10-11T12:21:49-04:00",
     "equity": 1000.0
    }
   ],
@@ -1933,7 +1826,7 @@
   "ultima_vela_procesada": null
  },
  "btc_hold": {
-  "actualizado": "2026-10-11T12:09:25-04:00",
+  "actualizado": "2026-10-11T12:21:49-04:00",
   "cuenta": {
    "workspace": "btc_hold",
    "modo": "paper",
@@ -1943,13 +1836,13 @@
    "nombre": "Benchmark · comprar y mantener BTC"
   },
   "resumen": {
-   "equity": 1005.98,
-   "equity_calculado": 1005.98,
+   "equity": 1006.26,
+   "equity_calculado": 1006.26,
    "efectivo_usd": 0.5,
-   "pnl_total": 5.98,
-   "pnl_total_pct": 0.598,
+   "pnl_total": 6.26,
+   "pnl_total_pct": 0.626,
    "realizado": 0.0,
-   "no_realizado": 5.98,
+   "no_realizado": 6.26,
    "operaciones_cerradas": 0,
    "ejecuciones": 1,
    "ganadas": 0,
@@ -1961,7 +1854,7 @@
    "max_drawdown_pct": -2.25,
    "max_drawdown_usd": -22.62,
    "drawdown_actual_pct": 0.0,
-   "cambio_dia_pct": 0.87,
+   "cambio_dia_pct": 0.9,
    "freno_diario_activo": false,
    "freno_900_activo": false,
    "freno_total_usd": 0,
@@ -1971,31 +1864,31 @@
   },
   "precios": {
    "BTCUSD": {
-    "precio": 83697.8,
-    "bid": 83697.7,
-    "ask": 83697.8,
+    "precio": 83721.4,
+    "bid": 83721.3,
+    "ask": 83721.4,
     "apertura_dia": 82912.7,
     "max_24h": 83897.2,
     "min_24h": 82716.1,
-    "cambio_dia_pct": 0.9468995702708982
+    "cambio_dia_pct": 0.9753632435079318
    },
    "ETHUSD": {
-    "precio": 2530.09,
-    "bid": 2530.09,
-    "ask": 2530.1,
+    "precio": 2531.21,
+    "bid": 2531.13,
+    "ask": 2531.18,
     "apertura_dia": 2504.1,
     "max_24h": 2538.28,
     "min_24h": 2495.31,
-    "cambio_dia_pct": 1.037897847530056
+    "cambio_dia_pct": 1.082624495826856
    },
    "SOLUSD": {
-    "precio": 111.72,
-    "bid": 111.72,
-    "ask": 111.74,
+    "precio": 111.5,
+    "bid": 111.48,
+    "ask": 111.49,
     "apertura_dia": 109.99,
     "max_24h": 111.98,
     "min_24h": 108.86,
-    "cambio_dia_pct": 1.5728702609328238
+    "cambio_dia_pct": 1.3728520774615838
    }
   },
   "posiciones": [
@@ -2003,12 +1896,12 @@
     "par": "BTCUSD",
     "volumen": 0.01201318,
     "entrada": 82984.5,
-    "precio": 83697.8,
-    "valor": 1005.476737004,
+    "precio": 83721.4,
+    "valor": 1005.760248052,
     "stop": null,
     "objetivo": null,
-    "pnl": 5.97704118115405,
-    "pnl_pct": 0.5995581102495093,
+    "pnl": 6.260552229153973,
+    "pnl_pct": 0.6279971560954126,
     "dist_stop_pct": null,
     "dist_objetivo_pct": null,
     "riesgo_usd": null,
@@ -2252,6 +2145,10 @@
    {
     "t": "2026-10-11T12:09:25-04:00",
     "equity": 1005.98
+   },
+   {
+    "t": "2026-10-11T12:21:49-04:00",
+    "equity": 1006.26
    }
   ],
   "reglas": [
@@ -2494,6 +2391,10 @@
     {
      "t": "2026-10-11T10:22:15-04:00",
      "equity": 1000.0
+    },
+    {
+     "t": "2026-10-11T12:21:49-04:00",
+     "equity": 1000.0
     }
    ],
    "estrategia2": [
@@ -2708,6 +2609,10 @@
     {
      "t": "2026-10-11T10:22:15-04:00",
      "equity": 953.69
+    },
+    {
+     "t": "2026-10-11T12:21:49-04:00",
+     "equity": 966.8
     }
    ],
    "estrategia3": [
@@ -2946,6 +2851,10 @@
     {
      "t": "2026-10-11T12:09:25-04:00",
      "equity": 979.9
+    },
+    {
+     "t": "2026-10-11T12:21:49-04:00",
+     "equity": 979.9
     }
    ],
    "estrategia4": [
@@ -2955,6 +2864,10 @@
     },
     {
      "t": "2026-10-11T11:10:56-04:00",
+     "equity": 1000.0
+    },
+    {
+     "t": "2026-10-11T12:21:49-04:00",
      "equity": 1000.0
     }
    ],
@@ -3178,6 +3091,10 @@
     {
      "t": "2026-10-11T12:09:25-04:00",
      "equity": 1005.98
+    },
+    {
+     "t": "2026-10-11T12:21:49-04:00",
+     "equity": 1006.26
     }
    ],
    "btc_bh": [
@@ -3444,12 +3361,16 @@
     {
      "t": "2026-10-11T12:09:25-04:00",
      "equity": 995.07
+    },
+    {
+     "t": "2026-10-11T12:21:49-04:00",
+     "equity": 995.35
     }
    ]
   }
  },
  "ranking": {
-  "btc_hold_pnl_pct": 0.598,
+  "btc_hold_pnl_pct": 0.626,
   "filas": [
    {
     "id": "e1",
@@ -3459,7 +3380,7 @@
     "equity": 1000.0,
     "pnl_pct": 0.0,
     "max_dd_pct": 0.0,
-    "vs_btc_pp": -0.6,
+    "vs_btc_pp": -0.63,
     "estado": "activa",
     "nota_estado": null,
     "puesto": 1
@@ -3472,7 +3393,7 @@
     "equity": 1000.0,
     "pnl_pct": 0.0,
     "max_dd_pct": 0.0,
-    "vs_btc_pp": -0.6,
+    "vs_btc_pp": -0.63,
     "estado": "activa",
     "nota_estado": null,
     "puesto": 2
@@ -3485,7 +3406,7 @@
     "equity": 979.9,
     "pnl_pct": -2.01,
     "max_dd_pct": -2.11,
-    "vs_btc_pp": -2.61,
+    "vs_btc_pp": -2.64,
     "estado": "activa",
     "nota_estado": null,
     "puesto": 3
@@ -3495,15 +3416,138 @@
     "nombre": "Estrategia 2 · tendencia diaria SMA200",
     "workspace": "tendencia",
     "inicio": "2026-10-07T00:09:36-04:00",
-    "equity": 953.69,
-    "pnl_pct": -4.631,
+    "equity": 966.8,
+    "pnl_pct": -3.32,
     "max_dd_pct": -5.8,
-    "vs_btc_pp": -5.23,
+    "vs_btc_pp": -3.95,
     "estado": "activa",
     "nota_estado": null,
     "puesto": 4
    }
   ],
   "regla_apagado": "Se apaga la routine de una estrategia que lleve 4 semanas en los últimos puestos y además pierda contra btc_hold (revisión del laboratorio de los domingos)."
- }
+ },
+ "segunda_opinion": [
+  {
+   "fecha_pr": "2026-10-09 10:34",
+   "estrategia": "e1",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
+   "veredicto": "DUDA",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "VEREDICTO: DUDA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: DUDA, gemini-3.5-flash: DUDA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   El motivo \"PRUEBA: contexto ficticio\" invalida cualquier validación estadística real y sugiere un entorno de backtest no verificado.\n*   RSI en 31.5 indica debilidad extrema, no reversión confirmada; comprar contra la tendencia sin filtro adicional es capturar cuchillos cayendo.\n*   Ratio riesgo/beneficio asimétrico negativo (2% pérdida vs 3% ganancia) no compensa la baja probabilidad de éxito en sobreventa sin divergencia.\n*   Precio de referencia coincide exactamente con EMA20, lo que delata posible sobreajuste o sesgo de anticipación al asumir soporte inmediato sin confirmación.\n[deepseek-v4-pro] VEREDICTO: DUDA\n- RSI(14)=31.5 en 1h está en zona de sobreventa leve, pero no es una señal de compra fuerte por sí sola sin divergencias o confirmación de volumen.\n- El stop-loss está a solo -2% (81496.8), mientras que el objetivo está a +3% (85654.8), dando un ratio riesgo/beneficio de 1:1.5, apenas aceptable antes de comisiones.\n- El precio de entrada coincide exactamente con la EMA20 (83160.0), lo cual es sospechosamente perfecto y sugiere posible ajuste artificial de datos o sobreajuste.\n- El contexto se declara explícitamente como \"ficticio/PRUEBA\", por lo que no hay validez estadística ni condiciones reales de mercado que evaluar.\n[gemini-3.5-flash] VEREDICTO: DUDA\n\n* **Incongruencia en indicadores:** Un RSI de 31.5 (cerca de sobreventa) es técnicamente inconsistente con un precio cotizando exactamente sobre la EMA20 (83160), lo que sugiere anomalía en los datos o un desplome vertical previo.\n* **Atrapar un cuchillo cayendo:** El RSI tan bajo indica un fuerte impulso bajista; comprar sin confirmación de suelo ni divergencia es altamente riesgoso.\n* **Stop vulnerable:** Un stop del 2% (81496.8) es fácilmente alcanzable mediante ruido de mercado en un régimen de alta volatilidad implícita por la caída actual.\n* **Sin considerar costos:** El tamaño de la orden (0.001 BTC) es insignificante y los costos de transacción devorarán el beneficio"
+  },
+  {
+   "fecha_pr": "2026-10-09 10:34",
+   "estrategia": "e3",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
+   "veredicto": "EN CONTRA",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "VEREDICTO: EN CONTRA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: EN CONTRA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   La señal marca explícitamente `elegible: false` y `peso_objetivo: 0.0`, contradiciendo directamente la ejecución de la orden.\n*   El motivo \"señal falsa forzada\" confirma que es una prueba artificial sin validez estadística ni lógica de mercado real.\n*   No existe cruce alcista (`cruce_alcista: false`) y el precio está por debajo de la EMA100, careciendo de confirmación técnica básica.\n*   Ejecutar compras forzadas en papel genera sesgo de supervivencia y métricas de rendimiento irreales al ignorar los filtros de entrada.\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- El motivo indica \"PRUEBA: señal falsa forzada\", lo que contradice directamente el objetivo de una estrategia realista y no sobreajustada.\n- La señal es explícitamente no elegible (elegible: false) y el peso objetivo es 0.0, por lo que ejecutar una compra va contra las propias reglas de la estrategia.\n- El cruce alcista está marcado como falso y el precio de referencia (83158.2) está por debajo de la EMA100 (83575.44), lo que confirma que técnicamente no hay justificación para una entrada larga.\n- Sin tenencias previas y con señal nula, entrar genera exposición injustificada y riesgo de pérdida inmediata, especialmente en un entorno donde el precio ya cotiza bajo la med\n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Inconsistencia algorítmica:** Se ejecuta una compra a pesar de que el sistema clasifica el par como no elegible (`elegible: false`) y con peso objetivo cero.\n* **Tendencia bajista local:** El precio de cierre (83,175.9) cotiza por debajo de la EMA100 de 4h (83,575.4) sin cruce alcista activo; es una entrada contra tendencia a mediano plazo.\n* **Costos y granularidad:** Operar un volumen tan insignificante (0.0001 BTC, ~$8.3 USD) con una cuenta de ~$980 carece de sentido financiero y las comisiones absorberán cualquier beneficio.\n* **Sesgo por pruebas manuales:** Forzar \"señales falsas\" en un entorno real o de papel ensucia el histórico de ejecución y sesga la evalua"
+  },
+  {
+   "fecha_pr": "2026-10-09 10:33",
+   "estrategia": "e2",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
+   "veredicto": "EN CONTRA",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "VEREDICTO: EN CONTRA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: EN CONTRA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   El motivo \"señal falsa forzada\" confirma explícitamente la ausencia de ventaja estadística y valida el riesgo de sobreajuste o prueba arbitraria.\n*   Discrepancia crítica de datos: el precio de referencia (83,113) difiere en +1,429 del cierre de señal (81,683), indicando posible sesgo de anticipación o error de ejecución.\n*   La vela de contexto es del día anterior (2026-10-08), generando latencia informativa inaceptable para una entrada a mercado actual.\n*   El volumen de 0.0001 BTC carece de significancia estadística para validar la estrategia, siendo vulnerable a distorsiones por costos fijos y slippage.\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- Motivo declarado como \"PRUEBA: señal falsa forzada\", lo que invalida cualquier mérito real de la orden.\n- El precio_ref (83113.5) está muy por encima del cierre de la vela (81683.8), sugiriendo un sesgo de anticipación o precio mal justificado.\n- Volumen de 0.0001 BTC (~8.3 USD) es insignificante frente al equity de 956 USD; no hay gestión de riesgo real.\n- La vela es del día anterior (2026-10-08) pero la fecha actual es 2026-10-09; la señal usa datos desfasados sin confirmación del precio actual.\n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Falta de efectivo**: La compra requiere aproximadamente $8.31 USD (0.0001 x 83113.5), pero la cuenta solo dispone de $1.94 USD de liquidez. La orden será rechazada.\n* **Discrepancia de precio**: El precio de referencia ($83,113.5) es un 1.75% más alto que el cierre informado ($81,683.8), lo que refleja un deslizamiento severo o inconsistencia en los datos.\n* **Señal forzada**: Ejecutar órdenes bajo el motivo de \"señal falsa forzada\" contamina la pureza estadística de la estrategia y carece de validez técnica.\n* **Costos de transacción**: Operar con un volumen tan pequeño (0.0001 BTC) frente a saldos de efectivo marginales solo diluye el portafolio en comisiones."
+  },
+  {
+   "fecha_pr": "2026-10-09 10:33",
+   "estrategia": "e1",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
+   "veredicto": "DUDA",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "VEREDICTO: DUDA (3/3 con veredicto — qwen3.7-max: DUDA, deepseek-v4-pro: DUDA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: DUDA\n\n*   El motivo \"PRUEBA: contexto ficticio\" invalida cualquier validación estadística real y sugiere un entorno de backtest no verificado.\n*   RSI en 31.5 indica sobreventa, pero comprar ciegamente sin confirmación de estructura es propenso a fallos en tendencias bajistas fuertes.\n*   Ratio riesgo/beneficio de 1.5:1 es marginal para una estrategia de reversión a la media con alta tasa de falsos positivos.\n*   La fecha de la vela (2026) confirma que los datos son sintéticos; no se puede evaluar el régimen de mercado ni la liquidez real.\n[deepseek-v4-pro] VEREDICTO: DUDA\n- Ratio riesgo/recompensa de 1.5:1 (riesgo 1662.4, ganancia 2493.6) es marginal, especialmente con BTC que suele necesitar ratios superiores por volatilidad.\n- RSI en 31.5 está cerca de sobreventa pero no la confirma del todo; en tendencias bajistas fuertes puede seguir cayendo.\n- El precio de entrada coincide exactamente con la EMA20, lo que sugiere posible sobreajuste o cherry picking.\n- El contexto es explícitamente ficticio (\"PRUEBA\"), por lo que cualquier validación estadística es imposible; no hay certeza de que este setup funcione en condiciones reales con spreads y comisiones.\n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Sesgo de anticipación temporal:** El timestamp de la vela (1791550800) corresponde al 10 de octubre de 2026, es decir, un día en el futuro respecto a la fecha actual del sistema (9 de octubre), lo que invalida la consistencia de los datos.\n* **Atrapado contra tendencia:** Intentar una compra con un RSI en 31.5 (fuerte impulso bajista) y justo en la EMA20 como resistencia dinámica es una entrada altamente peligrosa y sin confirmación de reversión.\n* **Stop loss vulnerable:** El stop está colocado a menos de un 2% del precio de entrada, una distancia extremadamente corta para la volatilidad habitual de BTC, lo que asegura un barrido rápido.\n* **Falta de volumen y cont"
+  },
+  {
+   "fecha_pr": "2026-10-09 10:33",
+   "estrategia": "e3",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
+   "veredicto": "EN CONTRA",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "VEREDICTO: EN CONTRA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: EN CONTRA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   La señal marca explícitamente `elegible: false` y `peso_objetivo: 0.0`, contradiciendo directamente la ejecución de la orden.\n*   No existe cruce alcista (`cruce_alcista: false`) y el precio está por debajo de la EMA100, invalidando cualquier premisa de tendencia positiva.\n*   El motivo \"señal falsa forzada\" confirma que es una prueba artificial sin validez estadística ni edge real en el régimen actual.\n*   Ejecutar compras contra filtros negativos sistemáticos genera sobreajuste inverso y costos de transacción injustificados en papel.\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- El motivo indica explícitamente \"señal falsa forzada\", lo que contradice cualquier disciplina de sistema\n- El precio de referencia (83123.4) está por debajo del cierre de la vela actual (83175.9), sugiriendo sesgo de anticipación o manipulación\n- La señal es \"elegible: false\" y peso objetivo 0.0, por lo que la orden viola las propias condiciones del sistema\n- El precio de entrada está por debajo de la EMA100 (83575.44), confirmando tendencia bajista de medio plazo sin soporte técnico real\n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Violación de reglas:** El activo está marcado como no elegible (`elegible: false`) y con peso objetivo de 0.0; ejecutar esta orden rompe la disciplina del algoritmo.\n* **Contaminación del backtest:** Forzar \"señales falsas\" de forma manual introduce sesgo humano y distorsiona las métricas de rendimiento real de la estrategia e3.\n* **Tendencia bajista local:** El precio se sitúa por debajo de la EMA100 de 4 horas (83,575.4), lo que significa operar en contra del impulso de mediano plazo.\n* **Ejecución optimista:** El precio de referencia (83,123.4) es inferior al cierre de la vela (83,175.9), asumiendo un deslizamiento positivo poco realista en condiciones de mercado"
+  },
+  {
+   "fecha_pr": "2026-10-09 10:33",
+   "estrategia": "e2",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
+   "veredicto": "EN CONTRA",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "VEREDICTO: EN CONTRA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: EN CONTRA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   El motivo \"señal falsa forzada\" confirma que la orden es un artefacto de prueba y no una señal válida de mercado.\n*   Discrepancia crítica de datos: el precio de referencia (83,125.4) difiere significativamente del cierre de contexto (81,683.8), indicando desincronización o error en la fuente de precios.\n*   Liquidez insuficiente: el efectivo disponible (1.94 USD) es menor al costo estimado de la orden (~8.31 USD), haciendo la ejecución imposible sin apalancamiento no declarado.\n*   La vela de contexto corresponde al día anterior (2026-10-08), introduciendo riesgo de latencia y datos obsoletos para una decisión en tiempo real.\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- El precio de cierre usado en la señal (81683.8) no coincide con el precio_ref de la orden (83125.4), lo que sugiere un posible desfase temporal o error de datos que invalida la coherencia de la entrada.\n- El motivo declarado es \"PRUEBA: señal falsa forzada\", lo que indica explícitamente que no hay una señal real válida detrás de la operación.\n- El volumen de la orden (0.0001 BTC) es insignificante y no justifica el riesgo operativo ni los costos de comisión asociados.\n- La vela corresponde al día anterior (2026-10-08), lo que implica un posible sesgo de anticipación si la orden se ejecuta con información ya conocida.\n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Falta de liquidez:** El efectivo disponible es de solo $1.94 USD, mientras que la orden requiere $8.31 USD (0.0001 BTC a $83,125.40), lo que provocará un rechazo por saldo insuficiente.\n* **Sobreexposición:** La tenencia actual en BTC (~$328 USD) ya representa el 34.3% del patrimonio total ($956.86 USD), superando el peso objetivo asignado del 33.3%.\n* **Desfase de precios:** El precio de referencia ($83,125.40) es un 1.76% superior al cierre de la vela del día anterior ($81,683.80), ejecutando con un deslizamiento adverso innecesario.\n* **Ruido en la estrategia:** Forzar \"señales falsas\" de prueba en una cuenta activa (aunque sea papel) sesga las métricas de rendim"
+  },
+  {
+   "fecha_pr": "2026-10-09 10:33",
+   "estrategia": "e1",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
+   "veredicto": "DUDA",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "VEREDICTO: DUDA (3/3 con veredicto — qwen3.7-max: DUDA, deepseek-v4-pro: DUDA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: DUDA\n\n*   El motivo \"PRUEBA: contexto ficticio\" invalida cualquier validación estadística y sugiere sobreajuste a datos sintéticos.\n*   RSI en 31.5 indica tendencia bajista fuerte; comprar al tocar la EMA20 es capturar cuchillos sin confirmación de reversión.\n*   Ratio riesgo/beneficio asimétrico negativo (2% pérdida vs 3% ganancia) no compensa la baja probabilidad de éxito en contra-tendencia.\n*   Timestamp de vela (1791550800) corresponde a octubre 2026, confirmando que los datos no son reales y el backtest carece de valor predictivo.\n[deepseek-v4-pro] VEREDICTO: DUDA\n- RSI14 en 31.5 sugiere zona de posible sobreventa, pero no es una señal de entrada clara sin confirmación adicional de soporte o giro.\n- EMA20 igual al precio de referencia indica mercado sin tendencia definida en ese marco temporal; no respalda momentum alcista.\n- Relación riesgo/recompensa: stop a -2.0% del precio, objetivo a +3.0%; ratio 1:1.5, apenas aceptable sin considerar costos de ejecución ni slippage.\n- Contexto etiquetado como \"PRUEBA: ficticio\" impide validar la coincidencia temporal de la vela (timestamp 2026-10-09 aproximadamente 13:00 UTC) con los indicadores; posible inconsistencia de datos no verificable.\n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Inconsistencia de datos:** Un RSI de 31.5 (fuerte impulso bajista) es matemáticamente incompatible con un precio cotizando exactamente sobre la EMA de 20 períodos.\n* **Cazar cuchillos cayendo:** Intentar una compra con el RSI al límite de la sobreventa (31.5) es operar contra una tendencia bajista acelerada de corto plazo sin confirmación de giro.\n* **Relación Riesgo/Beneficio ajustada:** Un ratio de 1.5:1 es mediocre para una operación en contra de la tendencia inmediata en cripto.\n* **Sin validación de volumen:** La orden ignora el volumen y el spread en el precio de referencia, lo que suele inflar artificialmente los resultados en papel."
+  },
+  {
+   "fecha_pr": "2026-10-09 10:33",
+   "estrategia": "e3",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-2.5-flash",
+   "veredicto": "EN CONTRA",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "VEREDICTO: EN CONTRA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: EN CONTRA, gemini-2.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   La señal marca explícitamente `elegible: false` y `peso_objetivo: 0.0`, contradiciendo directamente la ejecución de la orden.\n*   No existe cruce alcista (`cruce_alcista: false`) y el precio está por debajo de la EMA100, invalidando cualquier premisa de tendencia positiva.\n*   El motivo \"señal falsa forzada\" confirma que es una prueba artificial sin valor estadístico ni validación de régimen de mercado real.\n*   Ejecutar compras contra filtros negativos explícitos en papel genera un sesgo de supervivencia falso al ignorar las reglas de gestión de riesgo definidas.\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- El propio contexto indica que la señal es falsa (\"elegible\": false, peso_objetivo: 0.0), contradiciendo abiertamente el motivo de la orden.\n- Precio_ref (83133.2) está por debajo del cierre de la vela (83175.9), sin justificación por slippage o spread.\n- El cruce alcista es falso (cruce_alcista: false) y el precio está bajo la EMA100 (83575.44), estructura bajista.\n- Orden de prueba forzada sin lógica de gestión de riesgo ni alineación con el régimen de mercado.\n[gemini-2.5-flash] VEREDICTO: EN CONTRA\n*   Motivo \"señal falsa forzada\" invalida cualquier análisis de la estrategia real.\n*   \"Elegible: false\" indica que la estrategia no debería operar, sugiriendo una falla en la lógica de ejecución.\n*   Peso objetivo de 0.0 implica que no hay una asignación justificada para esta posición.\n*   Cruce alcista es falso; la señal de compra no tiene base en los indicadores proporcionados.\n(fallaron: gemini/gemini-3.5-flash: HTTP 503)"
+  },
+  {
+   "fecha_pr": "2026-10-09 10:32",
+   "estrategia": "e2",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "qwen/qwen3.7-max + deepseek/deepseek-v4-pro + gemini/gemini-3.5-flash",
+   "veredicto": "EN CONTRA",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "VEREDICTO: EN CONTRA (3/3 con veredicto — qwen3.7-max: EN CONTRA, deepseek-v4-pro: EN CONTRA, gemini-3.5-flash: EN CONTRA)\n[qwen3.7-max] VEREDICTO: EN CONTRA\n\n*   La orden se autodeclara como \"señal falsa forzada\", lo que invalida cualquier validación estadística y confirma sesgo de anticipación artificial.\n*   Discrepancia crítica de datos: el precio de referencia (83,134.9) difiere en +1.78% del cierre de la vela señalizada (81,683.8), sugiriendo ejecución a precio irreal o desfasado.\n*   El volumen de 0.0001 BTC es insignificante frente al equity (~$8.30), haciendo imposible medir impacto real de slippage o comisiones en papel.\n*   Usar una prueba forzada contamina el backtest con ruido no orgánico, generando métricas de rendimiento y riesgo totalmente ficticias.\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- El volumen de 0.0001 BTC es insignificante (~8.3 USD), lo que sugiere que la estrategia no tiene convicción real o está probando con tamaño no representativo.\n- El motivo \"PRUEBA: señal falsa forzada\" es una admisión explícita de que la orden no sigue la lógica real de la estrategia, invalidando cualquier evaluación de su desempeño genuino.\n- El precio de cierre usado (81683.8) es de la vela 2026-10-08, pero la orden se evalúa el 2026-10-09; si el SMA200 depende de ese cierre, hay sesgo de anticipación si el indicador se recalcula después.\n- Con equity de 956.9 y efectivo de solo 1.94, la cuenta está casi totalmente invertida; añadir esta compra minúscula no mejora la \n[gemini-3.5-flash] VEREDICTO: EN CONTRA\n\n* **Liquidez insuficiente:** El efectivo disponible de 1.94 USD es insuficiente para cubrir el costo de la orden de aproximadamente 8.31 USD (0.0001 BTC a 83,134.9 USD).\n* **Señal inválida por diseño:** Forzar \"señales falsas\" en producción o papel ensucia la muestra estadística de la estrategia y sesga el análisis de rendimiento real.\n* **Desviación de precio:** Existe un desfase del 1.7% entre el precio de referencia de la orden (83,134.9 USD) y el cierre de la vela del día anterior (81,683.8 USD)."
+  },
+  {
+   "fecha_pr": "2026-10-09 09:57",
+   "estrategia": "e1",
+   "par": "BTCUSD",
+   "lado": "buy",
+   "modelo": "qwen/qwen-2.5-72b-instruct + deepseek/deepseek-v4-pro",
+   "veredicto": "DUDA",
+   "veto": false,
+   "motivo_veto": "",
+   "prueba": true,
+   "critica": "VEREDICTO: DUDA (2/2 con veredicto — qwen-2.5-72b-instruct: EN CONTRA, deepseek-v4-pro: DUDA)\n[qwen-2.5-72b-instruct] VEREDICTO: EN CONTRA\n- Riesgo alto de sobreajuste con indicadores específicos en contexto ficticio.\n- Volumen de operación muy pequeño, poco significativo.\n- Precio de referencia y objetivo muy ajustados, poco margen de error.\n- Sesgo de anticipación en estrategia de prueba.\n[deepseek-v4-pro] VEREDICTO: DUDA\n- Señal de sobreventa (RSI 31.5) aislada es insuficiente; no hay confirmación de divergencia ni estructura de soporte.\n- El stop queda a solo 2% del precio de referencia, mientras el objetivo está a 3%; relación riesgo/beneficio pobre (~0.67R) sin considerar comisiones ni slippage.\n- El precio de referencia coincide exactamente con la EMA20; esto es sospechoso y sugiere datos sintéticos o posible error en el cálculo del indicador.\n- Volumen minúsculo (0.001 BTC) genera dudas sobre viabilidad real; los costos de ejecución pueden erosionar completamente cualquier ganancia.\n(fallaron: nvidia/nemotron-3-super-120b-a12b:free: respuesta vacía; nvidia/nemotron-3-ultra-550b-a55b:free: sin 'choices' (503 Upstream error from Nvidia: Service temporarily ov); google/gemma-4-31b-it:free: HTTP 429; google/gemma-4-26b-a4b-it:free: HTTP 429)"
+  }
+ ],
+ "actualizado_general": "2026-10-11T12:21:49-04:00"
 }
