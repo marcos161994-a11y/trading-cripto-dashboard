@@ -59,6 +59,8 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
     <h2>Ranking en vivo vs comprar y mantener BTC (btc_hold)</h2>
     <div class="tbl" id="ranking"></div>
     <div class="mut" id="rankingNota" style="font-size:12px;margin-top:6px"></div>
+    <h3 style="margin-top:14px">Fotos semanales del laboratorio (domingos)</h3>
+    <div class="tbl" id="rankingSemanal"></div>
   </section>
 
   <section class="card">
@@ -172,6 +174,13 @@ function render(d) {
     ['vs BTC hold', x => col(x.vs_btc_pp, x.vs_btc_pp == null ? '—' : (x.vs_btc_pp > 0 ? '+' : '') + Number(x.vs_btc_pp).toFixed(2) + ' pp')],
     ['DD máx.', x => pct(x.max_dd_pct)], ['Desde', x => fecha(x.inicio)], ['Estado', x => x.estado + (x.nota_estado ? ' · ' + x.nota_estado : '')],
   ], rk.filas, 'Sin datos.') : '<div class="vacio">Sin ranking todavía.</div>';
+  const sem = (rk && rk.semanal) || [];
+  $('rankingSemanal').innerHTML = sem.length ? tabla([
+    ['Fecha', w => w.fecha], ['BTC hold', w => col(w.btc_hold_pnl_pct, pct(w.btc_hold_pnl_pct))],
+    ['Puestos (P&L · vs BTC)', w => ({h: '<div style="white-space:normal;min-width:260px">' + w.filas.map(f => `${f.puesto}. ${esc(f.id.toUpperCase())} ${pct(f.pnl_pct)} (${f.vs_btc_pp > 0 ? '+' : ''}${Number(f.vs_btc_pp).toFixed(2)} pp)`).join(' · ') + '</div>'})],
+    ['Últimos', w => (w.ultimos || []).map(x => x.toUpperCase()).join(', ') || '—'],
+    ['Apagadas', w => (w.apagadas_hoy || []).map(x => x.toUpperCase()).join(', ') || 'ninguna'],
+  ], sem.slice().reverse(), 'Sin fotos.') : '<div class="vacio">Sin fotos semanales todavía.</div>';
   $('rankingNota').textContent = rk ? `BTC hold (btc_hold): ${pct(rk.btc_hold_pnl_pct)}. ${rk.regla_apagado} Ojo: las cuentas empezaron en fechas distintas.` : '';
   $('segundaOpinion').innerHTML = tabla([
     ['Fecha (PR)', r => r.fecha_pr], ['Estr.', r => r.estrategia + (r.prueba ? ' (prueba)' : '')],
