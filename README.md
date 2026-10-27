@@ -91,3 +91,23 @@ Refresca solo E3, la comparación y `historia_cruce.json`. E1 y E2 quedan como e
 
 ## Benchmark btc_hold (pestaña #bh)
 Cuenta de papel Kraken `btc_hold` ($1,000, comisión 0.26 %): compró BTC una sola vez el 2026-10-07 10:52 PR y lo mantiene para siempre. Sin rutina propia: `exportar_dashboard.py` la lee en modo solo lectura (`--workspace btc_hold`) en **todos** los modos (`--sin-btchold` para omitirla); si falla, se conserva el bloque anterior. Datos: `data.json` → `btc_hold`, historia en `historia_btc_hold.json`, serie `btc_hold` en la comparación (línea "BTC hold real"); la línea punteada "BTC hold teórico" (`btc_bh`) se mantiene.
+
+## Sección VOO y acciones (cuentas virtuales de $10,000)
+
+Debajo de la comparación de cripto hay una sección aparte **«VOO y acciones»** con 5 cuentas de papel (no toca `data.json` ni las `historia_*.json` de cripto):
+
+| Cuenta | Inicio | Qué hace |
+|---|---|---|
+| Copia Jeppe | 2026-10-23 | Copia la cartera completa de JeppeKirkBonde (eToro) |
+| Top 10 Jeppe | 2026-10-23 | Solo sus 10 acciones más grandes |
+| VOO comprar y aguantar | 2026-10-23 | Comprar VOO y no vender |
+| Regla SMA 50 | **2026-10-07** | Compra/vende VOO según la media de 50 días (empezó antes) |
+| Kronos | 2026-10-23 | Si el modelo predice subida → VOO; si no, efectivo |
+
+Datos: `data_voo.json` (generado por el bot de VOO). **No editar a mano.** Un fallo al cargar este archivo no afecta la sección de cripto.
+
+Actualización (tras el cierre de EE. UU., ~16:20 PR):
+```bash
+/workspace/trading/.venv/bin/python /workspace/trading/exportar_voo_dashboard.py
+```
+El script vive en `/workspace/trading/exportar_voo_dashboard.py`. Lee `copia_jeppe_registro.md`, `copia_jeppe.json`, `voo_cartera.json` y `voo_registro.md`; escribe solo `data_voo.json`; hace `git pull --rebase`, commit y push. Si el push es rechazado, reintenta una vez con `pull --rebase`.

@@ -70,6 +70,14 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
     <div class="mut" id="cmpNota" style="font-size:12px;margin-top:6px"></div>
   </section>
 
+  <section class="card" id="vooSeccion">
+    <h2>VOO y acciones (cuentas virtuales de $10,000)</h2>
+    <div class="mut" id="vooActualizado" style="font-size:12px;margin-bottom:8px">Cargando sección VOO…</div>
+    <div class="cmp" id="vooKpis"></div>
+    <div class="chartbox"><canvas id="vooChart"></canvas></div>
+    <div class="mut" id="vooNota" style="font-size:12px;margin-top:6px"></div>
+  </section>
+
   <section class="card">
     <h2>Segunda opinión (modelos IA gratis) · últimas críticas</h2>
     <div class="mut" style="font-size:12px;margin-bottom:6px">Las reglas deciden; los modelos sólo critican. Sólo se veta una orden si el código verifica un error de datos (vela vieja, dato faltante, precio &gt;1% distinto del ticker).</div>
@@ -133,7 +141,7 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
     <div id="diario"></div>
   </section>
 </main>
-<footer>Cuentas simuladas (paper trading) en Kraken · BTC, ETH, SOL · E1 revisa cada 2 h, E2 una vez al día (~20:22 PR), E3 tras cada cierre 4h, E4 una vez al día (~20:27 PR) · benchmark btc_hold compró BTC una vez · no es dinero real</footer>
+<footer>Cuentas simuladas (paper trading): cripto en Kraken (BTC/ETH/SOL) · VOO y acciones (Jeppe / SMA50 / Kronos, $10,000) · no es dinero real</footer>
 
 <script>
 const TZ = 'America/Puerto_Rico';
@@ -382,6 +390,65 @@ fetch('data.json?t=' + Date.now(), {cache: 'no-store'})
   .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
   .then(render)
   .catch(e => { $('actualizado').textContent = 'No se pudo cargar data.json: ' + e.message; });
+
+/* --- VOO y acciones: carga independiente; un fallo no afecta la sección cripto --- */
+function renderVoo(d) {
+  if (!$('vooKpis')) return;
+  const cap = d.capital_inicial || 10000;
+  const fechaDia = s => {
+    if (!s) return '—';
+    // s puede ser YYYY-MM-DD o ISO
+    const d0 = new Date(s.length === 10 ? s + 'T16:00:00-04:00' : s);
+    if (isNaN(d0)) return s;
+    return d0.toLocaleDateString('es-PR', {timeZone: TZ, day: '2-digit', month: 'short', year: 'numeric'});
+  };
+  $('vooActualizado').textContent = d.actualizado
+    ? ('Actualizado: ' + new Date(d.actualizado).toLocaleString('es-PR', {timeZone: TZ, dateStyle: 'medium', timeStyle: 'short', hour12: true}) + ' (hora PR, UTC-4)')
+    : '';
+  const fila = (c) => {
+    const sub = c.id === 'sma50'
+      ? (`desde ${fechaDia(c.inicio)} · empezó antes`)
+      : (c.id === 'kronos'
+          ? (`desde ${fechaDia(c.inicio)} · ahora en ${c.posicion === 'VOO' || c.posicion === 'voo' ? 'VOO' : 'efectivo'}`)
+          : (`desde ${fechaDia(c.inicio)}`));
+    return kpi(
+      c.nombre,
+      `<span class="dot" style="background:${c.color || '#8b949e'}"></span>${usd(c.valor)}`,
+      `<span class="${signo(c.cambio_usd)}">${usd(c.cambio_usd)} (${pct(c.cambio_pct)})</span> · ${sub}`
+    );
+  };
+  $('vooKpis').innerHTML = (d.cuentas || []).map(fila).join('') || '<div class="vacio">Sin cuentas todavía.</div>';
+  $('vooNota').textContent = (d.nota || '') + ' Capital inicial de cada cuenta: ' + usd(cap, 0) + '.';
+  if (typeof Chart === 'undefined') return;
+  const P = a => (a || []).map(p => ({x: new Date(p.t), y: p.equity}));
+  const ds = (d.cuentas || []).map(c => ({
+    label: c.nombre,
+    data: P(c.serie),
+    borderColor: c.color || '#8b949e',
+    backgroundColor: c.color || '#8b949e',
+    tension: .15,
+    borderWidth: 2,
+    pointRadius: (c.serie || []).length > 40 ? 0 : 3,
+  }));
+  const todos = ds.flatMap(x => x.data.map(p => p.y));
+  if (!todos.length) return;
+  if (CH.voo) CH.voo.destroy();
+  const padMin = Math.min(cap * 0.98, ...todos);
+  const padMax = Math.max(cap * 1.02, ...todos);
+  CH.voo = new Chart($('vooChart'), {
+    type: 'line',
+    data: {datasets: ds},
+    options: opcionesEje(padMin, padMax, true),
+  });
+}
+
+fetch('data_voo.json?t=' + Date.now(), {cache: 'no-store'})
+  .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+  .then(renderVoo)
+  .catch(e => {
+    if ($('vooActualizado')) $('vooActualizado').textContent = 'No se pudo cargar data_voo.json: ' + e.message;
+    if ($('vooKpis')) $('vooKpis').innerHTML = '<div class="vacio">La sección de VOO aún no tiene datos. El resto del dashboard sigue normal.</div>';
+  });
 </script>
 </body>
 </html>
