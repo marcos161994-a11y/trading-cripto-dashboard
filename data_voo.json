@@ -1,7 +1,7 @@
 {
-  "actualizado": "2026-10-27T00:08:01-04:00",
+  "actualizado": "2026-10-27T00:29:32-04:00",
   "capital_inicial": 10000.0,
-  "nota": "Cuentas virtuales de $10,000 (papel, sin comisiones). Copia Jeppe / Top 10 / VOO aguantar / Kronos arrancaron el 2026-10-23. Regla SMA 50 arrancó el 2026-10-07. Un punto por cierre bursátil de EE. UU. Actualiza el bot de VOO tras el cierre.",
+  "nota": "Cuentas virtuales de papel (sin comisiones). Copia Jeppe / Top 10 / VOO aguantar / Kronos: $10,000 desde 2026-10-23. Regla SMA 50: $10,000 desde 2026-10-07. Copia Ferdinand: $100 desde 2026-10-26 (conserva su % en efectivo de eToro). La gráfica muestra el % de cambio desde el capital de cada cuenta para poder comparar. Un punto por cierre bursátil de EE. UU.",
   "cuentas": [
     {
       "id": "copia_jeppe",
@@ -20,6 +20,16 @@
         {
           "t": "2026-10-26T16:00:00-04:00",
           "equity": 10104.93
+        }
+      ],
+      "serie_pct": [
+        {
+          "t": "2026-10-23T16:00:00-04:00",
+          "pct": 0.001
+        },
+        {
+          "t": "2026-10-26T16:00:00-04:00",
+          "pct": 1.0493
         }
       ]
     },
@@ -41,6 +51,16 @@
           "t": "2026-10-26T16:00:00-04:00",
           "equity": 10105.23
         }
+      ],
+      "serie_pct": [
+        {
+          "t": "2026-10-23T16:00:00-04:00",
+          "pct": 0.0
+        },
+        {
+          "t": "2026-10-26T16:00:00-04:00",
+          "pct": 1.0523
+        }
       ]
     },
     {
@@ -60,6 +80,16 @@
         {
           "t": "2026-10-26T16:00:00-04:00",
           "equity": 10069.14
+        }
+      ],
+      "serie_pct": [
+        {
+          "t": "2026-10-23T16:00:00-04:00",
+          "pct": 0.0
+        },
+        {
+          "t": "2026-10-26T16:00:00-04:00",
+          "pct": 0.6914
         }
       ]
     },
@@ -130,6 +160,64 @@
           "equity": 9895.74
         }
       ],
+      "serie_pct": [
+        {
+          "t": "2026-10-07T16:00:00-04:00",
+          "pct": 0.0
+        },
+        {
+          "t": "2026-10-08T16:00:00-04:00",
+          "pct": -0.2754
+        },
+        {
+          "t": "2026-10-09T16:00:00-04:00",
+          "pct": 0.1125
+        },
+        {
+          "t": "2026-10-12T16:00:00-04:00",
+          "pct": 0.0711
+        },
+        {
+          "t": "2026-10-13T16:00:00-04:00",
+          "pct": 0.0774
+        },
+        {
+          "t": "2026-10-14T16:00:00-04:00",
+          "pct": -0.6219
+        },
+        {
+          "t": "2026-10-15T16:00:00-04:00",
+          "pct": -0.9306
+        },
+        {
+          "t": "2026-10-16T16:00:00-04:00",
+          "pct": -0.9306
+        },
+        {
+          "t": "2026-10-19T16:00:00-04:00",
+          "pct": -0.9306
+        },
+        {
+          "t": "2026-10-20T16:00:00-04:00",
+          "pct": -0.9306
+        },
+        {
+          "t": "2026-10-21T16:00:00-04:00",
+          "pct": -0.3818
+        },
+        {
+          "t": "2026-10-22T16:00:00-04:00",
+          "pct": -1.0426
+        },
+        {
+          "t": "2026-10-23T16:00:00-04:00",
+          "pct": -1.0426
+        },
+        {
+          "t": "2026-10-26T16:00:00-04:00",
+          "pct": -1.0426
+        }
+      ],
       "nota": "Empezó el 2026-10-07 (antes que las demás). % vs $10,000 iniciales."
     },
     {
@@ -151,8 +239,43 @@
           "equity": 10000.0
         }
       ],
+      "serie_pct": [
+        {
+          "t": "2026-10-23T16:00:00-04:00",
+          "pct": 0.0
+        },
+        {
+          "t": "2026-10-26T16:00:00-04:00",
+          "pct": 0.0
+        }
+      ],
       "posicion": "efectivo",
       "regla": "Cada día bursátil: si el cierre predicho por Kronos para ese día > cierre real del día anterior → 100% VOO ese día; si no, efectivo. Sin comisiones. Usa kronos_voo_pred.json (predicción semanal)."
+    },
+    {
+      "id": "copia_ferdinand",
+      "nombre": "Copia Ferdinand",
+      "color": "#f778ba",
+      "inicio": "2026-10-26",
+      "capital_inicial": 100.0,
+      "valor": 100.0,
+      "cambio_usd": 0.0,
+      "cambio_pct": 0.0,
+      "serie": [
+        {
+          "t": "2026-10-26T16:00:00-04:00",
+          "equity": 100.0
+        }
+      ],
+      "serie_pct": [
+        {
+          "t": "2026-10-26T16:00:00-04:00",
+          "pct": 0.0
+        }
+      ],
+      "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo (11.654%). BTC/ETH/SOL → Yahoo BTC-USD/ETH-USD/SOL-USD. SLNC.DE→SLNC.SW, CETH.DE→CETH.AS. Fracciones OK. Capital $100. Rendimiento en moneda local (sin FX).",
+      "efectivo_pct_etoro": 11.654058,
+      "n_posiciones": 18
     }
   ],
   "series": {
@@ -253,6 +376,119 @@
         "t": "2026-10-26T16:00:00-04:00",
         "equity": 10000.0
       }
+    ],
+    "copia_ferdinand": [
+      {
+        "t": "2026-10-26T16:00:00-04:00",
+        "equity": 100.0
+      }
     ]
-  }
+  },
+  "series_pct": {
+    "copia_jeppe": [
+      {
+        "t": "2026-10-23T16:00:00-04:00",
+        "pct": 0.001
+      },
+      {
+        "t": "2026-10-26T16:00:00-04:00",
+        "pct": 1.0493
+      }
+    ],
+    "top10_jeppe": [
+      {
+        "t": "2026-10-23T16:00:00-04:00",
+        "pct": 0.0
+      },
+      {
+        "t": "2026-10-26T16:00:00-04:00",
+        "pct": 1.0523
+      }
+    ],
+    "voo_aguantar": [
+      {
+        "t": "2026-10-23T16:00:00-04:00",
+        "pct": 0.0
+      },
+      {
+        "t": "2026-10-26T16:00:00-04:00",
+        "pct": 0.6914
+      }
+    ],
+    "sma50": [
+      {
+        "t": "2026-10-07T16:00:00-04:00",
+        "pct": 0.0
+      },
+      {
+        "t": "2026-10-08T16:00:00-04:00",
+        "pct": -0.2754
+      },
+      {
+        "t": "2026-10-09T16:00:00-04:00",
+        "pct": 0.1125
+      },
+      {
+        "t": "2026-10-12T16:00:00-04:00",
+        "pct": 0.0711
+      },
+      {
+        "t": "2026-10-13T16:00:00-04:00",
+        "pct": 0.0774
+      },
+      {
+        "t": "2026-10-14T16:00:00-04:00",
+        "pct": -0.6219
+      },
+      {
+        "t": "2026-10-15T16:00:00-04:00",
+        "pct": -0.9306
+      },
+      {
+        "t": "2026-10-16T16:00:00-04:00",
+        "pct": -0.9306
+      },
+      {
+        "t": "2026-10-19T16:00:00-04:00",
+        "pct": -0.9306
+      },
+      {
+        "t": "2026-10-20T16:00:00-04:00",
+        "pct": -0.9306
+      },
+      {
+        "t": "2026-10-21T16:00:00-04:00",
+        "pct": -0.3818
+      },
+      {
+        "t": "2026-10-22T16:00:00-04:00",
+        "pct": -1.0426
+      },
+      {
+        "t": "2026-10-23T16:00:00-04:00",
+        "pct": -1.0426
+      },
+      {
+        "t": "2026-10-26T16:00:00-04:00",
+        "pct": -1.0426
+      }
+    ],
+    "kronos": [
+      {
+        "t": "2026-10-23T16:00:00-04:00",
+        "pct": 0.0
+      },
+      {
+        "t": "2026-10-26T16:00:00-04:00",
+        "pct": 0.0
+      }
+    ],
+    "copia_ferdinand": [
+      {
+        "t": "2026-10-26T16:00:00-04:00",
+        "pct": 0.0
+      }
+    ]
+  },
+  "grafica": "pct"
 }

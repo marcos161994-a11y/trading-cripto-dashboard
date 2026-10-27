@@ -71,7 +71,7 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
   </section>
 
   <section class="card" id="vooSeccion">
-    <h2>VOO y acciones (cuentas virtuales de $10,000)</h2>
+    <h2>VOO y acciones (cuentas virtuales)</h2>
     <div class="mut" id="vooActualizado" style="font-size:12px;margin-bottom:8px">Cargando sección VOO…</div>
     <div class="cmp" id="vooKpis"></div>
     <div class="chartbox"><canvas id="vooChart"></canvas></div>
@@ -141,7 +141,7 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
     <div id="diario"></div>
   </section>
 </main>
-<footer>Cuentas simuladas (paper trading): cripto en Kraken (BTC/ETH/SOL) · VOO y acciones (Jeppe / SMA50 / Kronos, $10,000) · no es dinero real</footer>
+<footer>Cuentas simuladas (paper trading): cripto en Kraken (BTC/ETH/SOL) · VOO y acciones (Jeppe / Ferdinand / SMA50 / Kronos; la mayoría $10,000, Ferdinand $100) · no es dinero real</footer>
 
 <script>
 const TZ = 'America/Puerto_Rico';
@@ -394,10 +394,8 @@ fetch('data.json?t=' + Date.now(), {cache: 'no-store'})
 /* --- VOO y acciones: carga independiente; un fallo no afecta la sección cripto --- */
 function renderVoo(d) {
   if (!$('vooKpis')) return;
-  const cap = d.capital_inicial || 10000;
   const fechaDia = s => {
     if (!s) return '—';
-    // s puede ser YYYY-MM-DD o ISO
     const d0 = new Date(s.length === 10 ? s + 'T16:00:00-04:00' : s);
     if (isNaN(d0)) return s;
     return d0.toLocaleDateString('es-PR', {timeZone: TZ, day: '2-digit', month: 'short', year: 'numeric'});
@@ -406,11 +404,12 @@ function renderVoo(d) {
     ? ('Actualizado: ' + new Date(d.actualizado).toLocaleString('es-PR', {timeZone: TZ, dateStyle: 'medium', timeStyle: 'short', hour12: true}) + ' (hora PR, UTC-4)')
     : '';
   const fila = (c) => {
-    const sub = c.id === 'sma50'
-      ? (`desde ${fechaDia(c.inicio)} · empezó antes`)
-      : (c.id === 'kronos'
-          ? (`desde ${fechaDia(c.inicio)} · ahora en ${c.posicion === 'VOO' || c.posicion === 'voo' ? 'VOO' : 'efectivo'}`)
-          : (`desde ${fechaDia(c.inicio)}`));
+    const cap = c.capital_inicial || 10000;
+    let sub;
+    if (c.id === 'sma50') sub = `capital ${usd(cap, 0)} · desde ${fechaDia(c.inicio)} · empezó antes`;
+    else if (c.id === 'kronos') sub = `capital ${usd(cap, 0)} · desde ${fechaDia(c.inicio)} · ahora en ${c.posicion === 'VOO' || c.posicion === 'voo' ? 'VOO' : 'efectivo'}`;
+    else if (c.id === 'copia_ferdinand') sub = `capital ${usd(cap, 0)} · desde ${fechaDia(c.inicio)} · mezcla eToro (efectivo ~${c.efectivo_pct_etoro != null ? Number(c.efectivo_pct_etoro).toFixed(1) + '%' : '—'})`;
+    else sub = `capital ${usd(cap, 0)} · desde ${fechaDia(c.inicio)}`;
     return kpi(
       c.nombre,
       `<span class="dot" style="background:${c.color || '#8b949e'}"></span>${usd(c.valor)}`,
@@ -418,27 +417,37 @@ function renderVoo(d) {
     );
   };
   $('vooKpis').innerHTML = (d.cuentas || []).map(fila).join('') || '<div class="vacio">Sin cuentas todavía.</div>';
-  $('vooNota').textContent = (d.nota || '') + ' Capital inicial de cada cuenta: ' + usd(cap, 0) + '.';
+  $('vooNota').textContent = (d.nota || '') + ' La gráfica está en % de cambio (no en dólares) para poder comparar a Ferdinand ($100) con las cuentas de $10,000.';
   if (typeof Chart === 'undefined') return;
-  const P = a => (a || []).map(p => ({x: new Date(p.t), y: p.equity}));
+  // Gráfica en % desde el capital de cada cuenta
+  const P = (c) => {
+    const cap = c.capital_inicial || 10000;
+    if (c.serie_pct && c.serie_pct.length) return c.serie_pct.map(p => ({x: new Date(p.t), y: p.pct}));
+    return (c.serie || []).map(p => ({x: new Date(p.t), y: ((p.equity / cap) - 1) * 100}));
+  };
   const ds = (d.cuentas || []).map(c => ({
-    label: c.nombre,
-    data: P(c.serie),
+    label: c.nombre + (c.capital_inicial && c.capital_inicial !== 10000 ? ` ($${c.capital_inicial})` : ''),
+    data: P(c),
     borderColor: c.color || '#8b949e',
     backgroundColor: c.color || '#8b949e',
     tension: .15,
-    borderWidth: 2,
+    borderWidth: c.id === 'copia_ferdinand' ? 2.5 : 2,
+    borderDash: c.id === 'copia_ferdinand' ? [] : [],
     pointRadius: (c.serie || []).length > 40 ? 0 : 3,
   }));
   const todos = ds.flatMap(x => x.data.map(p => p.y));
   if (!todos.length) return;
   if (CH.voo) CH.voo.destroy();
-  const padMin = Math.min(cap * 0.98, ...todos);
-  const padMax = Math.max(cap * 1.02, ...todos);
+  const padMin = Math.min(-1, ...todos);
+  const padMax = Math.max(1, ...todos);
+  const opts = opcionesEje(padMin, padMax, true);
+  // Sobrescribir eje Y y tooltip a porcentaje
+  opts.scales.y.ticks.callback = v => (v > 0 ? '+' : '') + Number(v).toFixed(1) + '%';
+  opts.plugins.tooltip.callbacks.label = it => ' ' + (it.dataset.label ? it.dataset.label + ': ' : '') + ((it.raw.y > 0 ? '+' : '') + Number(it.raw.y).toFixed(2) + '%');
   CH.voo = new Chart($('vooChart'), {
     type: 'line',
     data: {datasets: ds},
-    options: opcionesEje(padMin, padMax, true),
+    options: opts,
   });
 }
 

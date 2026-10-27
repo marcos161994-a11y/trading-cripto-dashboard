@@ -92,17 +92,20 @@ Refresca solo E3, la comparación y `historia_cruce.json`. E1 y E2 quedan como e
 ## Benchmark btc_hold (pestaña #bh)
 Cuenta de papel Kraken `btc_hold` ($1,000, comisión 0.26 %): compró BTC una sola vez el 2026-10-07 10:52 PR y lo mantiene para siempre. Sin rutina propia: `exportar_dashboard.py` la lee en modo solo lectura (`--workspace btc_hold`) en **todos** los modos (`--sin-btchold` para omitirla); si falla, se conserva el bloque anterior. Datos: `data.json` → `btc_hold`, historia en `historia_btc_hold.json`, serie `btc_hold` en la comparación (línea "BTC hold real"); la línea punteada "BTC hold teórico" (`btc_bh`) se mantiene.
 
-## Sección VOO y acciones (cuentas virtuales de $10,000)
+## Sección VOO y acciones (cuentas virtuales)
 
-Debajo de la comparación de cripto hay una sección aparte **«VOO y acciones»** con 5 cuentas de papel (no toca `data.json` ni las `historia_*.json` de cripto):
+Debajo de la comparación de cripto hay una sección aparte **«VOO y acciones»** con 6 cuentas de papel (no toca `data.json` ni las `historia_*.json` de cripto):
 
-| Cuenta | Inicio | Qué hace |
-|---|---|---|
-| Copia Jeppe | 2026-10-23 | Copia la cartera completa de JeppeKirkBonde (eToro) |
-| Top 10 Jeppe | 2026-10-23 | Solo sus 10 acciones más grandes |
-| VOO comprar y aguantar | 2026-10-23 | Comprar VOO y no vender |
-| Regla SMA 50 | **2026-10-07** | Compra/vende VOO según la media de 50 días (empezó antes) |
-| Kronos | 2026-10-23 | Si el modelo predice subida → VOO; si no, efectivo |
+| Cuenta | Capital | Inicio | Qué hace |
+|---|---|---|---|
+| Copia Jeppe | $10,000 | 2026-10-23 | Copia la cartera completa de JeppeKirkBonde (eToro) |
+| Top 10 Jeppe | $10,000 | 2026-10-23 | Solo sus 10 acciones más grandes |
+| VOO comprar y aguantar | $10,000 | 2026-10-23 | Comprar VOO y no vender |
+| Regla SMA 50 | $10,000 | **2026-10-07** | Compra/vende VOO según la media de 50 días (empezó antes) |
+| Kronos | $10,000 | 2026-10-23 | Si el modelo predice subida → VOO; si no, efectivo |
+| Copia Ferdinand | **$100** | 2026-10-26 | Copia la mezcla de FerdinandColella (eToro), conservando su % en efectivo. Fracciones OK. |
+
+La gráfica de esta sección está en **% de cambio** (no en dólares) para poder comparar a Ferdinand ($100) con las cuentas de $10,000.
 
 Datos: `data_voo.json` (generado por el bot de VOO). **No editar a mano.** Un fallo al cargar este archivo no afecta la sección de cripto.
 
