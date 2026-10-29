@@ -94,7 +94,7 @@ Cuenta de papel Kraken `btc_hold` ($1,000, comisión 0.26 %): compró BTC una so
 
 ## Sección VOO y acciones (cuentas virtuales)
 
-Debajo de la comparación de cripto hay una sección aparte **«VOO y acciones»** con 5 cuentas de papel (no toca `data.json` ni las `historia_*.json` de cripto):
+Debajo de la comparación de cripto hay una sección aparte **«VOO y acciones»** con 9 cuentas de papel (no toca `data.json` ni las `historia_*.json` de cripto):
 
 | Cuenta | Capital | Inicio | Qué hace |
 |---|---|---|---|
@@ -103,8 +103,12 @@ Debajo de la comparación de cripto hay una sección aparte **«VOO y acciones»
 | VOO comprar y aguantar | $10,000 | 2026-10-23 | Comprar VOO y no vender |
 | Copia Ferdinand | **$100** | 2026-10-26 | Copia la mezcla de FerdinandColella (eToro), conservando su % en efectivo. Fracciones OK. |
 | Bitcoin comprar y guardar | **$100** | 2026-10-26 | Compró BTC-USD al cierre EE. UU. (barra 20:00 UTC, mismo precio que el BTC de Ferdinand = 79,721.54) y lo mantiene para siempre. |
+| NANC (congresistas) | **$100** | 2026-10-29 | Compró el ETF NANC (copia compras de congresistas demócratas) y lo mantiene. |
+| Copia TrevinaYoussef | **$100** | 2026-10-29 | Copia la cartera de TrevinaYoussef (eToro, cid 15229029), conservando su % en efectivo. |
+| Copia addeprod | **$100** | 2026-10-29 | Copia la cartera de addeprod (eToro, cid 32279586), conservando su % en efectivo; tickers nórdicos vía Yahoo (.OL/.ST/.CO). |
+| Buffett (BRK.B) | **$100** | 2026-10-29 | Compró BRK-B y lo mantiene para siempre. |
 
-La gráfica de esta sección está en **% de cambio** (no en dólares) para poder comparar a Ferdinand y Bitcoin ($100) con las cuentas de $10,000.
+La gráfica de esta sección está en **% de cambio** (no en dólares) para poder comparar las cuentas de $100 con las cuentas de $10,000.
 
 Datos: `data_voo.json` (generado por el bot de VOO). **No editar a mano.** Un fallo al cargar este archivo no afecta la sección de cripto.
 
