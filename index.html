@@ -414,7 +414,7 @@ function renderVoo(d) {
     return kpi(
       c.nombre,
       `<span class="dot" style="background:${c.color || '#8b949e'}"></span>${usd(c.valor)}`,
-      `<span class="${signo(c.cambio_usd)}">${usd(c.cambio_usd)} (${pct(c.cambio_pct)})</span> · ${sub}`
+      `<span class="${signo(c.cambio_usd)}">${usd(c.cambio_usd)} (${pct(c.cambio_pct)})</span> · ${sub}${c.descripcion ? '<br><span style="font-size:12px">' + c.descripcion + '</span>' : ''}`
     );
   };
   $('vooKpis').innerHTML = (d.cuentas || []).map(fila).join('') || '<div class="vacio">Sin cuentas todavía.</div>';
