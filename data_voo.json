@@ -1,7 +1,7 @@
 {
-  "actualizado": "2026-10-29T19:18:57-04:00",
+  "actualizado": "2026-10-29T19:28:39-04:00",
   "capital_inicial": 10000.0,
-  "nota": "Cuentas virtuales de papel (sin comisiones). Copia Jeppe / Top 10 / VOO aguantar: $10,000 desde 2026-10-23. Copia Ferdinand: $100 desde 2026-10-26 (conserva su % en efectivo de eToro). Bitcoin comprar y guardar: $100 en BTC-USD desde 2026-10-26 (mismo precio/método que el BTC de Ferdinand; se mantiene para siempre). NANC (congresistas), Copia TrevinaYoussef, Copia addeprod y Buffett (BRK.B): $100 cada una desde 2026-10-29. La gráfica muestra el % de cambio desde el capital de cada cuenta para poder comparar. Un punto por cierre bursátil de EE. UU.",
+  "nota": "Cuentas virtuales de papel (sin comisiones). Copia Jeppe / Top 10 / VOO aguantar: $10,000 desde 2026-10-23. Copia Ferdinand: $100 desde 2026-10-26 (conserva su % en efectivo de eToro). Bitcoin comprar y guardar: $100 en BTC-USD desde 2026-10-26 (mismo precio/método que el BTC de Ferdinand; se mantiene para siempre). NANC (congresistas), Copia TrevinaYoussef, Copia addeprod y Buffett (BRK.B), Copia gmenez128, Copia taherkamari y Copia NatMoney: $100 cada una desde 2026-10-29. La gráfica muestra el % de cambio desde el capital de cada cuenta para poder comparar. Un punto por cierre bursátil de EE. UU.",
   "cuentas": [
     {
       "id": "copia_jeppe",
@@ -372,6 +372,84 @@
       "nota": "Compró $100 de BRK-B al cierre 2026-10-29 y lo mantiene para siempre.",
       "ticker": "BRK-B",
       "precio_inicio": 541.9600219726562
+    },
+    {
+      "id": "copia_gmenez128",
+      "nombre": "Copia gmenez128",
+      "color": "#56d364",
+      "inicio": "2026-10-29",
+      "capital_inicial": 100.0,
+      "valor": 100.0,
+      "cambio_usd": 0.0,
+      "cambio_pct": 0.0,
+      "descripcion": "copia la cartera de gmenez128 en eToro ($100), pocas acciones de tecnología, incluido su efectivo; compra/vende cuando él cambia su cartera",
+      "serie": [
+        {
+          "t": "2026-10-29T16:00:00-04:00",
+          "equity": 100.0
+        }
+      ],
+      "serie_pct": [
+        {
+          "t": "2026-10-29T16:00:00-04:00",
+          "pct": 0.0
+        }
+      ],
+      "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
+      "efectivo_pct_etoro": 0.002798,
+      "n_posiciones": 7
+    },
+    {
+      "id": "copia_taherkamari",
+      "nombre": "Copia taherkamari",
+      "color": "#79c0ff",
+      "inicio": "2026-10-29",
+      "capital_inicial": 100.0,
+      "valor": 100.0,
+      "cambio_usd": 0.0,
+      "cambio_pct": 0.0,
+      "descripcion": "copia la cartera de taherkamari en eToro ($100), empresas sólidas a largo plazo, incluido su efectivo; compra/vende cuando él cambia su cartera",
+      "serie": [
+        {
+          "t": "2026-10-29T16:00:00-04:00",
+          "equity": 100.0
+        }
+      ],
+      "serie_pct": [
+        {
+          "t": "2026-10-29T16:00:00-04:00",
+          "pct": 0.0
+        }
+      ],
+      "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
+      "efectivo_pct_etoro": 6.181662,
+      "n_posiciones": 46
+    },
+    {
+      "id": "copia_natmoney",
+      "nombre": "Copia NatMoney",
+      "color": "#db61a2",
+      "inicio": "2026-10-29",
+      "capital_inicial": 100.0,
+      "valor": 100.0,
+      "cambio_usd": 0.0,
+      "cambio_pct": 0.0,
+      "descripcion": "copia la cartera de NatMoney en eToro ($100), acciones de valor y algo de efectivo; compra/vende cuando él cambia su cartera",
+      "serie": [
+        {
+          "t": "2026-10-29T16:00:00-04:00",
+          "equity": 100.0
+        }
+      ],
+      "serie_pct": [
+        {
+          "t": "2026-10-29T16:00:00-04:00",
+          "pct": 0.0
+        }
+      ],
+      "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
+      "efectivo_pct_etoro": 13.423008,
+      "n_posiciones": 24
     }
   ],
   "series": {
@@ -500,6 +578,24 @@
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 100.0
       }
+    ],
+    "copia_gmenez128": [
+      {
+        "t": "2026-10-29T16:00:00-04:00",
+        "equity": 100.0
+      }
+    ],
+    "copia_taherkamari": [
+      {
+        "t": "2026-10-29T16:00:00-04:00",
+        "equity": 100.0
+      }
+    ],
+    "copia_natmoney": [
+      {
+        "t": "2026-10-29T16:00:00-04:00",
+        "equity": 100.0
+      }
     ]
   },
   "series_pct": {
@@ -624,6 +720,24 @@
       }
     ],
     "brk_guardar": [
+      {
+        "t": "2026-10-29T16:00:00-04:00",
+        "pct": 0.0
+      }
+    ],
+    "copia_gmenez128": [
+      {
+        "t": "2026-10-29T16:00:00-04:00",
+        "pct": 0.0
+      }
+    ],
+    "copia_taherkamari": [
+      {
+        "t": "2026-10-29T16:00:00-04:00",
+        "pct": 0.0
+      }
+    ],
+    "copia_natmoney": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": 0.0

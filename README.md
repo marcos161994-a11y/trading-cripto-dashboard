@@ -94,7 +94,7 @@ Cuenta de papel Kraken `btc_hold` ($1,000, comisión 0.26 %): compró BTC una so
 
 ## Sección VOO y acciones (cuentas virtuales)
 
-Debajo de la comparación de cripto hay una sección aparte **«VOO y acciones»** con 9 cuentas de papel (no toca `data.json` ni las `historia_*.json` de cripto):
+Debajo de la comparación de cripto hay una sección aparte **«VOO y acciones»** con 12 cuentas de papel (no toca `data.json` ni las `historia_*.json` de cripto):
 
 | Cuenta | Capital | Inicio | Qué hace |
 |---|---|---|---|
@@ -107,6 +107,9 @@ Debajo de la comparación de cripto hay una sección aparte **«VOO y acciones»
 | Copia TrevinaYoussef | **$100** | 2026-10-29 | Copia la cartera de TrevinaYoussef (eToro, cid 15229029), conservando su % en efectivo. |
 | Copia addeprod | **$100** | 2026-10-29 | Copia la cartera de addeprod (eToro, cid 32279586), conservando su % en efectivo; tickers nórdicos vía Yahoo (.OL/.ST/.CO). |
 | Buffett (BRK.B) | **$100** | 2026-10-29 | Compró BRK-B y lo mantiene para siempre. |
+| Copia gmenez128 | **$100** | 2026-10-29 | Copia la cartera de gmenez128 (eToro, cid 15070490), conservando su % en efectivo. |
+| Copia taherkamari | **$100** | 2026-10-29 | Copia la cartera de taherkamari (eToro, cid 13412279), conservando su % en efectivo. |
+| Copia NatMoney | **$100** | 2026-10-29 | Copia la cartera de NatMoney (eToro, cid 13242386), conservando su % en efectivo. |
 
 La gráfica de esta sección está en **% de cambio** (no en dólares) para poder comparar las cuentas de $100 con las cuentas de $10,000.
 
