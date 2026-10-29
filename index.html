@@ -411,11 +411,16 @@ function renderVoo(d) {
     else if (c.id === 'copia_ferdinand') sub = `capital ${usd(cap, 0)} · desde ${fechaDia(c.inicio)} · mezcla eToro (efectivo ~${c.efectivo_pct_etoro != null ? Number(c.efectivo_pct_etoro).toFixed(1) + '%' : '—'})`;
     else if (c.id === 'btc_guardar') sub = `capital ${usd(cap, 0)} · desde ${fechaDia(c.inicio)} · 100% BTC-USD (comprar y guardar)`;
     else sub = `capital ${usd(cap, 0)} · desde ${fechaDia(c.inicio)}`;
-    return kpi(
+    const k = kpi(
       c.nombre,
       `<span class="dot" style="background:${c.color || '#8b949e'}"></span>${usd(c.valor)}`,
-      `<span class="${signo(c.cambio_usd)}">${usd(c.cambio_usd)} (${pct(c.cambio_pct)})</span> · ${sub}${c.descripcion ? '<br><span style="font-size:12px">' + c.descripcion + '</span>' : ''}`
+      `<span class="${signo(c.cambio_usd)}">${usd(c.cambio_usd)} (${pct(c.cambio_pct)})</span> · ${sub}`
     );
+    if (!c.descripcion) return k;
+    return k.replace('<div class="l">' + esc(c.nombre) + '</div>',
+      '<div class="l" role="button" tabindex="0" style="cursor:pointer;text-decoration:underline dotted" ' +
+      'onclick="this.nextElementSibling.hidden=!this.nextElementSibling.hidden">' + esc(c.nombre) + ' ⓘ</div>' +
+      '<div class="s" hidden style="font-size:12px;margin:2px 0 4px">' + esc(c.descripcion) + '</div>');
   };
   $('vooKpis').innerHTML = (d.cuentas || []).map(fila).join('') || '<div class="vacio">Sin cuentas todavía.</div>';
   $('vooNota').textContent = (d.nota || '') + ' La gráfica está en % de cambio (no en dólares) para poder comparar a Ferdinand y Bitcoin ($100) con las cuentas de $10,000.';
