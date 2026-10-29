@@ -55,7 +55,7 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
   <div class="mut" id="actualizado">Cargando…</div>
 </header>
 <main>
-  <section class="card">
+  <section class="card" style="display:none"><!-- oculto a pedido -->
     <h2>Ranking en vivo vs comprar y mantener BTC (btc_hold)</h2>
     <div class="tbl" id="ranking"></div>
     <div class="mut" id="rankingNota" style="font-size:12px;margin-top:6px"></div>
@@ -84,6 +84,7 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
     <div id="segundaOpinion" style="white-space:normal"></div>
   </section>
 
+  <div id="detalleCripto" style="display:none"><!-- oculto: selector y detalle por estrategia -->
   <nav class="tabs" id="tabs">
     <button class="tab" data-e="e1">Estrategia 1 · intradía (workspace global)</button>
     <button class="tab" data-e="e2">Estrategia 2 · tendencia diaria (workspace tendencia)</button>
@@ -140,6 +141,7 @@ footer{color:var(--mut);font-size:12px;text-align:center;padding:10px}
     <h2>Diario (últimas revisiones)</h2>
     <div id="diario"></div>
   </section>
+  </div>
 </main>
 <footer>Cuentas simuladas (paper trading): cripto en Kraken (BTC/ETH/SOL) · VOO y acciones (Jeppe / VOO / Ferdinand / Bitcoin; Jeppe y VOO $10,000, Ferdinand y Bitcoin $100) · no es dinero real</footer>
 
