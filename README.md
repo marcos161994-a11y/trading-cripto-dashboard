@@ -94,15 +94,13 @@ Cuenta de papel Kraken `btc_hold` ($1,000, comisión 0.26 %): compró BTC una so
 
 ## Sección VOO y acciones (cuentas virtuales)
 
-Debajo de la comparación de cripto hay una sección aparte **«VOO y acciones»** con 7 cuentas de papel (no toca `data.json` ni las `historia_*.json` de cripto):
+Debajo de la comparación de cripto hay una sección aparte **«VOO y acciones»** con 5 cuentas de papel (no toca `data.json` ni las `historia_*.json` de cripto):
 
 | Cuenta | Capital | Inicio | Qué hace |
 |---|---|---|---|
 | Copia Jeppe | $10,000 | 2026-10-23 | Copia la cartera completa de JeppeKirkBonde (eToro) |
 | Top 10 Jeppe | $10,000 | 2026-10-23 | Solo sus 10 acciones más grandes |
 | VOO comprar y aguantar | $10,000 | 2026-10-23 | Comprar VOO y no vender |
-| Regla SMA 50 | $10,000 | **2026-10-07** | Compra/vende VOO según la media de 50 días (empezó antes) |
-| Kronos | $10,000 | 2026-10-23 | Si el modelo predice subida → VOO; si no, efectivo |
 | Copia Ferdinand | **$100** | 2026-10-26 | Copia la mezcla de FerdinandColella (eToro), conservando su % en efectivo. Fracciones OK. |
 | Bitcoin comprar y guardar | **$100** | 2026-10-26 | Compró BTC-USD al cierre EE. UU. (barra 20:00 UTC, mismo precio que el BTC de Ferdinand = 79,721.54) y lo mantiene para siempre. |
 
