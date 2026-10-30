@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-30T16:29:12-04:00",
+  "actualizado": "2026-10-30T16:29:44-04:00",
   "capital_inicial": 10000.0,
   "nota": "Cuentas virtuales de papel (sin comisiones). Copia Jeppe / Top 10 / VOO aguantar: $10,000 desde 2026-10-23. Copia Ferdinand: $100 desde 2026-10-26 (conserva su % en efectivo de eToro). Bitcoin comprar y guardar: $100 en BTC-USD desde 2026-10-26 (mismo precio/método que el BTC de Ferdinand; se mantiene para siempre). NANC (congresistas), Copia TrevinaYoussef, Copia addeprod y Buffett (BRK.B), Copia gmenez128, Copia taherkamari y Copia NatMoney: $100 cada una desde 2026-10-29. La gráfica muestra el % de cambio desde el capital de cada cuenta para poder comparar. Un punto por cierre bursátil de EE. UU.",
   "cuentas": [
@@ -9,8 +9,8 @@
       "color": "#58a6ff",
       "inicio": "2026-10-23",
       "capital_inicial": 10000.0,
-      "valor": 10047.02,
-      "cambio_usd": 47.02,
+      "valor": 10046.99,
+      "cambio_usd": 46.99,
       "cambio_pct": 0.47,
       "descripcion": "copia sus ~60 acciones; compra/vende cuando él cambia su cartera",
       "serie": [
@@ -36,7 +36,7 @@
         },
         {
           "t": "2026-10-30T16:00:00-04:00",
-          "equity": 10047.02
+          "equity": 10046.99
         }
       ],
       "serie_pct": [
@@ -62,7 +62,7 @@
         },
         {
           "t": "2026-10-30T16:00:00-04:00",
-          "pct": 0.4702
+          "pct": 0.4699
         }
       ],
       "movimientos": [
@@ -260,11 +260,11 @@
         }
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo (11.654%). BTC/ETH/SOL → Yahoo BTC-USD/ETH-USD/SOL-USD. SLNC.DE→SLNC.SW, CETH.DE→CETH.AS. Fracciones OK. Capital $100. Rendimiento en moneda local (sin FX).",
-      "efectivo_pct_etoro": 11.654058,
+      "efectivo_pct_etoro": 11.654724,
       "n_posiciones": 18,
       "movimientos": [
-        "26 oct: compra inicial de 18 posiciones por $100 (las mayores: BTC-USD 10%, XGIN.DE 10%, EUNA.DE 10%); 12% en efectivo",
-        "Sin movimientos desde la compra inicial"
+        "30 oct: Vendió INTC (4.0% → 2.9%)",
+        "26 oct: compra inicial de 18 posiciones por $100 (las mayores: BTC-USD 10%, XGIN.DE 10%, EUNA.DE 10%)"
       ]
     },
     {
@@ -273,9 +273,9 @@
       "color": "#f0b429",
       "inicio": "2026-10-26",
       "capital_inicial": 100.0,
-      "valor": 96.35,
-      "cambio_usd": -3.65,
-      "cambio_pct": -3.65,
+      "valor": 96.36,
+      "cambio_usd": -3.64,
+      "cambio_pct": -3.64,
       "descripcion": "compró BTC el 26 oct ($100) y no vende",
       "serie": [
         {
@@ -296,7 +296,7 @@
         },
         {
           "t": "2026-10-30T16:00:00-04:00",
-          "equity": 96.35
+          "equity": 96.36
         }
       ],
       "serie_pct": [
@@ -318,7 +318,7 @@
         },
         {
           "t": "2026-10-30T16:00:00-04:00",
-          "pct": -3.65
+          "pct": -3.64
         }
       ],
       "nota": "Compró $100 de BTC-USD al cierre de EE. UU. y lo mantiene para siempre. Sin comisiones. Precio = barra 20:00 UTC (mismo método e inicio que el BTC de Ferdinand). Fracciones OK.",
@@ -399,11 +399,11 @@
         }
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
-      "efectivo_pct_etoro": 15.884129,
+      "efectivo_pct_etoro": 9.317668,
       "n_posiciones": 47,
       "movimientos": [
-        "29 oct: compra inicial de 47 posiciones por $100 (las mayores: NVDA 9%, MU 6%, LLY 6%); 16% en efectivo",
-        "Sin movimientos desde la compra inicial"
+        "30 oct: reajustó la cartera para copiar los cambios del trader (cuenta en $97.24)",
+        "29 oct: compra inicial de 47 posiciones por $100 (las mayores: NVDA 10%, MU 7%, LLY 6%)"
       ]
     },
     {
@@ -526,9 +526,9 @@
       "color": "#79c0ff",
       "inicio": "2026-10-29",
       "capital_inicial": 100.0,
-      "valor": 97.74,
-      "cambio_usd": -2.26,
-      "cambio_pct": -2.26,
+      "valor": 97.73,
+      "cambio_usd": -2.27,
+      "cambio_pct": -2.27,
       "descripcion": "copia la cartera de taherkamari en eToro ($100), empresas sólidas a largo plazo, incluido su efectivo; compra/vende cuando él cambia su cartera",
       "serie": [
         {
@@ -537,7 +537,7 @@
         },
         {
           "t": "2026-10-30T16:00:00-04:00",
-          "equity": 97.74
+          "equity": 97.73
         }
       ],
       "serie_pct": [
@@ -547,7 +547,7 @@
         },
         {
           "t": "2026-10-30T16:00:00-04:00",
-          "pct": -2.26
+          "pct": -2.27
         }
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
@@ -564,9 +564,9 @@
       "color": "#db61a2",
       "inicio": "2026-10-29",
       "capital_inicial": 100.0,
-      "valor": 98.38,
-      "cambio_usd": -1.62,
-      "cambio_pct": -1.62,
+      "valor": 98.39,
+      "cambio_usd": -1.61,
+      "cambio_pct": -1.61,
       "descripcion": "copia la cartera de NatMoney en eToro ($100), acciones de valor y algo de efectivo; compra/vende cuando él cambia su cartera",
       "serie": [
         {
@@ -575,7 +575,7 @@
         },
         {
           "t": "2026-10-30T16:00:00-04:00",
-          "equity": 98.38
+          "equity": 98.39
         }
       ],
       "serie_pct": [
@@ -585,7 +585,7 @@
         },
         {
           "t": "2026-10-30T16:00:00-04:00",
-          "pct": -1.62
+          "pct": -1.61
         }
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
@@ -621,7 +621,7 @@
       },
       {
         "t": "2026-10-30T16:00:00-04:00",
-        "equity": 10047.02
+        "equity": 10046.99
       }
     ],
     "top10_jeppe": [
@@ -717,7 +717,7 @@
       },
       {
         "t": "2026-10-30T16:00:00-04:00",
-        "equity": 96.35
+        "equity": 96.36
       }
     ],
     "nanc_guardar": [
@@ -777,7 +777,7 @@
       },
       {
         "t": "2026-10-30T16:00:00-04:00",
-        "equity": 97.74
+        "equity": 97.73
       }
     ],
     "copia_natmoney": [
@@ -787,7 +787,7 @@
       },
       {
         "t": "2026-10-30T16:00:00-04:00",
-        "equity": 98.38
+        "equity": 98.39
       }
     ]
   },
@@ -815,7 +815,7 @@
       },
       {
         "t": "2026-10-30T16:00:00-04:00",
-        "pct": 0.4702
+        "pct": 0.4699
       }
     ],
     "top10_jeppe": [
@@ -911,7 +911,7 @@
       },
       {
         "t": "2026-10-30T16:00:00-04:00",
-        "pct": -3.65
+        "pct": -3.64
       }
     ],
     "nanc_guardar": [
@@ -971,7 +971,7 @@
       },
       {
         "t": "2026-10-30T16:00:00-04:00",
-        "pct": -2.26
+        "pct": -2.27
       }
     ],
     "copia_natmoney": [
@@ -981,7 +981,7 @@
       },
       {
         "t": "2026-10-30T16:00:00-04:00",
-        "pct": -1.62
+        "pct": -1.61
       }
     ]
   },
