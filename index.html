@@ -422,7 +422,9 @@ function renderVoo(d) {
     return k.replace('<div class="l">' + esc(c.nombre) + '</div>',
       '<div class="l" role="button" tabindex="0" style="cursor:pointer;text-decoration:underline dotted" ' +
       'onclick="this.nextElementSibling.hidden=!this.nextElementSibling.hidden">' + esc(c.nombre) + ' ⓘ</div>' +
-      '<div class="s" hidden style="font-size:12px;margin:2px 0 4px">' + esc(c.descripcion) + '</div>');
+      '<div class="s" hidden style="font-size:12px;margin:2px 0 4px">' + esc(c.descripcion) +
+      ((c.movimientos && c.movimientos.length) ? '<div style="margin-top:6px"><b>Últimos movimientos:</b><ul style="margin:2px 0 0 16px;padding:0">' +
+        c.movimientos.map(m => '<li>' + esc(m) + '</li>').join('') + '</ul></div>' : '') + '</div>');
   };
   $('vooKpis').innerHTML = (d.cuentas || []).map(fila).join('') || '<div class="vacio">Sin cuentas todavía.</div>';
   $('vooNota').textContent = (d.nota || '') + ' La gráfica está en % de cambio (no en dólares) para poder comparar a Ferdinand y Bitcoin ($100) con las cuentas de $10,000.';

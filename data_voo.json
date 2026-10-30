@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-29T19:28:39-04:00",
+  "actualizado": "2026-10-29T20:34:13-04:00",
   "capital_inicial": 10000.0,
   "nota": "Cuentas virtuales de papel (sin comisiones). Copia Jeppe / Top 10 / VOO aguantar: $10,000 desde 2026-10-23. Copia Ferdinand: $100 desde 2026-10-26 (conserva su % en efectivo de eToro). Bitcoin comprar y guardar: $100 en BTC-USD desde 2026-10-26 (mismo precio/método que el BTC de Ferdinand; se mantiene para siempre). NANC (congresistas), Copia TrevinaYoussef, Copia addeprod y Buffett (BRK.B), Copia gmenez128, Copia taherkamari y Copia NatMoney: $100 cada una desde 2026-10-29. La gráfica muestra el % de cambio desde el capital de cada cuenta para poder comparar. Un punto por cierre bursátil de EE. UU.",
   "cuentas": [
@@ -56,6 +56,11 @@
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 3.3396
         }
+      ],
+      "movimientos": [
+        "27 oct: reajustó la cartera para copiar los cambios del trader (cuenta en $10,316.63)",
+        "26 oct: reajustó la cartera para copiar los cambios del trader (cuenta en $10,131.13)",
+        "23 oct: compra inicial de 59 posiciones por $10,000 (las mayores: TSM 10%, MU 9%, NVDA 5%)"
       ]
     },
     {
@@ -111,6 +116,10 @@
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 2.3665
         }
+      ],
+      "movimientos": [
+        "26 oct: reajustó la cartera para copiar los cambios del trader (cuenta en $10,115.12)",
+        "23 oct: compra inicial de 10 posiciones por $10,000 (las mayores: TSM 21%, MU 19%, NVDA 12%)"
       ]
     },
     {
@@ -166,6 +175,10 @@
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 1.2511
         }
+      ],
+      "movimientos": [
+        "23 oct: compra inicial de VOO por $10,000",
+        "Sin movimientos desde la compra inicial"
       ]
     },
     {
@@ -216,7 +229,11 @@
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo (11.654%). BTC/ETH/SOL → Yahoo BTC-USD/ETH-USD/SOL-USD. SLNC.DE→SLNC.SW, CETH.DE→CETH.AS. Fracciones OK. Capital $100. Rendimiento en moneda local (sin FX).",
       "efectivo_pct_etoro": 11.654058,
-      "n_posiciones": 18
+      "n_posiciones": 18,
+      "movimientos": [
+        "26 oct: compra inicial de 18 posiciones por $100 (las mayores: BTC-USD 10%, XGIN.DE 10%, EUNA.DE 10%); 12% en efectivo",
+        "Sin movimientos desde la compra inicial"
+      ]
     },
     {
       "id": "btc_guardar",
@@ -267,7 +284,11 @@
       "nota": "Compró $100 de BTC-USD al cierre de EE. UU. y lo mantiene para siempre. Sin comisiones. Precio = barra 20:00 UTC (mismo método e inicio que el BTC de Ferdinand). Fracciones OK.",
       "ticker": "BTC-USD",
       "precio_inicio": 79721.5390625,
-      "unidades": 0.0012543661496750849
+      "unidades": 0.0012543661496750849,
+      "movimientos": [
+        "26 oct: compra inicial de BTC-USD por $100",
+        "Sin movimientos desde la compra inicial"
+      ]
     },
     {
       "id": "nanc_guardar",
@@ -293,7 +314,11 @@
       ],
       "nota": "Compró $100 de NANC al cierre 2026-10-29 y lo mantiene para siempre.",
       "ticker": "NANC",
-      "precio_inicio": 51.459999084472656
+      "precio_inicio": 51.459999084472656,
+      "movimientos": [
+        "29 oct: compra inicial de NANC por $100",
+        "Sin movimientos desde la compra inicial"
+      ]
     },
     {
       "id": "copia_trevina",
@@ -319,7 +344,11 @@
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
       "efectivo_pct_etoro": 15.884129,
-      "n_posiciones": 47
+      "n_posiciones": 47,
+      "movimientos": [
+        "29 oct: compra inicial de 47 posiciones por $100 (las mayores: NVDA 9%, MU 6%, LLY 6%); 16% en efectivo",
+        "Sin movimientos desde la compra inicial"
+      ]
     },
     {
       "id": "copia_addeprod",
@@ -345,7 +374,11 @@
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
       "efectivo_pct_etoro": 0.215469,
-      "n_posiciones": 32
+      "n_posiciones": 32,
+      "movimientos": [
+        "29 oct: compra inicial de 32 posiciones por $100 (las mayores: HAUTO.OL 9%, JEPQ 8%, ARCC 6%); 0% en efectivo",
+        "Sin movimientos desde la compra inicial"
+      ]
     },
     {
       "id": "brk_guardar",
@@ -371,7 +404,11 @@
       ],
       "nota": "Compró $100 de BRK-B al cierre 2026-10-29 y lo mantiene para siempre.",
       "ticker": "BRK-B",
-      "precio_inicio": 541.9600219726562
+      "precio_inicio": 541.9600219726562,
+      "movimientos": [
+        "29 oct: compra inicial de BRK-B por $100",
+        "Sin movimientos desde la compra inicial"
+      ]
     },
     {
       "id": "copia_gmenez128",
@@ -397,7 +434,11 @@
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
       "efectivo_pct_etoro": 0.002798,
-      "n_posiciones": 7
+      "n_posiciones": 7,
+      "movimientos": [
+        "29 oct: compra inicial de 7 posiciones por $100 (las mayores: AAPL 24%, AMD 20%, MU 15%); 0% en efectivo",
+        "Sin movimientos desde la compra inicial"
+      ]
     },
     {
       "id": "copia_taherkamari",
@@ -423,7 +464,11 @@
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
       "efectivo_pct_etoro": 6.181662,
-      "n_posiciones": 46
+      "n_posiciones": 46,
+      "movimientos": [
+        "29 oct: compra inicial de 46 posiciones por $100 (las mayores: MU 24%, XOM 10%, VOO 9%); 6% en efectivo",
+        "Sin movimientos desde la compra inicial"
+      ]
     },
     {
       "id": "copia_natmoney",
@@ -449,7 +494,11 @@
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
       "efectivo_pct_etoro": 13.423008,
-      "n_posiciones": 24
+      "n_posiciones": 24,
+      "movimientos": [
+        "29 oct: compra inicial de 24 posiciones por $100 (las mayores: BRK-B 8%, ASML.AS 7%, V 6%); 13% en efectivo",
+        "Sin movimientos desde la compra inicial"
+      ]
     }
   ],
   "series": {
