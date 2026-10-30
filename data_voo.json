@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-29T20:34:13-04:00",
+  "actualizado": "2026-10-30T16:29:12-04:00",
   "capital_inicial": 10000.0,
   "nota": "Cuentas virtuales de papel (sin comisiones). Copia Jeppe / Top 10 / VOO aguantar: $10,000 desde 2026-10-23. Copia Ferdinand: $100 desde 2026-10-26 (conserva su % en efectivo de eToro). Bitcoin comprar y guardar: $100 en BTC-USD desde 2026-10-26 (mismo precio/método que el BTC de Ferdinand; se mantiene para siempre). NANC (congresistas), Copia TrevinaYoussef, Copia addeprod y Buffett (BRK.B), Copia gmenez128, Copia taherkamari y Copia NatMoney: $100 cada una desde 2026-10-29. La gráfica muestra el % de cambio desde el capital de cada cuenta para poder comparar. Un punto por cierre bursátil de EE. UU.",
   "cuentas": [
@@ -9,9 +9,9 @@
       "color": "#58a6ff",
       "inicio": "2026-10-23",
       "capital_inicial": 10000.0,
-      "valor": 10333.96,
-      "cambio_usd": 333.96,
-      "cambio_pct": 3.34,
+      "valor": 10047.02,
+      "cambio_usd": 47.02,
+      "cambio_pct": 0.47,
       "descripcion": "copia sus ~60 acciones; compra/vende cuando él cambia su cartera",
       "serie": [
         {
@@ -33,6 +33,10 @@
         {
           "t": "2026-10-29T16:00:00-04:00",
           "equity": 10333.96
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "equity": 10047.02
         }
       ],
       "serie_pct": [
@@ -55,6 +59,10 @@
         {
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 3.3396
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "pct": 0.4702
         }
       ],
       "movimientos": [
@@ -69,9 +77,9 @@
       "color": "#3fb950",
       "inicio": "2026-10-23",
       "capital_inicial": 10000.0,
-      "valor": 10236.65,
-      "cambio_usd": 236.65,
-      "cambio_pct": 2.37,
+      "valor": 9838.73,
+      "cambio_usd": -161.27,
+      "cambio_pct": -1.61,
       "descripcion": "solo sus 10 acciones más grandes; se ajusta cuando cambian",
       "serie": [
         {
@@ -93,6 +101,10 @@
         {
           "t": "2026-10-29T16:00:00-04:00",
           "equity": 10236.65
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "equity": 9838.73
         }
       ],
       "serie_pct": [
@@ -115,6 +127,10 @@
         {
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 2.3665
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "pct": -1.6127
         }
       ],
       "movimientos": [
@@ -128,9 +144,9 @@
       "color": "#e3b341",
       "inicio": "2026-10-23",
       "capital_inicial": 10000.0,
-      "valor": 10125.11,
-      "cambio_usd": 125.11,
-      "cambio_pct": 1.25,
+      "valor": 9944.74,
+      "cambio_usd": -55.26,
+      "cambio_pct": -0.55,
       "descripcion": "compró VOO el 23 oct y no vende",
       "serie": [
         {
@@ -152,6 +168,10 @@
         {
           "t": "2026-10-29T16:00:00-04:00",
           "equity": 10125.11
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "equity": 9944.74
         }
       ],
       "serie_pct": [
@@ -174,6 +194,10 @@
         {
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 1.2511
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "pct": -0.5526
         }
       ],
       "movimientos": [
@@ -187,9 +211,9 @@
       "color": "#f778ba",
       "inicio": "2026-10-26",
       "capital_inicial": 100.0,
-      "valor": 101.21,
-      "cambio_usd": 1.21,
-      "cambio_pct": 1.21,
+      "valor": 97.38,
+      "cambio_usd": -2.62,
+      "cambio_pct": -2.62,
       "descripcion": "copia su cartera mixta ($100); se ajusta cuando él cambia",
       "serie": [
         {
@@ -207,6 +231,10 @@
         {
           "t": "2026-10-29T16:00:00-04:00",
           "equity": 101.21
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "equity": 97.38
         }
       ],
       "serie_pct": [
@@ -225,6 +253,10 @@
         {
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 1.21
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "pct": -2.62
         }
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo (11.654%). BTC/ETH/SOL → Yahoo BTC-USD/ETH-USD/SOL-USD. SLNC.DE→SLNC.SW, CETH.DE→CETH.AS. Fracciones OK. Capital $100. Rendimiento en moneda local (sin FX).",
@@ -241,9 +273,9 @@
       "color": "#f0b429",
       "inicio": "2026-10-26",
       "capital_inicial": 100.0,
-      "valor": 98.81,
-      "cambio_usd": -1.19,
-      "cambio_pct": -1.19,
+      "valor": 96.35,
+      "cambio_usd": -3.65,
+      "cambio_pct": -3.65,
       "descripcion": "compró BTC el 26 oct ($100) y no vende",
       "serie": [
         {
@@ -261,6 +293,10 @@
         {
           "t": "2026-10-29T16:00:00-04:00",
           "equity": 98.81
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "equity": 96.35
         }
       ],
       "serie_pct": [
@@ -279,6 +315,10 @@
         {
           "t": "2026-10-29T16:00:00-04:00",
           "pct": -1.19
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "pct": -3.65
         }
       ],
       "nota": "Compró $100 de BTC-USD al cierre de EE. UU. y lo mantiene para siempre. Sin comisiones. Precio = barra 20:00 UTC (mismo método e inicio que el BTC de Ferdinand). Fracciones OK.",
@@ -296,20 +336,28 @@
       "color": "#39c5cf",
       "inicio": "2026-10-29",
       "capital_inicial": 100.0,
-      "valor": 100.0,
-      "cambio_usd": 0.0,
-      "cambio_pct": 0.0,
+      "valor": 97.2,
+      "cambio_usd": -2.8,
+      "cambio_pct": -2.8,
       "descripcion": "compró el fondo NANC el 29 oct ($100) y no vende; ese fondo copia las compras de los congresistas demócratas",
       "serie": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "equity": 100.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "equity": 97.2
         }
       ],
       "serie_pct": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 0.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "pct": -2.8
         }
       ],
       "nota": "Compró $100 de NANC al cierre 2026-10-29 y lo mantiene para siempre.",
@@ -326,20 +374,28 @@
       "color": "#a371f7",
       "inicio": "2026-10-29",
       "capital_inicial": 100.0,
-      "valor": 100.0,
-      "cambio_usd": 0.0,
-      "cambio_pct": 0.0,
+      "valor": 97.24,
+      "cambio_usd": -2.76,
+      "cambio_pct": -2.76,
       "descripcion": "copia la cartera de TrevinaYoussef en eToro ($100), incluido su efectivo; compra/vende cuando ella cambia su cartera",
       "serie": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "equity": 100.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "equity": 97.24
         }
       ],
       "serie_pct": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 0.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "pct": -2.76
         }
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
@@ -356,20 +412,28 @@
       "color": "#d29922",
       "inicio": "2026-10-29",
       "capital_inicial": 100.0,
-      "valor": 100.0,
-      "cambio_usd": 0.0,
-      "cambio_pct": 0.0,
+      "valor": 99.08,
+      "cambio_usd": -0.92,
+      "cambio_pct": -0.92,
       "descripcion": "copia la cartera de addeprod en eToro ($100), sobre todo acciones de dividendos; compra/vende cuando él cambia su cartera",
       "serie": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "equity": 100.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "equity": 99.08
         }
       ],
       "serie_pct": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 0.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "pct": -0.92
         }
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
@@ -386,20 +450,28 @@
       "color": "#ff7b72",
       "inicio": "2026-10-29",
       "capital_inicial": 100.0,
-      "valor": 100.0,
-      "cambio_usd": 0.0,
-      "cambio_pct": 0.0,
+      "valor": 100.1,
+      "cambio_usd": 0.1,
+      "cambio_pct": 0.1,
       "descripcion": "compró acciones de Berkshire Hathaway (BRK.B, la empresa de Buffett) el 29 oct ($100) y no vende",
       "serie": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "equity": 100.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "equity": 100.1
         }
       ],
       "serie_pct": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 0.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "pct": 0.1
         }
       ],
       "nota": "Compró $100 de BRK-B al cierre 2026-10-29 y lo mantiene para siempre.",
@@ -416,20 +488,28 @@
       "color": "#56d364",
       "inicio": "2026-10-29",
       "capital_inicial": 100.0,
-      "valor": 100.0,
-      "cambio_usd": 0.0,
-      "cambio_pct": 0.0,
+      "valor": 91.01,
+      "cambio_usd": -8.99,
+      "cambio_pct": -8.99,
       "descripcion": "copia la cartera de gmenez128 en eToro ($100), pocas acciones de tecnología, incluido su efectivo; compra/vende cuando él cambia su cartera",
       "serie": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "equity": 100.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "equity": 91.01
         }
       ],
       "serie_pct": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 0.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "pct": -8.99
         }
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
@@ -446,20 +526,28 @@
       "color": "#79c0ff",
       "inicio": "2026-10-29",
       "capital_inicial": 100.0,
-      "valor": 100.0,
-      "cambio_usd": 0.0,
-      "cambio_pct": 0.0,
+      "valor": 97.74,
+      "cambio_usd": -2.26,
+      "cambio_pct": -2.26,
       "descripcion": "copia la cartera de taherkamari en eToro ($100), empresas sólidas a largo plazo, incluido su efectivo; compra/vende cuando él cambia su cartera",
       "serie": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "equity": 100.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "equity": 97.74
         }
       ],
       "serie_pct": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 0.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "pct": -2.26
         }
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
@@ -476,20 +564,28 @@
       "color": "#db61a2",
       "inicio": "2026-10-29",
       "capital_inicial": 100.0,
-      "valor": 100.0,
-      "cambio_usd": 0.0,
-      "cambio_pct": 0.0,
+      "valor": 98.38,
+      "cambio_usd": -1.62,
+      "cambio_pct": -1.62,
       "descripcion": "copia la cartera de NatMoney en eToro ($100), acciones de valor y algo de efectivo; compra/vende cuando él cambia su cartera",
       "serie": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "equity": 100.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "equity": 98.38
         }
       ],
       "serie_pct": [
         {
           "t": "2026-10-29T16:00:00-04:00",
           "pct": 0.0
+        },
+        {
+          "t": "2026-10-30T16:00:00-04:00",
+          "pct": -1.62
         }
       ],
       "nota": "Pesos = Value% de eToro sin re-escalar; se conserva el efectivo. Tickers sin precio en Yahoo pasan a efectivo. Precios faltantes se arrastran (ffill). Moneda local (sin FX).",
@@ -522,6 +618,10 @@
       {
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 10333.96
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "equity": 10047.02
       }
     ],
     "top10_jeppe": [
@@ -544,6 +644,10 @@
       {
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 10236.65
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "equity": 9838.73
       }
     ],
     "voo_aguantar": [
@@ -566,6 +670,10 @@
       {
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 10125.11
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "equity": 9944.74
       }
     ],
     "copia_ferdinand": [
@@ -584,6 +692,10 @@
       {
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 101.21
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "equity": 97.38
       }
     ],
     "btc_guardar": [
@@ -602,48 +714,80 @@
       {
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 98.81
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "equity": 96.35
       }
     ],
     "nanc_guardar": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 100.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "equity": 97.2
       }
     ],
     "copia_trevina": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 100.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "equity": 97.24
       }
     ],
     "copia_addeprod": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 100.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "equity": 99.08
       }
     ],
     "brk_guardar": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 100.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "equity": 100.1
       }
     ],
     "copia_gmenez128": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 100.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "equity": 91.01
       }
     ],
     "copia_taherkamari": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 100.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "equity": 97.74
       }
     ],
     "copia_natmoney": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "equity": 100.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "equity": 98.38
       }
     ]
   },
@@ -668,6 +812,10 @@
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": 3.3396
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "pct": 0.4702
       }
     ],
     "top10_jeppe": [
@@ -690,6 +838,10 @@
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": 2.3665
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "pct": -1.6127
       }
     ],
     "voo_aguantar": [
@@ -712,6 +864,10 @@
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": 1.2511
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "pct": -0.5526
       }
     ],
     "copia_ferdinand": [
@@ -730,6 +886,10 @@
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": 1.21
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "pct": -2.62
       }
     ],
     "btc_guardar": [
@@ -748,48 +908,80 @@
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": -1.19
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "pct": -3.65
       }
     ],
     "nanc_guardar": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": 0.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "pct": -2.8
       }
     ],
     "copia_trevina": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": 0.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "pct": -2.76
       }
     ],
     "copia_addeprod": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": 0.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "pct": -0.92
       }
     ],
     "brk_guardar": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": 0.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "pct": 0.1
       }
     ],
     "copia_gmenez128": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": 0.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "pct": -8.99
       }
     ],
     "copia_taherkamari": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": 0.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "pct": -2.26
       }
     ],
     "copia_natmoney": [
       {
         "t": "2026-10-29T16:00:00-04:00",
         "pct": 0.0
+      },
+      {
+        "t": "2026-10-30T16:00:00-04:00",
+        "pct": -1.62
       }
     ]
   },
