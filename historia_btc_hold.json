@@ -1689,6 +1689,15 @@
    "no_realizado": -68.21,
    "posiciones": 1,
    "btc": 77522.0
+  },
+  {
+   "t": "2026-11-01T00:13:20-04:00",
+   "equity": 933.02,
+   "efectivo": 0.5,
+   "realizado": 0.0,
+   "no_realizado": -66.98,
+   "posiciones": 1,
+   "btc": 77624.5
   }
  ]
 }
