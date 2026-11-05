@@ -632,7 +632,7 @@
    "critica": "VEREDICTO: DUDA (3/3 con veredicto — qwen3.7-max: DUDA, deepseek-v4-pro: EN CONTRA, gemini-2.5-flash: DUDA)\n[qwen3.7-max] VEREDICTO: DUDA\n\n*   Desfase temporal crítico: la vela de contexto es del 2026-10-12, pero la orden se ejecuta el 2026-10-13, introduciendo riesgo de datos obsoletos y sesgo de anticipación.\n*   Discrepancia de precios: el precio de referencia (106.87) difiere significativamente del último cierre registrado (105.62), sugiriendo ejecución en vacío o slippage no cuantificado.\n*   Gestión manual disfrazada: el motivo cita un \"pedido de Marcos\", lo que invalida la sistematicidad de la estrategia e4 y introduce sesgo discrecional no backtesteado.\n*   Tamaño de muestra insuficiente: reducir posición al 5% del equity tras una escala arbitraria dificulta la validación estadística y aumenta el impact\n[deepseek-v4-pro] VEREDICTO: EN CONTRA\n- Orden emitida el 13-Oct usando datos de vela del 12-Oct: sesgo de anticipación crítico, la señal se generó con información ya conocida.\n- Volumen propuesto (0.33671192 SOL) no cuadra con la tenencia actual (0.806963 SOL) ni con un recorte al 5% del equity; hay inconsistencia aritmética en el sizing.\n- La \"semivol_alza\" y \"semivol_baja\" carecen de definición metodológica; sin ventana temporal ni fórmula no pueden evaluarse.\n- Precio de referencia 106.87 no coincide con el cierre de la vela (105.62), lo que sugiere ejecución a un precio que no existía al momento de la señal.\n[gemini-2.5-flash] VEREDICTO: DUDA\n*   El \"motivo\" de la orden (\"recorte de tamaño a 5% del equity (ESCALA 0.25→0.15, pedido de Marcos)\") indica una intervención manual/arbitraria, no un sistema puro.\n*   El precio de referencia (106.87) difiere del precio de cierre de la vela (105.62). ¿Se usó precio futuro?\n*   La vela es de \"2026-10-12\", pero la fecha actual es \"2026-10-13\". ¿Hay un retraso en el procesamiento o se opera con datos antiguos?\n*   \"ESCALA 0.25→0.15\" y \"pedido de Marcos\" sugieren un sobreajuste o ajuste manual constante de parámetros.\n(fallaron: gemini/gemini-3.5-flash: HTTP 503)"
   }
  ],
- "actualizado_general": "2026-11-05T00:14:46-04:00",
+ "actualizado_general": "2026-11-05T04:16:49-04:00",
  "estrategia2": {
   "actualizado": "2026-10-29T20:29:58-04:00",
   "cuenta": {
@@ -1313,7 +1313,7 @@
   "ultima_vela_procesada": "2026-10-29"
  },
  "estrategia3": {
-  "actualizado": "2026-11-05T00:14:46-04:00",
+  "actualizado": "2026-11-05T04:16:49-04:00",
   "cuenta": {
    "workspace": "cruce",
    "modo": "paper",
@@ -1323,13 +1323,13 @@
    "nombre": "Estrategia 3 · cruce EMA 10/100 en 4h"
   },
   "resumen": {
-   "equity": 974.26,
-   "equity_calculado": 974.22,
+   "equity": 974.42,
+   "equity_calculado": 974.43,
    "efectivo_usd": 812.84,
-   "pnl_total": -25.74,
-   "pnl_total_pct": -2.574,
+   "pnl_total": -25.58,
+   "pnl_total_pct": -2.558,
    "realizado": -24.68,
-   "no_realizado": -1.09,
+   "no_realizado": -0.88,
    "operaciones_cerradas": 4,
    "ejecuciones": 11,
    "ganadas": 0,
@@ -1340,8 +1340,8 @@
    "factor_beneficio": 0.0,
    "max_drawdown_pct": -2.59,
    "max_drawdown_usd": -25.94,
-   "drawdown_actual_pct": -2.59,
-   "cambio_dia_pct": -0.06,
+   "drawdown_actual_pct": -2.58,
+   "cambio_dia_pct": -0.04,
    "freno_diario_activo": false,
    "freno_900_activo": false,
    "freno_total_usd": 750,
@@ -1351,31 +1351,31 @@
   },
   "precios": {
    "BTCUSD": {
-    "precio": 80363.9,
-    "bid": 80363.9,
-    "ask": 80364.0,
+    "precio": 80452.0,
+    "bid": 80451.9,
+    "ask": 80452.0,
     "apertura_dia": 80440.8,
     "max_24h": 81179.6,
-    "min_24h": 76480.6,
-    "cambio_dia_pct": -0.09559825362255303
+    "min_24h": 77904.3,
+    "cambio_dia_pct": 0.013923282712258178
    },
    "ETHUSD": {
-    "precio": 2418.02,
-    "bid": 2418.56,
-    "ask": 2418.57,
+    "precio": 2421.18,
+    "bid": 2420.84,
+    "ask": 2420.85,
     "apertura_dia": 2422.33,
     "max_24h": 2447.27,
-    "min_24h": 2251.26,
-    "cambio_dia_pct": -0.17792786284279716
+    "min_24h": 2307.45,
+    "cambio_dia_pct": -0.0474749518026063
    },
    "SOLUSD": {
-    "precio": 95.89,
-    "bid": 95.91,
-    "ask": 95.92,
+    "precio": 96.12,
+    "bid": 96.12,
+    "ask": 96.13,
     "apertura_dia": 95.52,
     "max_24h": 98.01,
-    "min_24h": 90.94,
-    "cambio_dia_pct": 0.3873534338358464
+    "min_24h": 92.36,
+    "cambio_dia_pct": 0.628140703517599
    }
   },
   "posiciones": [
@@ -1383,12 +1383,12 @@
     "par": "ETHUSD",
     "volumen": 0.06674225,
     "entrada": 2428.1,
-    "precio": 2418.02,
-    "valor": 161.38409534500002,
+    "precio": 2421.18,
+    "valor": 161.595000855,
     "stop": null,
     "objetivo": null,
-    "pnl": -1.0941097087849698,
-    "pnl_pct": -0.6751394094147501,
+    "pnl": -0.8832041987849948,
+    "pnl_pct": -0.5449964993204531,
     "dist_stop_pct": null,
     "dist_objetivo_pct": null,
     "riesgo_usd": null,
@@ -2343,6 +2343,10 @@
    {
     "t": "2026-11-05T00:14:46-04:00",
     "equity": 974.26
+   },
+   {
+    "t": "2026-11-05T04:16:49-04:00",
+    "equity": 974.42
    }
   ],
   "reglas": [
@@ -2418,6 +2422,18 @@
    }
   ],
   "diario": [
+   {
+    "titulo": "2026-11-05 04:16 PR — Revisión 4h (vela 2026-11-05 04:00 UTC, cerró 2026-11-05 04:00 PR; diaria 2026-11-04)",
+    "lineas": [
+     "Equity antes: $974.43 (USD 812.84). BTC sobre SMA200 diaria: sí. Freno $750: no.",
+     "BTCUSD: EMA10 79268.47 vs EMA100 79560.83 (bajista); diario 80440.8 vs SMA200 73180.75; σ 0.342 → NO elegible, peso 0.0000",
+     "ETHUSD: EMA10 2367.84 vs EMA100 2341.68 (alcista); diario 2423.16 vs SMA200 2156.78; σ 0.504 → elegible, peso 0.3333",
+     "SOLUSD: EMA10 94.66 vs EMA100 98.87 (bajista); diario 95.53 vs SMA200 88.92; σ 0.550 → NO elegible, peso 0.0000",
+     "Órdenes: ninguna.",
+     "Fracción de capital: 50%. Pico equity $1,000.00; drawdown -2.56% (aviso a $850.00).",
+     "Equity después: $974.43; USD libre 812.84; posiciones: ETHUSD 0.06674225."
+    ]
+   },
    {
     "titulo": "2026-11-05 00:14 PR — Revisión 4h (vela 2026-11-05 00:00 UTC, cerró 2026-11-05 00:00 PR; diaria 2026-11-04)",
     "lineas": [
@@ -2526,69 +2542,57 @@
      "Fracción de capital: 50%. Pico equity $1,000.00; drawdown -2.47% (aviso a $850.00).",
      "Equity después: $975.32; USD libre 975.32; posiciones: ninguna."
     ]
-   },
-   {
-    "titulo": "2026-11-03 12:12 PR — Revisión 4h (vela 2026-11-03 12:00 UTC, cerró 2026-11-03 12:00 PR; diaria 2026-11-02)",
-    "lineas": [
-     "Equity antes: $975.32 (USD 975.32). BTC sobre SMA200 diaria: sí. Freno $750: no.",
-     "BTCUSD: EMA10 77263.54 vs EMA100 79691.81 (bajista); diario 76675.8 vs SMA200 73156.12; σ 0.325 → NO elegible, peso 0.0000",
-     "ETHUSD: EMA10 2267.77 vs EMA100 2338.74 (bajista); diario 2249.46 vs SMA200 2157.17; σ 0.471 → NO elegible, peso 0.0000",
-     "SOLUSD: EMA10 93.06 vs EMA100 99.90 (bajista); diario 91.83 vs SMA200 88.86; σ 0.525 → NO elegible, peso 0.0000",
-     "Órdenes: ninguna.",
-     "Fracción de capital: 50%. Pico equity $1,000.00; drawdown -2.47% (aviso a $850.00).",
-     "Equity después: $975.32; USD libre 975.32; posiciones: ninguna."
-    ]
    }
   ],
   "evaluacion": {
-   "archivo": "evaluacion_2026-11-05_0000.json",
-   "vela_4h": "2026-11-05 00:00",
-   "vela_4h_cierre_pr": "2026-11-05 00:00",
+   "archivo": "evaluacion_2026-11-05_0400.json",
+   "vela_4h": "2026-11-05 04:00",
+   "vela_4h_cierre_pr": "2026-11-05 04:00",
    "vela_diaria": "2026-11-04",
-   "fecha": "2026-11-05T00:14:43-04:00",
+   "fecha": "2026-11-05T04:16:44-04:00",
    "pares": [
     {
      "par": "BTCUSD",
-     "cierre_4h": 80469.5,
-     "ema10": 79038.817997,
-     "ema100": 79545.85889,
+     "cierre_4h": 80301.9,
+     "ema10": 79268.469271,
+     "ema100": 79560.829671,
      "cruce_alcista": false,
      "cierre_diario": 80440.8,
      "sma200": 73180.7485,
      "sobre_sma200": true,
-     "vol": 0.341509,
+     "vol": 0.341551,
      "elegible": false,
      "peso_objetivo": 0.0
     },
     {
      "par": "ETHUSD",
-     "cierre_4h": 2422.18,
-     "ema10": 2357.526528,
-     "ema100": 2340.215712,
+     "cierre_4h": 2414.26,
+     "ema10": 2367.841704,
+     "ema100": 2341.681931,
      "cruce_alcista": true,
      "cierre_diario": 2423.16,
      "sma200": 2156.78375,
      "sobre_sma200": true,
-     "vol": 0.504085,
+     "vol": 0.504005,
      "elegible": true,
      "peso_objetivo": 0.333333
     },
     {
      "par": "SOLUSD",
-     "cierre_4h": 96.18,
-     "ema10": 94.410273,
-     "ema100": 98.934922,
+     "cierre_4h": 95.77,
+     "ema10": 94.657496,
+     "ema100": 98.87225,
      "cruce_alcista": false,
      "cierre_diario": 95.53,
      "sma200": 88.9235,
      "sobre_sma200": true,
-     "vol": 0.549902,
+     "vol": 0.549909,
      "elegible": false,
      "peso_objetivo": 0.0
     }
    ]
   },
-  "ultima_vela_procesada": "2026-11-05 00:00"
+  "ultima_vela_procesada": "2026-11-05 04:00"
  },
  "estrategia4": {
   "actualizado": "2026-11-04T20:33:40-04:00",
@@ -3101,7 +3105,7 @@
   "ultima_vela_procesada": "2026-11-04"
  },
  "btc_hold": {
-  "actualizado": "2026-11-05T00:14:46-04:00",
+  "actualizado": "2026-11-05T04:16:49-04:00",
   "cuenta": {
    "workspace": "btc_hold",
    "modo": "paper",
@@ -3111,13 +3115,13 @@
    "nombre": "Benchmark · comprar y mantener BTC"
   },
   "resumen": {
-   "equity": 965.93,
-   "equity_calculado": 965.93,
+   "equity": 966.98,
+   "equity_calculado": 966.98,
    "efectivo_usd": 0.5,
-   "pnl_total": -34.07,
-   "pnl_total_pct": -3.407,
+   "pnl_total": -33.02,
+   "pnl_total_pct": -3.302,
    "realizado": 0.0,
-   "no_realizado": -34.07,
+   "no_realizado": -33.02,
    "operaciones_cerradas": 0,
    "ejecuciones": 1,
    "ganadas": 0,
@@ -3128,8 +3132,8 @@
    "factor_beneficio": null,
    "max_drawdown_pct": -9.32,
    "max_drawdown_usd": -94.64,
-   "drawdown_actual_pct": -4.89,
-   "cambio_dia_pct": -0.36,
+   "drawdown_actual_pct": -4.78,
+   "cambio_dia_pct": -0.25,
    "freno_diario_activo": false,
    "freno_900_activo": false,
    "freno_total_usd": 0,
@@ -3139,31 +3143,31 @@
   },
   "precios": {
    "BTCUSD": {
-    "precio": 80363.9,
-    "bid": 80363.9,
-    "ask": 80364.0,
+    "precio": 80452.0,
+    "bid": 80451.9,
+    "ask": 80452.0,
     "apertura_dia": 80440.8,
     "max_24h": 81179.6,
-    "min_24h": 76480.6,
-    "cambio_dia_pct": -0.09559825362255303
+    "min_24h": 77904.3,
+    "cambio_dia_pct": 0.013923282712258178
    },
    "ETHUSD": {
-    "precio": 2418.02,
-    "bid": 2418.56,
-    "ask": 2418.57,
+    "precio": 2421.18,
+    "bid": 2420.84,
+    "ask": 2420.85,
     "apertura_dia": 2422.33,
     "max_24h": 2447.27,
-    "min_24h": 2251.26,
-    "cambio_dia_pct": -0.17792786284279716
+    "min_24h": 2307.45,
+    "cambio_dia_pct": -0.0474749518026063
    },
    "SOLUSD": {
-    "precio": 95.89,
-    "bid": 95.91,
-    "ask": 95.92,
+    "precio": 96.12,
+    "bid": 96.12,
+    "ask": 96.13,
     "apertura_dia": 95.52,
     "max_24h": 98.01,
-    "min_24h": 90.94,
-    "cambio_dia_pct": 0.3873534338358464
+    "min_24h": 92.36,
+    "cambio_dia_pct": 0.628140703517599
    }
   },
   "posiciones": [
@@ -3171,12 +3175,12 @@
     "par": "BTCUSD",
     "volumen": 0.01201318,
     "entrada": 82984.5,
-    "precio": 80363.9,
-    "valor": 965.425996202,
+    "precio": 80452.0,
+    "valor": 966.48435736,
     "stop": null,
     "objetivo": null,
-    "pnl": -34.073699620846014,
-    "pnl_pct": -3.4179391332116253,
+    "pnl": -33.01533846284599,
+    "pnl_pct": -3.3117747290156583,
     "dist_stop_pct": null,
     "dist_objetivo_pct": null,
     "riesgo_usd": null,
@@ -4068,6 +4072,10 @@
    {
     "t": "2026-11-05T00:14:46-04:00",
     "equity": 965.93
+   },
+   {
+    "t": "2026-11-05T04:16:49-04:00",
+    "equity": 966.98
    }
   ],
   "reglas": [
@@ -5426,6 +5434,10 @@
     {
      "t": "2026-11-05T00:14:46-04:00",
      "equity": 974.26
+    },
+    {
+     "t": "2026-11-05T04:16:49-04:00",
+     "equity": 974.42
     }
    ],
    "estrategia4": [
@@ -6422,6 +6434,10 @@
     {
      "t": "2026-11-05T00:14:46-04:00",
      "equity": 965.93
+    },
+    {
+     "t": "2026-11-05T04:16:49-04:00",
+     "equity": 966.98
     }
    ],
    "btc_bh": [
@@ -7320,12 +7336,16 @@
     {
      "t": "2026-11-05T00:14:46-04:00",
      "equity": 955.43
+    },
+    {
+     "t": "2026-11-05T04:16:49-04:00",
+     "equity": 956.48
     }
    ]
   }
  },
  "ranking": {
-  "btc_hold_pnl_pct": -3.407,
+  "btc_hold_pnl_pct": -3.302,
   "filas": [
    {
     "id": "e4",
@@ -7335,7 +7355,7 @@
     "equity": 1000.92,
     "pnl_pct": 0.092,
     "max_dd_pct": -0.69,
-    "vs_btc_pp": 3.5,
+    "vs_btc_pp": 3.39,
     "estado": "activa",
     "nota_estado": null,
     "puesto": 1
@@ -7345,10 +7365,10 @@
     "nombre": "Estrategia 3 · cruce EMA 10/100 en 4h",
     "workspace": "cruce",
     "inicio": "2026-10-07T00:53:50-04:00",
-    "equity": 974.26,
-    "pnl_pct": -2.574,
+    "equity": 974.42,
+    "pnl_pct": -2.558,
     "max_dd_pct": -2.59,
-    "vs_btc_pp": 0.83,
+    "vs_btc_pp": 0.74,
     "estado": "activa",
     "nota_estado": null,
     "puesto": 2
@@ -7361,7 +7381,7 @@
     "equity": 1000.0,
     "pnl_pct": 0.0,
     "max_dd_pct": 0.0,
-    "vs_btc_pp": 3.41,
+    "vs_btc_pp": 3.3,
     "estado": "apagada",
     "nota_estado": "Borrada por Marcos 2026-10-13",
     "puesto": 3
@@ -7374,7 +7394,7 @@
     "equity": 844.14,
     "pnl_pct": -15.586,
     "max_dd_pct": -15.59,
-    "vs_btc_pp": -12.18,
+    "vs_btc_pp": -12.28,
     "estado": "apagada",
     "nota_estado": "Apagada por Marcos 2026-10-29 tras pasar -15%",
     "puesto": 4
